@@ -1,0 +1,110 @@
+plugins {
+    id 'java'
+    id 'application'
+    id 'jacoco'
+    id "io.freefair.aspectj.post-compile-weaving" version "6.4.1"
+}
+
+repositories {
+    mavenCentral()
+}
+
+sourceCompatibility = JavaVersion.VERSION_1_8
+targetCompatibility = JavaVersion.VERSION_1_8
+
+//compileJava.ajc.options.compilerArgs = ["-sourceroots", sourceSets.main.java.sourceDirectories.getAsPath()]
+
+dependencies {
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.9.0'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.9.0'
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+    testCompileOnly 'junit:junit:4.13.2'
+    testRuntimeOnly 'org.junit.vintage:junit-vintage-engine:5.9.0'
+
+    testImplementation 'org.apache.commons:commons-lang3:3.0'
+    testImplementation 'com.github.javaparser:javaparser-core-serialization:3.25.1'
+    testImplementation group: 'org.evosuite', name: 'evosuite-standalone-runtime', version: '1.0.6'
+
+    implementation "org.aspectj:aspectjrt:1.9.6"
+    implementation "org.aspectj:aspectjweaver:1.9.6"
+    implementation 'com.github.javaparser:javaparser-core:3.23.1'
+}
+
+test {
+    useJUnitPlatform()
+    finalizedBy jacocoTestReport
+    testLogging {
+        events "FAILED", "PASSED"
+        exceptionFormat "short"
+        showStandardStreams = true
+    }
+}
+
+jacocoTestReport {
+    reports {
+        xml.required = true
+        html.required = false
+    }
+    dependsOn test // tests are required to run before generating the report
+}
+
+jacoco {
+    toolVersion = "0.8.9"
+    reportsDirectory = layout.buildDirectory.dir('JacocoReport')
+}
+
+application {
+    mainClass = 'uk.ac.sheffield.com1003.cafe.App'
+}
+
+tasks.register('listTests') {
+    doLast {
+        def testSourceDir = project.sourceSets.test.java.srcDirs
+        testSourceDir.each { dir ->
+            dir.eachFileRecurse { file ->
+                if (file.name.endsWith(".java")) {
+                    def fileText = file.text
+                    def classNameMatcher = fileText =~ /public class (\w+)/
+                    if (classNameMatcher.find()) {
+                        def className = classNameMatcher[0][1]
+                        def packageNameMatcher = fileText =~ /package (.*?);/
+                        def packageName = packageNameMatcher.find() ? packageNameMatcher[0][1] : ""
+                        def fullClassName = packageName ? "${packageName}.${className}" : className
+                        def isTestNext = false
+                        file.eachLine { line ->
+                            if (line.trim().startsWith("@Test")) {
+                                isTestNext = true
+                            } else if (isTestNext && line =~ /void (\w+)\(\)/) {
+                                def methodName = (line =~ /void (\w+)\(\)/)[0][1]
+                                println "${methodName}(${fullClassName})"
+                                isTestNext = false
+                            } else {
+                                isTestNext = false
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+tasks.register('listFailedTests') {
+    doLast {
+        def testResultsDir = file("${project.buildDir}/test-results/test")
+        if (!testResultsDir.exists()) {
+            println "Test results not found. Please run tests before executing this task."
+            return
+        }
+        testResultsDir.eachFileMatch(~/.+\.xml$/, { File resultFile ->
+            def testResult = new XmlSlurper().parse(resultFile)
+            testResult.'testcase'.each { testcase ->
+                if (testcase.'failure'.size() > 0) {
+                    def className = testcase.'@classname'.text()
+                    def methodName = testcase.'@name'.text()
+                    println "${className}::${methodName}"
+                }
+            }
+        })
+    }
+}
