@@ -29,7 +29,7 @@ public class Cafe {
     }
 
     /**
-     * Constructor that takes cafe name as parameter, and 
+     * Constructor that takes cafe name as parameter, and
      * initialises menu size to 10 and capacity (number of orders) to 100.
      */
     public Cafe(String name) {
@@ -51,6 +51,7 @@ public class Cafe {
 
     /**
      * Returns greeting string
+     *
      * @return "Welcome to <cafe name>"
      */
     public String greeting() {
@@ -59,6 +60,7 @@ public class Cafe {
 
     /**
      * Getter for cafe name
+     *
      * @return Cafe name
      */
     public String getName() {
@@ -68,7 +70,7 @@ public class Cafe {
 
     /**
      * Add the given recipe to the menu.
-     * 
+     *
      * @param newRecipe Recipe to be added to menu
      * @return Returns true if there is space in the menu and new recipe is successfully added; false otherwise
      */
@@ -89,12 +91,13 @@ public class Cafe {
     /**
      * Find recipe with given name and remove it from the menu.
      * Assumes there are no duplicated recipe names.
+     *
      * @param recipeName Name of the recipe to be removed
      */
-    public void removeRecipe(String recipeName) throws RecipeNotFoundException{
+    public void removeRecipe(String recipeName) throws RecipeNotFoundException {
         // Implement solution to task 7 here
-        
-        for (int i = 0;  i< menu.length; i++) {
+
+        for (int i = 0; i < menu.length; i++) {
             if (menu[i] != null && menu[i].getName().equals(recipeName)) {
                 menu[i] = null;
                 return;
@@ -105,7 +108,7 @@ public class Cafe {
 
     /**
      * Returns the current list of recipes in the menu excluding empty/null elements
-     * 
+     *
      * @return Array of recipes contained in the menu (excluding nulls)
      */
     public Recipe[] getMenu() {
@@ -129,7 +132,7 @@ public class Cafe {
         //System.out.println("This is task 4");
         //there's no way it's this easy
         System.out.println("Pending Orders:");
-        for (Order pending: orders) {
+        for (Order pending : orders) {
             if (pending != null) {
                 System.out.println(pending.toString());
             }
@@ -167,17 +170,19 @@ public class Cafe {
         System.out.println("==========");
         System.out.println("Enjoy!");
 
-    };
+    }
+
+    ;
 
 
     /**
      * Place an order for a given recipe name with a given amount of money.
-     * 
-     * @param recipeName The name of the recipe being ordered
-     * @param amountPaid Money handed when placing order
+     *
+     * @param recipeName   The name of the recipe being ordered
+     * @param amountPaid   Money handed when placing order
      * @param customerName Name of customer placing order
      * @return True if the recipe name exists in the menu and the amount paid is sufficient; return false otherwise
-     * @throws RecipeNotFoundException if the recipe name does not exist in the menu
+     * @throws RecipeNotFoundException    if the recipe name does not exist in the menu
      * @throws CafeOutOfCapacityException if the cafe cannot take any more orders and is out of capacity
      */
     public boolean placeOrder(String recipeName, String customerName, double amountPaid) throws RecipeNotFoundException, CafeOutOfCapacityException {
@@ -189,7 +194,7 @@ public class Cafe {
         //
         if (amountPaid >= namedRecipe.getPrice()) {
             orders[indexNextOrderToPlace] = new Order(namedRecipe, customerName, amountPaid);//place the order
-            indexNextOrderToPlace = (indexNextOrderToPlace+1) % orders.length;//increment and loop the head tail index
+            indexNextOrderToPlace = (indexNextOrderToPlace + 1) % orders.length;//increment and loop the head tail index
             return true;
         }
         return false;
@@ -199,18 +204,18 @@ public class Cafe {
      * @return matching Recipe with given name; return null if not found
      * I could theoretically make a template function fo all linear searches but that's not needed here
     int findOrderSlot() {
-        for (int i = 0; i < orders.length; i++) {
-            if (orders[i] == null) {//linear search for the name given
-                return i;
-            }
-        }
-        return -1;//not found
+    for (int i = 0; i < orders.length; i++) {
+    if (orders[i] == null) {//linear search for the name given
+    return i;
     }
-    */
+    }
+    return -1;//not found
+    }
+     */
 
     /**
      * Find a recipe in the menu given a recipe name
-     * 
+     *
      * @param recipeName Name of the recipe to find
      * @return The recipe found or null otherwise
      */
@@ -226,59 +231,17 @@ public class Cafe {
 
     /**
      * If there is an order to serve, serves it ({@link Order#serve()}) and increments {@link Cafe#indexNextOrderToServe}
+     *
      * @return The updated served order, or null of there is no order to serve.
      */
     public Order serveOrder() {
         Order toServe = orders[indexNextOrderToServe];
-        if (toServe !=null) {
+        if (toServe != null) {
             orders[indexNextOrderToServe] = null;
             return toServe;
         }
         return null;
     }
 
-    
-    
-}
 
-class App {
-    static Cafe cCafe;
-    public static void main(String[] args){
-        cCafe = new Cafe("The Cookie Cafe");
-        Recipe curRecipe = new Recipe("Espresso", 1.5, Size.SMALL,2);
-        addIngredients( new Ingredient[] {
-            new Coffee(), new Water()
-        }, curRecipe);
-
-        curRecipe = new Recipe("Double Espresso", 2.2, Size.REGULAR, 2);
-        addIngredients(new Ingredient[]{
-            new Coffee(15), new Water(50)
-        }, curRecipe);
-
-        curRecipe = new Recipe("Large Soy Latte", 2.5, Size.LARGE, 3);
-        addIngredients(new Ingredient[] {
-            new Milk(44,Type.SOY), new Water(), new Coffee()//I love being lazy but also this was the closest I could find online
-        }, curRecipe);
-
-        cCafe.printMenu();
-        
-        try {
-            cCafe.placeOrder("Large Soy Latte", "Joe Mama", 10);
-        } catch (Exception e) {
-            System.out.println("fuck");
-        }
-        cCafe.printPendingOrders();
-
-
-    }
-
-    static void addIngredients(Ingredient[] ingredients, Recipe cuRecipe) {
-        try {
-            cuRecipe.addIngredient(new Water());
-            cuRecipe.addIngredient(new Milk());
-        } catch (TooManyIngredientsException e) {
-            System.out.println("Oops, added too many ingredients :P");
-        }
-        cCafe.addRecipe(cuRecipe);
-    }
 }

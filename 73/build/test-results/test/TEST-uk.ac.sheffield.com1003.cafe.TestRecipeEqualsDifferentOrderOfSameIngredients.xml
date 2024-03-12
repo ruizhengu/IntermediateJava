@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="uk.ac.sheffield.com1003.cafe.TestRecipeEqualsDifferentOrderOfSameIngredients" tests="1" skipped="0" failures="1" errors="0" timestamp="2024-03-06T17:50:25" hostname="dyn098145.shef.ac.uk" time="0.001">
+<testsuite name="uk.ac.sheffield.com1003.cafe.TestRecipeEqualsDifferentOrderOfSameIngredients" tests="1" skipped="0" failures="1" errors="0" timestamp="2024-03-12T20:44:07" hostname="dyn221059.shef.ac.uk" time="0.006">
   <properties/>
-  <testcase name="testRecipeEqualsDifferentOrderOfSameIngredients" classname="uk.ac.sheffield.com1003.cafe.TestRecipeEqualsDifferentOrderOfSameIngredients" time="0.001">
-    <failure message="java.lang.AssertionError: expected:&lt;uk.ac.sheffield.com1003.cafe.Recipe@685c49c9&gt; but was:&lt;uk.ac.sheffield.com1003.cafe.Recipe@669bbab2&gt;" type="java.lang.AssertionError">java.lang.AssertionError: expected:&lt;uk.ac.sheffield.com1003.cafe.Recipe@685c49c9&gt; but was:&lt;uk.ac.sheffield.com1003.cafe.Recipe@669bbab2&gt;
+  <testcase name="testRecipeEqualsDifferentOrderOfSameIngredients" classname="uk.ac.sheffield.com1003.cafe.TestRecipeEqualsDifferentOrderOfSameIngredients" time="0.006">
+    <failure message="java.lang.AssertionError: expected:&lt;uk.ac.sheffield.com1003.cafe.Recipe@4d0bf14f&gt; but was:&lt;uk.ac.sheffield.com1003.cafe.Recipe@43cc069e&gt;" type="java.lang.AssertionError">java.lang.AssertionError: expected:&lt;uk.ac.sheffield.com1003.cafe.Recipe@4d0bf14f&gt; but was:&lt;uk.ac.sheffield.com1003.cafe.Recipe@43cc069e&gt;
 	at org.junit.Assert.fail(Assert.java:89)
 	at org.junit.Assert.failNotEquals(Assert.java:835)
 	at org.junit.Assert.assertEquals(Assert.java:120)

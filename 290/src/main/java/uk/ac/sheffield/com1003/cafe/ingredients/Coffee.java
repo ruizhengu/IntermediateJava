@@ -6,6 +6,9 @@ public class Coffee extends Ingredient {
     public Coffee() {
         this.amount = 8;
     }
+    public Coffee(int amount) {
+        this(amount, false);
+    }
 
     public Coffee(int amount, boolean decaf) {
         this.name = "Coffee";

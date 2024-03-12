@@ -6,6 +6,12 @@ public class Water extends Ingredient {
         this.amount = 30;
     }
 
+    public Water(int amount) {
+        this.name = "Water";
+        this.amount = amount;
+        this.unit = Unit.ML;
+    }
+
     @Override
     public String toString() {
         return "Water [unit=" + unit + ", amount=" + amount + "]";

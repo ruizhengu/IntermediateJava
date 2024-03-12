@@ -216,28 +216,3 @@ public class Cafe {
         }
     }
 }
-
-class App {
-    public static void main(String[] args) throws TooManyIngredientsException {
-        //Create a cafe with 3 recipes
-        Cafe cafe = new Cafe();
-
-        Recipe recipe = new Recipe("Espresso", 1.50, Recipe.Size.SMALL, 2);
-        recipe.addIngredient(new Coffee());
-        recipe.addIngredient(new Water());
-        cafe.addRecipe(recipe);
-
-        recipe = new Recipe("Double Espresso", 2.20, Recipe.Size.REGULAR, 2);
-        recipe.addIngredient(new Coffee(15, false));
-        recipe.addIngredient(new Water(50));
-        cafe.addRecipe(recipe);
-
-        recipe = new Recipe("Large Soy Latte", 2.50, Recipe.Size.LARGE, 2);
-        recipe.addIngredient(new Coffee(20, false));
-        recipe.addIngredient(new Milk(80, Milk.Type.SOY));
-        cafe.addRecipe(recipe);
-
-        //Display a greeting
-        cafe.printMenu();
-    }
-}

@@ -1,7 +1,8 @@
 package uk.ac.sheffield.com1003.cafe.ingredients;
 
 public class Milk extends Ingredient {
-    public enum Type { WHOLE, SEMI, SKIMMED };
+    public enum Type { WHOLE, SEMI, SKIMMED, SOY, ALMOND };
+
     private Type type = Type.WHOLE;
 
     public Milk() {
