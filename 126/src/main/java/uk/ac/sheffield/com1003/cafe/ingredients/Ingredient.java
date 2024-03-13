@@ -24,22 +24,12 @@ public abstract class Ingredient {
 
     @Override
     public boolean equals(Object another) {
-        if (another == null || ! (another instanceof Ingredient))
+        if (another == null || !(another instanceof Ingredient))
             return false;
-        return name.equals(((Ingredient)another).getName());
+        return name.equals(((Ingredient) another).getName());
     }
 
 
-}
-
-class Syrup extends Ingredient {
-    private String flavour = "";
-
-    public String getFlavour() {return this.flavour; }
-
-    public Syrup(String flavour) {
-        return ;
-    }
 }
 
 

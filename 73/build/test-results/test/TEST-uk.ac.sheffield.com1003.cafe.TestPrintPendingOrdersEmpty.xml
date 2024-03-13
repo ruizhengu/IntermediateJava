@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="uk.ac.sheffield.com1003.cafe.TestPrintPendingOrdersEmpty" tests="1" skipped="0" failures="1" errors="0" timestamp="2024-03-12T20:44:07" hostname="dyn221059.shef.ac.uk" time="0.001">
+<testsuite name="uk.ac.sheffield.com1003.cafe.TestPrintPendingOrdersEmpty" tests="1" skipped="0" failures="1" errors="0" timestamp="2024-03-13T11:54:17" hostname="dyn098145.shef.ac.uk" time="0.002">
   <properties/>
-  <testcase name="printPendingOrdersEmpty" classname="uk.ac.sheffield.com1003.cafe.TestPrintPendingOrdersEmpty" time="0.001">
+  <testcase name="printPendingOrdersEmpty" classname="uk.ac.sheffield.com1003.cafe.TestPrintPendingOrdersEmpty" time="0.002">
     <failure message="java.lang.AssertionError: expected:&lt;[Pending Orders:]&gt; but was:&lt;[Pending Orders:, Order: Espresso; For: Mari-Cruz; Paid: 5.0]&gt;" type="java.lang.AssertionError">java.lang.AssertionError: expected:&lt;[Pending Orders:]&gt; but was:&lt;[Pending Orders:, Order: Espresso; For: Mari-Cruz; Paid: 5.0]&gt;
 	at org.junit.Assert.fail(Assert.java:89)
 	at org.junit.Assert.failNotEquals(Assert.java:835)
@@ -19,7 +19,7 @@
 	at org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:299)
 	at org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:293)
 	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
-	at java.lang.Thread.run(Thread.java:750)
+	at java.lang.Thread.run(Thread.java:748)
 </failure>
   </testcase>
   <system-out><![CDATA[]]></system-out>
