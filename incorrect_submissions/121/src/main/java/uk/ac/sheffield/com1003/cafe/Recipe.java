@@ -9,7 +9,7 @@ public class Recipe {
     private Size size;
     private Ingredient[] ingredients;
 
-    private int i = 0;
+//    private int i = 0;
 
     public Recipe(String name, double price) {
         this(name, price, Size.REGULAR, 3);
@@ -30,12 +30,13 @@ public class Recipe {
      * @throws TooManyIngredientsException if the number of ingredients in the recipe would be exceeded
      */
     public void addIngredient(Ingredient ingredient) throws TooManyIngredientsException {
+        int i = 0;
         while (i < ingredients.length) {
             if (ingredients[i] == null || ingredients[i].equals(ingredient)) {
                 ingredients[i] = ingredient;
-                i++;
                 return;
-            }
+            } else
+                i++;
         }
 
         if (i < ingredients.length)
