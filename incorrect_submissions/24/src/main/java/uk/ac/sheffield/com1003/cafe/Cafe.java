@@ -94,7 +94,7 @@ public class Cafe {
         Recipe recipeToRemove = findRecipe(recipeName);
         if (recipeToRemove == null) {
             // if recipe is not found, throw exception
-            throw new RecipeNotFoundException("Recipe not found");
+            throw new RecipeNotFoundException();
         }
 
         // Remove recipe from menu
@@ -194,7 +194,7 @@ public class Cafe {
         // Find the recipe in the menu
         Recipe recipeBeenFound = findRecipe(recipeName);
         if (recipeBeenFound == null) {
-            throw new RecipeNotFoundException("The recipe \"" + recipeName + "\" does not exist in the menu.");
+            throw new RecipeNotFoundException();
         }
 
         // Check if the customer has paid enough for the recipe
@@ -205,8 +205,7 @@ public class Cafe {
 
         // Check if the cafe has capacity for the order
         if (indexNextOrderToPlace >= orders.length) {
-            throw new CafeOutOfCapacityException("The cafe is currently at full capacity " +
-                    "and cannot take any more orders.");
+            throw new CafeOutOfCapacityException();
         }
 
         // Create a new order and add it to the orders array

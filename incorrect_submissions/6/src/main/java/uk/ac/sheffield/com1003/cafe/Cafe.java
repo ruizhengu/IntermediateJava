@@ -90,7 +90,7 @@ public class Cafe {
         recipe = findRecipe(recipeName);
         boolean recipeFound = false;
         if (recipe == null) {
-            throw new RecipeNotFoundException("Recipe not found in menu");
+            throw new RecipeNotFoundException();
         }
         for (int i = 0; i < this.menu.length; i++) {
             if (this.menu[i] != null && this.menu[i].getName().equals(recipeName)) {
@@ -174,10 +174,10 @@ public class Cafe {
         recipe = findRecipe(recipeName);
 
         if (recipe == null) {
-            throw new RecipeNotFoundException("Recipe not found in menu");
+            throw new RecipeNotFoundException();
         }
         if (indexNextOrderToPlace >= orders.length) {
-            throw new CafeOutOfCapacityException("Cafe is at maximum capacity");
+            throw new CafeOutOfCapacityException();
         }
         orders[indexNextOrderToPlace] = new Order(recipe, customerName, amountPaid);
         indexNextOrderToPlace++;

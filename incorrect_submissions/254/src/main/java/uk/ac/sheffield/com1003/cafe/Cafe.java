@@ -96,7 +96,7 @@ public class Cafe {
         }
 
         if (!recipeFound) {
-            throw new RecipeNotFoundException(recipeName);
+            throw new RecipeNotFoundException();
         }
     }
 
@@ -184,7 +184,7 @@ public class Cafe {
 
         /* throw exception if the recipe does not exist */
         if (givenRecipe == null) {
-            throw new RecipeNotFoundException(recipeName);
+            throw new RecipeNotFoundException();
         } else {
             if (givenRecipe.getPrice() <= amountPaid) {
                 orders[indexNextOrderToPlace] = new Order(givenRecipe, customerName, amountPaid);

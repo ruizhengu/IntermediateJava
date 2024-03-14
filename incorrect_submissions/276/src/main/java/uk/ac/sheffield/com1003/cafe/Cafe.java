@@ -101,7 +101,7 @@ public class Cafe {
         }
         // If the recipe was not found, throw an exception
         if (recipeIndex == -1) {
-            throw new RecipeNotFoundException(recipeName);
+            throw new RecipeNotFoundException();
         }
         // Shift all recipes after the removed recipe one index to the left
         for (int i = recipeIndex; i < nRecipes - 1; i++) {
@@ -182,10 +182,10 @@ public class Cafe {
     public boolean placeOrder(String recipeName, String customerName, double amountPaid) throws RecipeNotFoundException, CafeOutOfCapacityException {
         Recipe recipe = findRecipe(recipeName);
         if (recipe == null) {
-            throw new RecipeNotFoundException("Recipe not found: " + recipeName);
+            throw new RecipeNotFoundException();
         }
         if (nOrders == orderCapacity) {
-            throw new CafeOutOfCapacityException("Cafe is out of capacity");
+            throw new CafeOutOfCapacityException();
         }
         Order order = new Order(recipe, customerName, amountPaid);
         orders[indexNextOrderToPlace] = order;

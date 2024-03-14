@@ -97,7 +97,7 @@ public class Cafe {
 	         }
           }
     	  else
-	    	throw new RecipeNotFoundException(recipeName);
+	    	throw new RecipeNotFoundException();
     }
 
     /**
@@ -173,7 +173,7 @@ public class Cafe {
         }
     	
     	if (findRecipe(recipeName) == null ) {
-    		throw new RecipeNotFoundException(recipeName);
+    		throw new RecipeNotFoundException();
     	}
     	
     	if (amountPaid >= findRecipe(recipeName).getPrice()) {

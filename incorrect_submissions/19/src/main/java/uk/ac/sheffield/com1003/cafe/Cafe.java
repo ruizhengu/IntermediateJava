@@ -102,7 +102,7 @@ public class Cafe {
         // If no recipe was found,
         if (!recipeFound) {
             // Throw an exception
-            throw new RecipeNotFoundException(recipeName);
+            throw new RecipeNotFoundException();
         }
         nRecipes--;
     }
@@ -181,7 +181,7 @@ public class Cafe {
         // If the specified recipe was not found,
         if (desiredRecipe == null) {
             // Throw an exception.
-            throw new RecipeNotFoundException(recipeName);
+            throw new RecipeNotFoundException();
         }
         if (desiredRecipe.getPrice() > amountPaid) {
             return false;

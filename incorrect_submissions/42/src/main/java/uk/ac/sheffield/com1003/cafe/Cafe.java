@@ -88,7 +88,7 @@ public class Cafe {
         int recipeIndex = 0;
 
         if (recipe == null) {
-            throw new RecipeNotFoundException(recipeName);
+            throw new RecipeNotFoundException();
         } else {
             for (Recipe x:menu) {
                 if (x == recipe) break;
@@ -199,7 +199,7 @@ public class Cafe {
         }
 
         if (findRecipe(recipeName) == null) {
-            throw new RecipeNotFoundException(recipeName);
+            throw new RecipeNotFoundException();
         } else {
             if (findRecipe(recipeName).getPrice() <= amountPaid) {
                 orders[indexNextOrderToPlace] = new Order(findRecipe(recipeName), customerName, amountPaid);

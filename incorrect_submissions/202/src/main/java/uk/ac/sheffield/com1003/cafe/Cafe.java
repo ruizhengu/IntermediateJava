@@ -99,7 +99,7 @@ public class Cafe {
             }
         }
         // If the recipe is not found in the menu, throw a RecipeNotFoundException
-        throw new RecipeNotFoundException("Recipe not found: " + recipeName);
+        throw new RecipeNotFoundException();
     
     }
 
@@ -172,7 +172,7 @@ public class Cafe {
      */
     public boolean placeOrder(String recipeName, String customerName, double amountPaid) throws RecipeNotFoundException, CafeOutOfCapacityException {
         if (indexNextOrderToPlace >= orders.length) {
-            throw new CafeOutOfCapacityException("Cafe is out of capacity");
+            throw new CafeOutOfCapacityException();
         }
     
         // check if the recipe exists
@@ -184,7 +184,7 @@ public class Cafe {
             }
         }
         if (recipe == null) {
-            throw new RecipeNotFoundException("Recipe not found: " + recipeName);
+            throw new RecipeNotFoundException();
         }
     
         // check if the customer has paid enough

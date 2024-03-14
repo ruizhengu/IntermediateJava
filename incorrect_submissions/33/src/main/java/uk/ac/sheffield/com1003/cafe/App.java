@@ -3,6 +3,8 @@ package uk.ac.sheffield.com1003.cafe;
 import java.util.Arrays;
 
 import uk.ac.sheffield.com1003.cafe.Recipe.Size;
+import uk.ac.sheffield.com1003.cafe.exceptions.CafeOutOfCapacityException;
+import uk.ac.sheffield.com1003.cafe.exceptions.RecipeNotFoundException;
 import uk.ac.sheffield.com1003.cafe.exceptions.TooManyIngredientsException;
 import uk.ac.sheffield.com1003.cafe.ingredients.Coffee;
 import uk.ac.sheffield.com1003.cafe.ingredients.Ingredient;
@@ -17,7 +19,7 @@ public class App {
     private static final Type SOY = null;
 
     public static void main(String[] args) throws TooManyIngredientsException {
-        
+
         // Create a new cafe instance
         Cafe cafe = new Cafe("Cafe");
 
@@ -45,95 +47,82 @@ public class App {
         // Print the menu
         uk.ac.sheffield.com1003.cafe.Cafe.getMenu();
 
-        }
+    }
 
+    private Recipe[] orders;
+    private int indexNextOrderToPlace;
+    private int indexNextOrderToServe;
+    //private String recipeName;
 
-        public class RecipeNotFoundException extends Exception {
-            public RecipeNotFoundException(String message) {
-                super(message);
-            }
-        }
-        
-        public class CafeOutOfCapacityException extends Exception {
-            public CafeOutOfCapacityException(String message) {
-                super(message);
-            }
-        }
-    
-        private Recipe[] orders;
-        private int indexNextOrderToPlace;
-        private int indexNextOrderToServe;
-        //private String recipeName;
-    
-        public void Cafe(int capacity) {
-            orders = new Recipe[capacity];
-            indexNextOrderToPlace = 0;
-            indexNextOrderToServe = 0;
-        }
-    
-        public void placeOrder(String recipeName) throws RecipeNotFoundException, CafeOutOfCapacityException {
-            Recipe recipe = findRecipe(recipeName);
-            if (recipe == null) {
-                throw new RecipeNotFoundException("Recipe not found: " + recipeName);
-            }
-            if (indexNextOrderToPlace == orders.length) {
-                throw new CafeOutOfCapacityException("Maximum capacity reached: " + orders.length);
-            }
-            orders[indexNextOrderToPlace] = recipe;
-            indexNextOrderToPlace++;
-            System.out.println("Order placed: " + recipe.getName());
-        }
-    
-        public void serveOrder() {
-            if (indexNextOrderToServe < indexNextOrderToPlace) {
-                Recipe recipe = orders[indexNextOrderToServe];
-                indexNextOrderToServe++;
-                System.out.println("Order served: " + recipe.getName());
-            } else {
-                System.out.println("No orders to serve");
-            }
-        }
+    public void Cafe(int capacity) {
+        orders = new Recipe[capacity];
+        indexNextOrderToPlace = 0;
+        indexNextOrderToServe = 0;
+    }
 
-        public Recipe findRecipe(String recipeName) {
-            return null;
+    public void placeOrder(String recipeName) throws RecipeNotFoundException, CafeOutOfCapacityException {
+        Recipe recipe = findRecipe(recipeName);
+        if (recipe == null) {
+            throw new RecipeNotFoundException();
         }
-
-
-        @Override
-        public boolean equals(Object obj) {
-            if (this == obj)
-                return true;
-            if (obj == null)
-                return false;
-            if (getClass() != obj.getClass())
-                return false;
-            Recipe other = (Recipe) obj;
-            if (!Arrays.equals(orders, other.ingredients))
-                return false;
-            if (size != other.size)
-                return false;
-            return true;
+        if (indexNextOrderToPlace == orders.length) {
+            throw new CafeOutOfCapacityException();
         }
+        orders[indexNextOrderToPlace] = recipe;
+        indexNextOrderToPlace++;
+        System.out.println("Order placed: " + recipe.getName());
+    }
 
-        public class Syrup extends Ingredient {
-            private String flavour;
-            
-            public Syrup(String flavour, int amount, Unit unit) {
-                super();
-                this.flavour = flavour;
-            }
-            
-            public Syrup(String flavour) {
-                this(flavour, 0, Unit.ML);
-            }
-            
-            public String getFlavour() {
-                return flavour;
-            }
-            
-            @Override
-            public String toString() {
-                return "Syrup [unit=" + getUnit() + ", amount=" + getAmount() + ", flavour=" + flavour + "]";
-            }
+    public void serveOrder() {
+        if (indexNextOrderToServe < indexNextOrderToPlace) {
+            Recipe recipe = orders[indexNextOrderToServe];
+            indexNextOrderToServe++;
+            System.out.println("Order served: " + recipe.getName());
+        } else {
+            System.out.println("No orders to serve");
         }
     }
+
+    public Recipe findRecipe(String recipeName) {
+        return null;
+    }
+
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null)
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        Recipe other = (Recipe) obj;
+        if (!Arrays.equals(orders, other.ingredients))
+            return false;
+        if (size != other.size)
+            return false;
+        return true;
+    }
+
+    public class Syrup extends Ingredient {
+        private String flavour;
+
+        public Syrup(String flavour, int amount, Unit unit) {
+            super();
+            this.flavour = flavour;
+        }
+
+        public Syrup(String flavour) {
+            this(flavour, 0, Unit.ML);
+        }
+
+        public String getFlavour() {
+            return flavour;
+        }
+
+        @Override
+        public String toString() {
+            return "Syrup [unit=" + getUnit() + ", amount=" + getAmount() + ", flavour=" + flavour + "]";
+        }
+    }
+}

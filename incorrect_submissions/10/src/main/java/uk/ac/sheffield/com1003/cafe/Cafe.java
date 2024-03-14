@@ -99,7 +99,7 @@ public class Cafe {
             }
         }
         //If no recipe is found with that name then a RecipeNotFoundException is produced.
-        throw new RecipeNotFoundException("Error: Recipe does not exist");
+        throw new RecipeNotFoundException();
     }
 
     /**
@@ -178,10 +178,10 @@ public class Cafe {
     public boolean placeOrder(String recipeName, String customerName, double amountPaid) throws RecipeNotFoundException, CafeOutOfCapacityException {
         //Checks if the recipeName is null and if true will immediately throw an exception
         if (findRecipe(recipeName) == null) {
-            throw new RecipeNotFoundException("Error: This Recipe does not exist");
+            throw new RecipeNotFoundException();
             //Then checks if the capacity of the cafe has been reached and if so will send another exception
         } else if (indexNextOrderToPlace >= orders.length) {
-            throw new CafeOutOfCapacityException("Error: The Cafe is currently at maximum capacity for orders");
+            throw new CafeOutOfCapacityException();
         } else {
             /*After these checks it can then find the recipe using the findRecipe method and then create an Order object
              *which will be assigned to the next available index in the orders array

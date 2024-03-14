@@ -110,7 +110,7 @@ public class Cafe {
             this.menu = newMenu;
         }
         else{
-            throw new RecipeNotFoundException(recipeName);
+            throw new RecipeNotFoundException();
         }
     }
 
@@ -188,7 +188,7 @@ public class Cafe {
         Recipe recipeInMenu = this.findRecipe(recipeName);
         
         if (recipeInMenu == null){
-            throw new RecipeNotFoundException(recipeName);
+            throw new RecipeNotFoundException();
         }
         if (this.indexNextOrderToPlace >= this.orderCapacity){
             throw new CafeOutOfCapacityException();

@@ -58,7 +58,7 @@ public class Recipe {
             }
         }
         if (count >= ingredients.length) {
-            throw new TooManyIngredientsException("Cannot add ingredient. Maximum number of ingredients reached.");
+            throw new TooManyIngredientsException();
         }
         for (int i = 0; i < ingredients.length; i++) {
             if (ingredients[i] == null) {

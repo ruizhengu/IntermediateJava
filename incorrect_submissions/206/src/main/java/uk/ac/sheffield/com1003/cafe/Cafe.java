@@ -92,7 +92,7 @@ public class Cafe {
                 i++;
             }
             if (!found) {
-                throw new RecipeNotFoundException(recipeName);
+                throw new RecipeNotFoundException();
             }
         }
     }
@@ -166,7 +166,7 @@ public class Cafe {
         Recipe chosenRecipe = findRecipe(recipeName);
         if (chosenRecipe != null && chosenRecipe.getPrice() <= amountPaid){
             if(indexNextOrderToPlace >= orders.length) {
-                throw new CafeOutOfCapacityException(orders.length);
+                throw new CafeOutOfCapacityException();
             }
             Order newOrder = new Order(chosenRecipe, customerName, amountPaid, null);
             orders[indexNextOrderToPlace] = newOrder;

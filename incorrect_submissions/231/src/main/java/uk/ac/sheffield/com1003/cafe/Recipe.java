@@ -40,7 +40,7 @@ public class Recipe {
         if (i < ingredients.length)
             ingredients[i] = ingredient;
         else
-            throw new TooManyIngredientsException("The amount of ingredients exceeds that of the pre-defined recipe!");
+            throw new TooManyIngredientsException();
     }
 
     /**

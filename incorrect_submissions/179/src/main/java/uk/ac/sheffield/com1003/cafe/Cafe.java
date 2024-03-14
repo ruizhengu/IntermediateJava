@@ -97,7 +97,7 @@ public class Cafe {
             }
         }
         else
-            throw new RecipeNotFoundException("No recipe is found to be removed");
+            throw new RecipeNotFoundException();
     }
 
     /**
@@ -182,11 +182,11 @@ public class Cafe {
                     indexNextOrderToPlace++;
                     return true;
                 } else
-                    throw new RecipeNotFoundException("There is no such recipe in the menu");
+                    throw new RecipeNotFoundException();
             }
         }
         else
-            throw new CafeOutOfCapacityException("Maximum order reached for"+this.getName());
+            throw new CafeOutOfCapacityException());
 
         return false;
     }

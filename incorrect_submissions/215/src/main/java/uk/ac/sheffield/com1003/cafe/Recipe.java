@@ -45,7 +45,7 @@ public class Recipe {
             ingredients[i] = ingredient;
         }
         else{
-            throw new TooManyIngredientsException("Too many ingredients");
+            throw new TooManyIngredientsException();
         }
     }
 

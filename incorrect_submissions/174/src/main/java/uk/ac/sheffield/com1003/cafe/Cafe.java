@@ -89,7 +89,7 @@ public class Cafe {
     public void removeRecipe(String recipeName) throws RecipeNotFoundException {
 
         if (findRecipe(recipeName) == null ) {
-            throw new RecipeNotFoundException(recipeName);
+            throw new RecipeNotFoundException();
         }
 
         boolean removed = false;
@@ -102,7 +102,7 @@ public class Cafe {
             nRecipes--;
         }
         else {
-            throw new RecipeNotFoundException(recipeName);
+            throw new RecipeNotFoundException();
         }
     }
 
@@ -176,12 +176,12 @@ public class Cafe {
         //check if the ordered recipe is on the menu
         Recipe recipe = findRecipe(recipeName);
         if (recipe == null) {
-            throw new RecipeNotFoundException(recipeName);
+            throw new RecipeNotFoundException();
         }
 
         //check if the cafe has the capacity
         if (indexNextOrderToPlace >= orders.length) {
-            throw new CafeOutOfCapacityException(indexNextOrderToPlace );
+            throw new CafeOutOfCapacityException();
         }
         // find it on the menu
         findRecipe(recipeName);

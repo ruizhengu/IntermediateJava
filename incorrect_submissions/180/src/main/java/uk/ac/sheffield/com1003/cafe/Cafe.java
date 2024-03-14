@@ -93,7 +93,7 @@ public class Cafe<orders> {
                     removeRecipe(recipeName);
             }
         }
-        throw new RecipeNotFoundException("Error : Recipe Not Found");
+        throw new RecipeNotFoundException();
 
 
     }
@@ -180,12 +180,12 @@ public class Cafe<orders> {
                     return true;
                 }
                 else {
-                    throw new CafeOutOfCapacityException("Error : Cafe not able to take any more orders.");
+                    throw new CafeOutOfCapacityException();
                 }
             }
         }
 
-        throw new RecipeNotFoundException("Error : Recipe not found");
+        throw new RecipeNotFoundException();
 
     }
 

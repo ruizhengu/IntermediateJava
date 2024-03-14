@@ -97,7 +97,7 @@ public class Cafe {
                 }
             }
             if (!removed)
-                throw new RecipeNotFoundException(recipeName);
+                throw new RecipeNotFoundException();
         } catch(RecipeNotFoundException e) {
             System.err.println("The recipe " + "\"" + e.getUnknownRecipe() + "\"" + " does not exist in the menu.");
         }
@@ -181,9 +181,9 @@ public class Cafe {
         }
 
             if (isOutOfCapacity)
-                throw new CafeOutOfCapacityException(orders.length);
+                throw new CafeOutOfCapacityException();
             if (!recipeExists)
-                throw new RecipeNotFoundException(recipeName);
+                throw new RecipeNotFoundException();
 
             if (recipeExists && amountPaidIsSufficient) {
                 isOrderPlaced = true;

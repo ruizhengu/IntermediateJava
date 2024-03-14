@@ -87,7 +87,7 @@ public class Cafe {
         // Implement solution to task 7 here
         Recipe toRemove = findRecipe(recipeName);
         if (toRemove == null)
-            throw new RecipeNotFoundException(recipeName);
+            throw new RecipeNotFoundException();
         for (int i = 0 ;i < menu.length; i++){
             if(menu[i] != null && menu[i].getName().equals(toRemove.getName())){
                 menu[i] = null;
@@ -169,16 +169,16 @@ public class Cafe {
         Recipe orderedFood = findRecipe(recipeName);
         
         if(orderedFood == null)
-            throw new RecipeNotFoundException("This recipe does not exist in our menu");
+            throw new RecipeNotFoundException();
 
         //Test if cafe has remaining capacity else throw CafeOutOfCapacityException
         if(orders.length < 1)
-            throw new CafeOutOfCapacityException("The cafe is at its maximum capacity");
+            throw new CafeOutOfCapacityException();
         else{
             while(orders[indexNextOrderToPlace] != null)//Find index of first null item in the orders array (somewhat pointless but for safety)
                 indexNextOrderToPlace++;
             if(indexNextOrderToPlace >= orders.length)
-                throw new CafeOutOfCapacityException("The cafe is at its maximum capacity");
+                throw new CafeOutOfCapacityException();
         }
 
         //Test order conditions and place order if conditions are true, else return false

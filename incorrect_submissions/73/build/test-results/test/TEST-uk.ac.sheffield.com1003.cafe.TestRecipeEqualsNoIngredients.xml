@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="uk.ac.sheffield.com1003.cafe.TestRecipeEqualsNoIngredients" tests="1" skipped="0" failures="1" errors="0" timestamp="2024-03-14T17:06:18" hostname="dyn098145.shef.ac.uk" time="0.001">
+<testsuite name="uk.ac.sheffield.com1003.cafe.TestRecipeEqualsNoIngredients" tests="1" skipped="0" failures="1" errors="0" timestamp="2024-03-14T17:50:57" hostname="dyn098145.shef.ac.uk" time="0.001">
   <properties/>
   <testcase name="testRecipeEqualsNoIngredients" classname="uk.ac.sheffield.com1003.cafe.TestRecipeEqualsNoIngredients" time="0.001">
-    <failure message="java.lang.AssertionError: expected:&lt;uk.ac.sheffield.com1003.cafe.Recipe@236372b7&gt; but was:&lt;uk.ac.sheffield.com1003.cafe.Recipe@2da488ab&gt;" type="java.lang.AssertionError">java.lang.AssertionError: expected:&lt;uk.ac.sheffield.com1003.cafe.Recipe@236372b7&gt; but was:&lt;uk.ac.sheffield.com1003.cafe.Recipe@2da488ab&gt;
+    <failure message="java.lang.AssertionError: expected:&lt;uk.ac.sheffield.com1003.cafe.Recipe@2647b36&gt; but was:&lt;uk.ac.sheffield.com1003.cafe.Recipe@ca3950a&gt;" type="java.lang.AssertionError">java.lang.AssertionError: expected:&lt;uk.ac.sheffield.com1003.cafe.Recipe@2647b36&gt; but was:&lt;uk.ac.sheffield.com1003.cafe.Recipe@ca3950a&gt;
 	at org.junit.Assert.fail(Assert.java:89)
 	at org.junit.Assert.failNotEquals(Assert.java:835)
 	at org.junit.Assert.assertEquals(Assert.java:120)

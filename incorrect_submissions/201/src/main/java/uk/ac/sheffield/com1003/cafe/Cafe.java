@@ -111,7 +111,7 @@ public class Cafe {
         }
         if (!recipeExists) //If recipe has not been found on the menu
         {
-            throw new RecipeNotFoundException("Item does not exists on the menu"); //Exception is thrown
+            throw new RecipeNotFoundException(); //Exception is thrown
         } else{
 
             System.out.println("Recipe " + menu[removalIndex].getName() + " has been removed from the menu");
@@ -221,7 +221,7 @@ public class Cafe {
         //Check if cafe is at capacity
         if(indexNextOrderToPlace > (orders.length - 1)) //First order is at element 0 - so the 99th order is 100 total
         {
-            throw new CafeOutOfCapacityException("Sorry, no more orders. The cafe is at capacity"); //throw exception
+            throw new CafeOutOfCapacityException(); //throw exception
         }
 
 
@@ -244,7 +244,7 @@ public class Cafe {
 
         if(!recipeExists) //recipe has not been found on menu
         {
-            throw new RecipeNotFoundException("Item does not exists on the menu"); //Exception is thrown
+            throw new RecipeNotFoundException(); //Exception is thrown
         }
 
         //only places the order if the recipe exists on the menu and the customer has paid enough

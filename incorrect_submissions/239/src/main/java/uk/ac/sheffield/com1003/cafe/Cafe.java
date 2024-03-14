@@ -94,7 +94,7 @@ public class Cafe {
         			menu[i] = null;
         		}
         	}
-    	}else throw new RecipeNotFoundException('c');
+    	}else throw new RecipeNotFoundException();
     }
 
     /**
@@ -184,9 +184,9 @@ public class Cafe {
             			}return false;
             			
             	}else
-            		throw new RecipeNotFoundException('e');
+            		throw new RecipeNotFoundException();
     		}else 
-    			throw new CafeOutOfCapacityException(indexNextOrderToPlace);
+    			throw new CafeOutOfCapacityException();
     			
     		
         }catch (CafeOutOfCapacityException e) {

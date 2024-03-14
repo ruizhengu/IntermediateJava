@@ -44,7 +44,7 @@ public class Recipe {
             } else
                 i++;
         }
-        throw new TooManyIngredientsException("Error: Too many ingredients");
+        throw new TooManyIngredientsException();
 
     }
 

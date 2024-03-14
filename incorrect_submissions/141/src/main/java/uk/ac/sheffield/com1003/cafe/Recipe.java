@@ -40,7 +40,7 @@ public class Recipe {
             	i++;
         }
         //I have no idea why this line doesn't get triggered by the test
-        throw new TooManyIngredientsException(this.getName(), this.ingredients.length);
+        throw new TooManyIngredientsException(), this.ingredients.length);
     }
 
     public String getName() {

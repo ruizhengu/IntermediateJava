@@ -104,7 +104,7 @@ public class Cafe {
                 removed = true;
             } else i++;
         }
-        throw new RecipeNotFoundException(recipeName);
+        throw new RecipeNotFoundException();
     }
 
 
@@ -176,7 +176,7 @@ public class Cafe {
      */
     public boolean placeOrder(String recipeName, String customerName, double amountPaid) throws CafeOutOfCapacityException, RecipeNotFoundException {
         if (orders.length == 0 || indexNextOrderToPlace > orders.length) {
-            throw new CafeOutOfCapacityException(indexNextOrderToPlace);
+            throw new CafeOutOfCapacityException();
         }
         int i = 0;
         boolean found = false;
@@ -193,7 +193,7 @@ public class Cafe {
             }
             i++;
         }
-        throw new RecipeNotFoundException(recipeName);
+        throw new RecipeNotFoundException();
     }
 
     /**
@@ -210,7 +210,7 @@ public class Cafe {
      */
     public boolean placeOrder(String recipeName, String customerName, double amountPaid, String specialRequest) throws CafeOutOfCapacityException, RecipeNotFoundException {
         if (orders.length == 0 || indexNextOrderToPlace > orders.length) {
-            throw new CafeOutOfCapacityException(indexNextOrderToPlace);
+            throw new CafeOutOfCapacityException();
         }
         int i = 0;
         boolean found = false;
@@ -227,7 +227,7 @@ public class Cafe {
             }
             i++;
         }
-        throw new RecipeNotFoundException(recipeName);
+        throw new RecipeNotFoundException();
 
     }
 

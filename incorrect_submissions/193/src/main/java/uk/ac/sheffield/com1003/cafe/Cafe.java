@@ -182,7 +182,7 @@ public class Cafe {
      *                                    and is out of capacity
      */
     // public class RecipeNotFoundException extends Exception {
-    // public RecipeNotFoundException(String recipeName) {
+    // public RecipeNotFoundException() {
     // super("Recipe not found: " + recipeName);
     // }
     // }

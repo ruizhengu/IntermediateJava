@@ -102,7 +102,7 @@ public class Cafe {
                 }
 
                 else {
-                    throw new RecipeNotFoundException("Recipe provided is not on the menu.");
+                    throw new RecipeNotFoundException();
                 }
             }
         }
@@ -185,11 +185,11 @@ public class Cafe {
 
         // Throwing error messages if more than 100 orders are placed and if the recipe is not found
         if (indexNextOrderToPlace >= maximum) {
-            throw new CafeOutOfCapacityException("Maximum number of orders have been reached!");
+            throw new CafeOutOfCapacityException();
         }
         
         if (findRecipe(recipeName) == null) {
-            throw new RecipeNotFoundException("Recipe provided is not on the menu.");
+            throw new RecipeNotFoundException();
         }
 
         // Checking if the amount paid is sufficient to buy something then only order is placed

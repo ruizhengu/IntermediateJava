@@ -99,7 +99,7 @@ public class Cafe {
         }
         // if recipeName is not the same then throw RecipeNotFoundException
         if(!found) {
-            throw new RecipeNotFoundException("Recipe not found.");
+            throw new RecipeNotFoundException();
         }
     }
 
@@ -170,7 +170,7 @@ public class Cafe {
     public boolean placeOrder(String recipeName, String customerName, double amountPaid) throws CafeOutOfCapacityException, RecipeNotFoundException {
         //check if the cafe went over the order limit
         if (indexNextOrderToPlace >= orders.length){
-            throw new CafeOutOfCapacityException("cafe exceeded order limit");
+            throw new CafeOutOfCapacityException();
         }
         for(int i = 0; i < menu.length; i++) {
             if (amountPaid >= menu[i].getPrice() && (recipeName == menu[i].getName())){
@@ -180,7 +180,7 @@ public class Cafe {
                 return true;
             }
             else if(recipeName != menu[i].getName()){
-                throw new RecipeNotFoundException("Recipe not found: " +recipeName);
+                throw new RecipeNotFoundException();
             }
             else{
                 return false;

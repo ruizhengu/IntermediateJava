@@ -103,7 +103,7 @@ public class Cafe {
             }
         }
         if (!recipeFound) {
-            throw new RecipeNotFoundException("We do not have a recipe for" + recipeName + "in our cafe. Sorry!");
+            throw new RecipeNotFoundException();
         }
     }
 
@@ -182,7 +182,7 @@ public class Cafe {
             }
         }
         if (!recipeFound) {
-            throw new RecipeNotFoundException(recipeName + " is unfortunately not available in this store");
+            throw new RecipeNotFoundException();
         }
 
         if (amountPaid < recipe.getPrice()) {
@@ -196,7 +196,7 @@ public class Cafe {
             indexNextOrderToPlace++;
             return true;
         } else {
-            throw new CafeOutOfCapacityException("The cafe is currently full and we cannot take any more orders");
+            throw new CafeOutOfCapacityException();
         }
     }
 

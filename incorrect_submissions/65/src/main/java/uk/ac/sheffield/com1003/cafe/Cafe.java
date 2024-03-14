@@ -102,7 +102,7 @@ public class Cafe {
             menu[rIndex] = null;
         }
         else {
-            throw new RecipeNotFoundException(recipeName);
+            throw new RecipeNotFoundException();
         }
     }
 
@@ -209,7 +209,7 @@ public class Cafe {
 
         // Throw exception if no matching recipe was found
         if (orderItem == null) {
-            throw new RecipeNotFoundException(recipeName);
+            throw new RecipeNotFoundException();
         }
 
         // Check if the customer can pay for the item
@@ -221,7 +221,7 @@ public class Cafe {
 
         // Throw exception if order list is already full
         if (indexNextOrderToPlace >= orders.length) {
-            throw new CafeOutOfCapacityException(newOrder);
+            throw new CafeOutOfCapacityException();
         }
 
         // else...

@@ -107,7 +107,7 @@ public class Cafe {
             System.out.println("Recipe found at index " + recipeIndex);
         }
         else{
-            throw new RecipeNotFoundException("Recipe not found");
+            throw new RecipeNotFoundException();
         }
     }
 
@@ -193,7 +193,7 @@ public class Cafe {
 
                 if (r.isReady()) {
                     if (indexNextOrderToPlace >= orders.length) {
-                        throw new CafeOutOfCapacityException("Cafe out of order capacity");
+                        throw new CafeOutOfCapacityException();
                     }
 
                     if (amountPaid >= r.getPrice()) {
@@ -203,7 +203,7 @@ public class Cafe {
                         return true;
                     }
                 } else {
-                    throw new RecipeNotFoundException("Recipe not found");
+                    throw new RecipeNotFoundException();
                 }
             }
             //To catch exception finished with non-zero exit value 1

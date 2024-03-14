@@ -177,10 +177,10 @@ public class Cafe {
             return true;
         }
         if (findRecipe(recipeName) == null) {
-            throw new RecipeNotFoundException("Recipe not found");
+            throw new RecipeNotFoundException();
         }
         if (indexNextOrderToPlace >= orders.length) {
-            throw new CafeOutOfCapacityException("List too large");
+            throw new CafeOutOfCapacityException();
         }
         return false;
     }

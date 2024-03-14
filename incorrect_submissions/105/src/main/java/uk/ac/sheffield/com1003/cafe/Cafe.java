@@ -157,13 +157,13 @@ public class Cafe {
 
     };
 //    public class RecipeNotFoundException extends Exception {
-//        public RecipeNotFoundException(String message) {
+//        public RecipeNotFoundException() {
 //            super(message);
 //        }
 //    }
 //
 //    public class CafeOutOfCapacityException extends Exception {
-//        public CafeOutOfCapacityException(String message) {
+//        public CafeOutOfCapacityException() {
 //            super(message);
 //        }
 //    }

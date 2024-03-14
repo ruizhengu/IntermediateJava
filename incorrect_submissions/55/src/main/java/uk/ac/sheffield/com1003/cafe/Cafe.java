@@ -98,7 +98,7 @@ public class Cafe {
      */
     public void removeRecipe(String recipeName) throws RecipeNotFoundException {
     	if(findRecipe(recipeName) == null) {
-			throw new RecipeNotFoundException("The recipe does not exist in the menu");
+			throw new RecipeNotFoundException();
 		}
     	
     	for (int i=0; i<menu.length; i++) {
@@ -202,10 +202,10 @@ public class Cafe {
     	
     	for (int i=0; i<100; i++) {
     		if (findRecipe(recipeName) == null) {
-    			throw new RecipeNotFoundException("Recipe not found in the Menu") ;
+    			throw new RecipeNotFoundException() ;
     		}
     		if (orders.length > 100  ) {
-    			throw new CafeOutOfCapacityException("The cafe cannot take more orders") ;
+    			throw new CafeOutOfCapacityException() ;
     		}
     			if (findRecipe(recipeName) != null) {
         			if (amountPaid >= menu[i].getPrice()) {

@@ -28,13 +28,13 @@ public class App {
     }
 
     public class RecipeNotFoundException extends Exception {
-        public RecipeNotFoundException(String message) {
+        public RecipeNotFoundException() {
             super(message);
         }
     }
 
     public class CafeOutOfCapacityException extends Exception {
-        public CafeOutOfCapacityException(String messgae) {
+        public CafeOutOfCapacityException() {
             super(message);
         }
     }
@@ -67,10 +67,10 @@ public class App {
 
         public void placeOrder(String item) throws RecipeNotFoundException, CafeOutOfCapacityException {
             if (!menu.containsKey(item)) {
-                throw new RecipeNotFoundException("Recipe not found: " + item);
+                throw new RecipeNotFoundException();
             }
             if (indexNextOrderToPlace >= maxCapacity) {
-                throw new CafeOutOfCapacityException("Cafe is at maximum capacity.");
+                throw new CafeOutOfCapacityException();
             }
 
             orders[indexNextOrderToPlace] = item;

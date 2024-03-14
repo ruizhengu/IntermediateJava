@@ -95,7 +95,7 @@ public class Cafe {
             }
             
             if (!recipeFound){
-                throw new RecipeNotFoundException("Recipe \"" + recipeName + "\" not found");
+                throw new RecipeNotFoundException();
             }
         }
     }
@@ -170,10 +170,10 @@ public class Cafe {
         try {
             Recipe recipe = findRecipe(recipeName);
             if (recipe == null) {
-                throw new RecipeNotFoundException("Recipe not found in menu");
+                throw new RecipeNotFoundException();
             }
             if (indexNextOrderToPlace >= orders.length) {
-                throw new CafeOutOfCapacityException("Cafe is out of capacity for new orders");
+                throw new CafeOutOfCapacityException();
             }
             if (amountPaid < recipe.getPrice()) {
                 return false;

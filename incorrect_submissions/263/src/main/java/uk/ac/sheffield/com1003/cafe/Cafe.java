@@ -104,7 +104,7 @@ public class Cafe {
         }
 // Thrown the exception if the recipe is not found
         if (!found) {
-            throw new RecipeNotFoundException("Recipe not found: " + recipeName);
+            throw new RecipeNotFoundException();
         }
     }
 
@@ -207,7 +207,7 @@ public class Cafe {
 
         if (recipe == null) {
             // Display a message if request was not found
-            throw new RecipeNotFoundException("Recipe not found: " + recipeName);
+            throw new RecipeNotFoundException();
         }
 
         if (amountPaid < recipe.getPrice()) { //Do not process order if the customer doesn't pay enough money.

@@ -98,7 +98,7 @@ public class Cafe {
       }
       i++;
     }
-    throw new RecipeNotFoundException(recipeName);
+    throw new RecipeNotFoundException();
   }
 
   /**
@@ -175,7 +175,7 @@ public class Cafe {
     // Find recipe
     Recipe menuItem = findRecipe(recipeName);
     if (menuItem == null) {
-      throw new RecipeNotFoundException(recipeName);
+      throw new RecipeNotFoundException();
     }
 
     // Return false if they haven't paid enough.
@@ -185,7 +185,7 @@ public class Cafe {
 
     if (indexNextOrderToPlace > orders.length - 1) {
       // Throw error if Cafe is full.
-      throw new CafeOutOfCapacityException(order);
+      throw new CafeOutOfCapacityException();
     }
 
 

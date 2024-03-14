@@ -167,7 +167,7 @@ public class Cafe {
         // Check if the recipe exists in the menu
         Recipe recipe = findRecipe(recipeName);
         if (recipe == null) {
-            throw new RecipeNotFoundException(recipeName);
+            throw new RecipeNotFoundException();
         } else {
             // Check if the amount paid is sufficient, if yes, place the order
             if (amountPaid >= recipe.getPrice()) {

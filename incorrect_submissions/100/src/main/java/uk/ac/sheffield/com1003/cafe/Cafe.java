@@ -92,7 +92,7 @@ public class Cafe {
                 menu[i] = null;
             }
             if (recipeName == null){
-                throw new RecipeNotFoundException("not in recipe");
+                throw new RecipeNotFoundException();
             }
         }
     }
@@ -170,11 +170,11 @@ public class Cafe {
     public boolean placeOrder(String recipeName, String customerName, double amountPaid)
             throws RecipeNotFoundException, CafeOutOfCapacityException{
         if (findRecipe(recipeName) == null){
-            throw new RecipeNotFoundException("recipe not in menu");
+            throw new RecipeNotFoundException();
         //returns recipe not found string when new recipe
         }
         if ((indexNextOrderToPlace) >= orders.length) {
-            throw new CafeOutOfCapacityException("not enough...");
+            throw new CafeOutOfCapacityException();
 
         }
         //return cafe out of capacity exception when it is out of capacity

@@ -98,7 +98,7 @@ public class Cafe {
     		}
     	}
     	//Trying to delete a recipe that does not exist
-    	throw new RecipeNotFoundException(recipeName);
+    	throw new RecipeNotFoundException();
    
     }
 
@@ -180,7 +180,7 @@ public class Cafe {
 
     	if (chosen == null) {
     		//no recipe found
-    		throw new RecipeNotFoundException(recipeName);
+    		throw new RecipeNotFoundException();
     	}
 
     	//checking for capacity in the cafe
@@ -191,7 +191,7 @@ public class Cafe {
     	       indexNextOrderToPlace+=1;
     	       return true;
     	    }
-    	}throw new CafeOutOfCapacityException(orders.length);
+    	}throw new CafeOutOfCapacityException();
      }
 
     public boolean placeOrder(String recipeName, String customerName, double amountPaid, String specialRequest) throws RecipeNotFoundException,
@@ -201,7 +201,7 @@ public class Cafe {
 
         if (chosen == null) {
             //no recipe found
-            throw new RecipeNotFoundException(recipeName);
+            throw new RecipeNotFoundException();
         }
 
         //checking for capacity in the cafe
@@ -212,7 +212,7 @@ public class Cafe {
                 indexNextOrderToPlace+=1;
                 return true;
             }
-        }throw new CafeOutOfCapacityException(orders.length);
+        }throw new CafeOutOfCapacityException();
     }
     
     

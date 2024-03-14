@@ -50,7 +50,7 @@ public class Recipe {
        
        //throws too many ingredients exception if there are already max ingredients
        if (numOfIngredients == ingredients.length) {
-    	   throw new TooManyIngredientsException(ingredient);
+    	   throw new TooManyIngredientsException();
        }
        
        //adds ingredient

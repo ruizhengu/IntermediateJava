@@ -29,10 +29,10 @@ public class App {
            System.out.println("Sorry, you've already added too many ingredients");
        } catch (CafeOutOfCapacityException e) {
         System.out.println("We apologize, we have " + e.getMaxCapacity() + " orders to serve right now, we are so busy today that we cannot serve you this order.");
-        // throw new CafeOutOfCapacityException(orders.length);
+        // throw new CafeOutOfCapacityException();
        } catch (RecipeNotFoundException e) {
         System.out.println("Sorry, the recipe " + "\"" + e.getUnknownRecipe() + "\"" + " does not exist in our menu.");
-        // throw new RecipeNotFoundException(recipeName);
+        // throw new RecipeNotFoundException();
     }
     }
 }

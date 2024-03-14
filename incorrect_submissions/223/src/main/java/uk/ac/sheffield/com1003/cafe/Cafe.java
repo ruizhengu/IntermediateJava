@@ -93,7 +93,7 @@ public class Cafe {
             boolean recipeFound = false;
             Recipe recipe = findRecipe(recipeName);
             if (recipe == null) {
-                throw new RecipeNotFoundException("Recipe doesnt exist");// if findRecipe returns null it doesnt exist
+                throw new RecipeNotFoundException();// if findRecipe returns null it doesnt exist
             }
             int i = 0;
             while (i < menu.length && recipeFound == false) {//finding what the index of the recipe is
@@ -188,7 +188,7 @@ public class Cafe {
         menu = getMenu();
         boolean itemFound = false;
         if (orders.length == 0 || orders[orders.length - 1] != null) { //cafe full if final order is full in capacity
-            throw new CafeOutOfCapacityException("The cafe is at maximum capacity");
+            throw new CafeOutOfCapacityException();
         } else {
             for (int i = 0; i <= menu.length - 1; i++) {
                 if (recipeName == menu[i].getName()) { //finding the item in the menu
@@ -203,7 +203,7 @@ public class Cafe {
                 }
             }
             if (itemFound == false) {
-                throw new RecipeNotFoundException("This recipe doesnt exist");
+                throw new RecipeNotFoundException();
             }
         }
         return false;//if no return by now its not valid

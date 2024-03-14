@@ -92,7 +92,7 @@ public class Cafe {
                 return;
             }
         }
-        throw new RecipeNotFoundException("Recipe not found: " + recipeName);
+        throw new RecipeNotFoundException();
 
     }
 
@@ -178,12 +178,12 @@ public class Cafe {
 
         //if recipe is not found in the Recipe list, recipe not found exception is thrown
         if (recipe == null) {
-            throw new RecipeNotFoundException("Recipe not found: " + recipeName);
+            throw new RecipeNotFoundException();
         }
 
         //checks if the order is above the maximum capacity and throws exception if it is
         if (indexNextOrderToPlace >= this.orders.length) {
-            throw new CafeOutOfCapacityException("Cafe is at maximum capacity");
+            throw new CafeOutOfCapacityException();
         }
 
         //if order can be placed, adds order to pending orders ready to be served

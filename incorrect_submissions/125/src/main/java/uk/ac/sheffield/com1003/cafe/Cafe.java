@@ -91,7 +91,7 @@ public class Cafe {
                 return;
             }
         }
-        throw new RecipeNotFoundException("Recipe was not present on the menu.");
+        throw new RecipeNotFoundException();
     }
 
     /**
@@ -159,12 +159,12 @@ public class Cafe {
      */
     public boolean placeOrder(String recipeName, String customerName, double amountPaid) throws RecipeNotFoundException, CafeOutOfCapacityException {
         if (indexNextOrderToPlace >= orders.length) {
-            throw new CafeOutOfCapacityException("No more order queue capacity.");
+            throw new CafeOutOfCapacityException();
         }
 
         Recipe recipe = findRecipe(recipeName);
         if (recipe == null) {
-            throw new RecipeNotFoundException("Recipe does not exist on the menu and is not served here.");
+            throw new RecipeNotFoundException();
         }
 
         if (recipe.getPrice() > amountPaid) {

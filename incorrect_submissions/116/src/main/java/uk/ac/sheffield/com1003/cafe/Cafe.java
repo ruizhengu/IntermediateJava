@@ -90,7 +90,7 @@ public class Cafe {
                 return;
             }
         }
-        throw new RecipeNotFoundException(recipeName);
+        throw new RecipeNotFoundException();
     }
     
     /**
@@ -177,7 +177,7 @@ public class Cafe {
         Recipe recipe = Arrays.stream(menu)
             .filter(r -> r.getName().equals(recipeName))
             .findFirst()
-            .orElseThrow(() -> new RecipeNotFoundException(recipeName));
+            .orElseThrow(() -> new RecipeNotFoundException());
 
         if (orders.length <= indexNextOrderToPlace) { // Check if cafe has capacity
             throw new CafeOutOfCapacityException();

@@ -42,7 +42,7 @@ public class Recipe {
         if (i < ingredients.length)
             ingredients[i] = ingredient;
         else
-            throw new TooManyIngredientsException("Too many ingredients in the recipe. The maximum is: " + ingredients.length);
+            throw new TooManyIngredientsException();
     }
 
     public String getName() {

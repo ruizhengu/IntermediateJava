@@ -105,7 +105,7 @@ public class Cafe {
 
         }
         else{
-            throw new RecipeNotFoundException("Sorry, this recipe does not exist.");
+            throw new RecipeNotFoundException();
         }
 
 
@@ -180,7 +180,7 @@ public class Cafe {
             RecipeNotFoundException, CafeOutOfCapacityException {
         //check if cafe is capable of taking orders
         if (indexNextOrderToPlace == orders.length){
-            throw new CafeOutOfCapacityException("Sorry, the cafe is handling a huge volume of orders.");
+            throw new CafeOutOfCapacityException();
         }
         else{
             try{
@@ -200,7 +200,7 @@ public class Cafe {
                     }
                 }
                 else{
-                    throw new RecipeNotFoundException("Sorry, the recipe ordered does not exist.");
+                    throw new RecipeNotFoundException();
                 }
             }
             catch(NullPointerException e) {
@@ -261,7 +261,7 @@ public class Cafe {
             RecipeNotFoundException, CafeOutOfCapacityException {
         //check if cafe is capable of taking orders
         if (indexNextOrderToPlace == orders.length){
-            throw new CafeOutOfCapacityException("Sorry, the cafe is handling a huge volume of orders.");
+            throw new CafeOutOfCapacityException();
         }
         else{
             try{
@@ -281,7 +281,7 @@ public class Cafe {
                     }
                 }
                 else{
-                    throw new RecipeNotFoundException("Sorry, the recipe ordered does not exist.");
+                    throw new RecipeNotFoundException();
                 }
 
             }

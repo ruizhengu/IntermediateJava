@@ -84,7 +84,7 @@ public class Cafe {
     public void removeRecipe(String recipeName) throws RecipeNotFoundException {
         
     	if (findRecipe(recipeName) == null)
-    		throw new RecipeNotFoundException(recipeName);
+    		throw new RecipeNotFoundException();
     	
     	for (int i = 0; i < menu.length; i++)	{
     		if (menu[i] != null && findRecipe(recipeName).equals(menu[i]))	{
@@ -161,10 +161,10 @@ public class Cafe {
     		throws RecipeNotFoundException, CafeOutOfCapacityException {
     	
     	if (findRecipe(recipeName) == null)	
-    		throw new RecipeNotFoundException(recipeName);
+    		throw new RecipeNotFoundException();
 	
     	if (indexNextOrderToPlace >= orders.length)
-    		throw new CafeOutOfCapacityException(indexNextOrderToPlace, orders.length);
+    		throw new CafeOutOfCapacityException();
     	
     	if (amountPaid>= findRecipe(recipeName).getPrice())	{
     		orders[indexNextOrderToPlace] = new Order(findRecipe(recipeName), customerName, amountPaid);

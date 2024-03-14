@@ -101,7 +101,7 @@ public class Cafe {
     */
     public void removeRecipe(String recipeName) throws RecipeNotFoundException{
         Recipe deletingRecipe = findRecipe(recipeName);
-        if(deletingRecipe == null) {throw new RecipeNotFoundException(recipeName);}
+        if(deletingRecipe == null) {throw new RecipeNotFoundException();}
         Recipe[] actualMenu = getMenu();
         boolean deleted = false;
         int i = 0;
@@ -188,9 +188,9 @@ public class Cafe {
     	//checking if the recipe is null and if there is space to accommodate the order
     	//if these ifs are triggered, the appropriate exceptions are thrown//
     	if(recipe == null) 
-    		throw new RecipeNotFoundException(recipeName);
+    		throw new RecipeNotFoundException();
     	if(getNextOrderToPlace() >= orders.length ) 
-    		throw new CafeOutOfCapacityException(orders.length);
+    		throw new CafeOutOfCapacityException();
     	
     	//if no exceptions are thrown, checks that pay is sufficient, if it is then inserts a new order at the index of
     	//the next order to place, using the method parameters and previously defined recipe object as constructor params

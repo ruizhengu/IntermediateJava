@@ -93,7 +93,7 @@ public class Cafe {
         	i++;
         }
         if(!removed) {
-        	throw new RecipeNotFoundException(recipeName);
+        	throw new RecipeNotFoundException();
         }
     }
 
@@ -163,14 +163,14 @@ public class Cafe {
     public boolean placeOrder(String recipeName, String customerName, double amountPaid) throws RecipeNotFoundException, CafeOutOfCapacityException  {
         Recipe recipe = this.findRecipe(recipeName);
         if (recipe == null) {
-        	throw new RecipeNotFoundException(recipeName);
+        	throw new RecipeNotFoundException();
         }
         double amountToPay = recipe.getPrice();
         if (amountPaid < amountToPay) {
         	return false;
         }
         if (indexNextOrderToPlace >= orders.length) {
-        	throw new CafeOutOfCapacityException(indexNextOrderToPlace);
+        	throw new CafeOutOfCapacityException();
         }
         orders[indexNextOrderToPlace] = new Order(recipe, customerName, amountPaid);
         indexNextOrderToPlace++;

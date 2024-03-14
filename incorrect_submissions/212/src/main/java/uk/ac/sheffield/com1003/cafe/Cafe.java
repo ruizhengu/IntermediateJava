@@ -94,7 +94,7 @@ public class Cafe {
                 i++;
             }
         } else {
-            throw new RecipeNotFoundException(recipeName);
+            throw new RecipeNotFoundException();
         }
     }
 
@@ -178,10 +178,10 @@ public class Cafe {
             return true;
         } else {
             if (recipe == null) {
-                throw new RecipeNotFoundException(recipeName);
+                throw new RecipeNotFoundException();
             }
             if (indexNextOrderToPlace >= orders.length) {
-                throw new CafeOutOfCapacityException(orders.length);
+                throw new CafeOutOfCapacityException();
             }
             return false;
         }

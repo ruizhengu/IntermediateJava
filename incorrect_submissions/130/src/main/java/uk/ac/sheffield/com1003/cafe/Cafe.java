@@ -176,10 +176,10 @@ public class Cafe {
     public boolean placeOrder(String recipeName, String customerName, double amountPaid) throws CafeOutOfCapacityException, RecipeNotFoundException {
         Recipe recipe = findRecipe(recipeName);
         if (recipe == null) {
-            throw new RecipeNotFoundException("Recipe not found: " + recipeName);
+            throw new RecipeNotFoundException();
         }
         if (indexNextOrderToPlace >= orders.length) {
-            throw new CafeOutOfCapacityException("The cafe is out of capacity.");
+            throw new CafeOutOfCapacityException();
         }
         Order order = new Order(recipe, customerName, amountPaid);
         orders[indexNextOrderToPlace] = order;

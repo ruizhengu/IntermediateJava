@@ -39,7 +39,7 @@ public class Recipe {
             } else
                 i++;
         }
-        throw new TooManyIngredientsException("Too many ingredients");//isnt being caught for some reason
+        throw new TooManyIngredientsException();//isnt being caught for some reason
         
             
     }

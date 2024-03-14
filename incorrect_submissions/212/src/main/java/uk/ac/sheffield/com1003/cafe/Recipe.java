@@ -41,7 +41,7 @@ public class Recipe {
         }
         else {
             System.out.println("Cannot add " + ingredient + " to this recipe.");
-            throw new TooManyIngredientsException(ingredients.length);
+            throw new TooManyIngredientsException();
         }
     }
 

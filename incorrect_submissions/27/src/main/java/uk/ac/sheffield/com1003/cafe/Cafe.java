@@ -86,7 +86,7 @@ public class Cafe {
         boolean recipeFound = false;
         Recipe[] tempMenu = new Recipe[menu.length];
         if (menu.length < 1) {
-        	throw new RecipeNotFoundException(recipeName);
+        	throw new RecipeNotFoundException();
         }
         for (int i = 0; i < menu.length; i++) {
         	if (menu[i] != null && menu[i].getName() == recipeName) {
@@ -101,7 +101,7 @@ public class Cafe {
         	}
         }
         if (!recipeFound) {
-        	throw new RecipeNotFoundException(recipeName);
+        	throw new RecipeNotFoundException();
         }
         menu = tempMenu;
     }
@@ -175,7 +175,7 @@ public class Cafe {
      */
     public boolean placeOrder(String recipeName, String customerName, double amountPaid) throws RecipeNotFoundException, CafeOutOfCapacityException{
     	if (indexNextOrderToPlace >= orders.length) {
-    		throw new CafeOutOfCapacityException(this);
+    		throw new CafeOutOfCapacityException();
     	}
     	if (findRecipe(recipeName) != null && findRecipe(recipeName).getPrice() <= amountPaid) {
     		orders[indexNextOrderToPlace] = new Order(findRecipe(recipeName), customerName, amountPaid);
@@ -183,7 +183,7 @@ public class Cafe {
         }
         else {
         	if (findRecipe(recipeName) == null) {
-        		throw new RecipeNotFoundException(recipeName);
+        		throw new RecipeNotFoundException();
         	}
         	return false;	
         }

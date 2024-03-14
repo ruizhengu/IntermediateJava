@@ -93,7 +93,7 @@ public class Cafe {
         //check the recipe exists
         if(findRecipe(recipeName) == null){
             System.out.println(recipeName+ " cannot be deleted as it doesn't exist");
-            throw new RecipeNotFoundException(recipeName);
+            throw new RecipeNotFoundException();
         }
         else{
             //find recipe in menu and change it to null
@@ -179,13 +179,13 @@ public class Cafe {
         //check if orders are full
         if(indexNextOrderToPlace >= orders.length){
             System.out.println(recipeName+ " cannot be added as cafe is full");
-            throw new CafeOutOfCapacityException(recipeName);
+            throw new CafeOutOfCapacityException();
         }
         else{
             //check that the recipe exists
             if(findRecipe(recipeName) == null){
                 System.out.println(recipeName+ " cannot be added as the recipe doesn't exist");
-                throw new RecipeNotFoundException(recipeName);
+                throw new RecipeNotFoundException();
             }
             //if recipe is not null add it to the orders and increment next order
             else{

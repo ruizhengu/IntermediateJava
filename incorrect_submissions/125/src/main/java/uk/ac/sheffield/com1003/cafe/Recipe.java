@@ -77,7 +77,7 @@ public class Recipe {
         if (i < ingredients.length)
             ingredients[i] = ingredient;
         else
-            throw new TooManyIngredientsException("Too many ingredients have been added to this recipe.");
+            throw new TooManyIngredientsException();
     }
 
     public String getName() {

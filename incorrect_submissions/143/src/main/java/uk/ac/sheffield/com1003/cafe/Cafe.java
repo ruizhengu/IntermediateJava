@@ -101,7 +101,7 @@ public class Cafe {
             i++;
         }
         if (!recipeFound) {
-            throw new RecipeNotFoundException(recipeName);
+            throw new RecipeNotFoundException();
         }
     }
 
@@ -187,12 +187,12 @@ public class Cafe {
 
         //Throw RecipeNotFoundException if recipe not found
         if (requestedRecipe == null) {
-            throw new RecipeNotFoundException(recipeName);
+            throw new RecipeNotFoundException();
         }
 
         //Throw CafeOutOfCapacityException if cafe is at maximum capacity
         if (indexNextOrderToPlace >= orders.length) {
-            throw new CafeOutOfCapacityException(orders.length);
+            throw new CafeOutOfCapacityException();
         }
 
         //Create new order and add it to the orders array

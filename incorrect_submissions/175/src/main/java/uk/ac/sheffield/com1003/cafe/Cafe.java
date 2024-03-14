@@ -98,7 +98,7 @@ public class Cafe {
             }
         }
         if (recipeToRemove == null) {
-            throw new RecipeNotFoundException("Recipe not found: " + recipeName);
+            throw new RecipeNotFoundException();
         }
         // remove menu item from array, then decrement index of other array items by one
         for (int i=0; i< menu.length-1; i++) {
@@ -182,10 +182,10 @@ public class Cafe {
         Recipe recipe = cafe.findRecipe(recipeName);
         // exceptions handled
         if (recipe == null) {
-            throw new RecipeNotFoundException("Recipe not found: " + recipeName);
+            throw new RecipeNotFoundException();
         }
         if (indexNextOrderToPlace >= CAPACITY) {
-            throw new CafeOutOfCapacityException("The Cafe is experiencing a high volume of orders. Please wait. ");
+            throw new CafeOutOfCapacityException();
         }
         // new instance of 'Order' created,
         Order customerOrder = new Order(recipe, customerName, amountPaid);

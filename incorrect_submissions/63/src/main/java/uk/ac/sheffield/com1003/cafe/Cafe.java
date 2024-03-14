@@ -111,7 +111,7 @@ public class Cafe {
         }
 
         if (!flag) {
-            throw new RecipeNotFoundException("Sorry we have no this coffee you want");
+            throw new RecipeNotFoundException();
         }
     }
 
@@ -184,10 +184,10 @@ public class Cafe {
     public boolean placeOrder(String recipeName, String customerName, double amountPaid)
             throws RecipeNotFoundException, CafeOutOfCapacityException {
         if(this.findRecipe(recipeName) == null){
-            throw new RecipeNotFoundException("Sorry we can't find the coffee you want.");
+            throw new RecipeNotFoundException();
         }
         if (indexNextOrderToPlace >orders.length-1){
-            throw new CafeOutOfCapacityException("Sorry we are so busy that we can not offer more coffee");
+            throw new CafeOutOfCapacityException();
         }
         orders[indexNextOrderToPlace] = new Order(findRecipe(recipeName),customerName,amountPaid);
         indexNextOrderToPlace++;
