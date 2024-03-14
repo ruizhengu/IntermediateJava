@@ -31,9 +31,7 @@ public class App {
             bigSoyLatte.addIngredient(new Coffee());
 
 
-
         } catch (TooManyIngredientsException e) {
-            System.out.println("this recipe only has" + e.getValue() + "ingredients ");
         }
 
 
@@ -43,39 +41,31 @@ public class App {
         myCafe.addRecipe(bigSoyLatte);
         myCafe.printMenu();
 
-        try{
+        try {
 
-            myCafe.placeOrder("Espresso" ,"Tom" , 6 );
-            myCafe.placeOrder("Double Espresso" ,"Tom3" , 6);
+            myCafe.placeOrder("Espresso", "Tom", 6);
+            myCafe.placeOrder("Double Espresso", "Tom3", 6);
 
 
         } catch (RecipeNotFoundException e) {
-            System.out.println( e.getValue() +" Is not on the menu");
-        }catch(CafeOutOfCapacityException e) {
-            System.out.println("you only have an order Capcity of " + e.getValue());
+        } catch (CafeOutOfCapacityException e) {
         }
 
         myCafe.printPendingOrders();
 
 
-        if (soyLatte.equals(bigSoyLatte)){
+        if (soyLatte.equals(bigSoyLatte)) {
             System.out.println(" equal ");
-        }
-        else{
+        } else {
             System.out.println("not equal");
         }
 
         try {
             myCafe.removeRecipe("Large Soy Latte");
-        }
-        catch (RecipeNotFoundException e){
-            System.out.println( e.getValue() +" Is not on the menu");
+        } catch (RecipeNotFoundException e) {
         }
 
         myCafe.printMenu();
-
-
-
 
 
     }

@@ -186,7 +186,7 @@ public class Cafe {
             }
         }
         else
-            throw new CafeOutOfCapacityException());
+            throw new CafeOutOfCapacityException();
 
         return false;
     }

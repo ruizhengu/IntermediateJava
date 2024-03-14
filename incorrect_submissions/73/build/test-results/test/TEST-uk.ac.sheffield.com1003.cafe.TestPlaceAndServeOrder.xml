@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="uk.ac.sheffield.com1003.cafe.TestPlaceAndServeOrder" tests="1" skipped="0" failures="1" errors="0" timestamp="2024-03-14T17:50:57" hostname="dyn098145.shef.ac.uk" time="0.001">
+<testsuite name="uk.ac.sheffield.com1003.cafe.TestPlaceAndServeOrder" tests="1" skipped="0" failures="1" errors="0" timestamp="2024-03-14T20:12:07" hostname="dyn098145.shef.ac.uk" time="0.002">
   <properties/>
-  <testcase name="placeAndServeOrder" classname="uk.ac.sheffield.com1003.cafe.TestPlaceAndServeOrder" time="0.001">
+  <testcase name="placeAndServeOrder" classname="uk.ac.sheffield.com1003.cafe.TestPlaceAndServeOrder" time="0.002">
     <failure message="uk.ac.sheffield.com1003.cafe.exceptions.CafeOutOfCapacityException" type="uk.ac.sheffield.com1003.cafe.exceptions.CafeOutOfCapacityException">uk.ac.sheffield.com1003.cafe.exceptions.CafeOutOfCapacityException
 	at uk.ac.sheffield.com1003.cafe.Cafe.serveOrder(Cafe.java:202)
 	at uk.ac.sheffield.com1003.cafe.TestPlaceAndServeOrder.placeAndServeOrder(TestPlaceAndServeOrder.java:102)

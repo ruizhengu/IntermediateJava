@@ -43,7 +43,6 @@ public class App {
         try {
             myCafe.placeOrder("Espresso", "John", 3);
         } catch (RecipeNotFoundException e) {
-            System.out.println(e.getRecipeName() + " is not a valid recipe");
         } catch (CafeOutOfCapacityException e) {
             System.out.println(e.getMessage());
         }      

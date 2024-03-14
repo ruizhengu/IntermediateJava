@@ -90,7 +90,7 @@ public class Cafe {
      *
      * @param recipeName Name of the recipe to be removed
      */
-    public void removeRecipe(String recipeName) {
+    public void removeRecipe(String recipeName) throws RecipeNotFoundException {
         int len = menu.length;
         boolean flag = false;
         for (int i = 0; i < len; i++) {

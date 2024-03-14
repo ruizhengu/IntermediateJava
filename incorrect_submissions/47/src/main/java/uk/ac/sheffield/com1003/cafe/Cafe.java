@@ -22,7 +22,7 @@ public class Cafe {
     }
 
     /**
-     * Constructor that takes cafe name as parameter, and 
+     * Constructor that takes cafe name as parameter, and
      * initialises menu size to 10 and capacity (number of orders) to 100.
      */
     public Cafe(String name) {
@@ -44,6 +44,7 @@ public class Cafe {
 
     /**
      * Returns greeting string
+     *
      * @return "Welcome to <cafe name>"
      */
     public String greeting() {
@@ -52,6 +53,7 @@ public class Cafe {
 
     /**
      * Getter for cafe name
+     *
      * @return Cafe name
      */
     public String getName() {
@@ -61,7 +63,7 @@ public class Cafe {
 
     /**
      * Add the given recipe to the menu.
-     * 
+     *
      * @param newRecipe Recipe to be added to menu
      * @return Returns true if there is space in the menu and new recipe is successfully added; false otherwise
      */
@@ -82,6 +84,7 @@ public class Cafe {
     /**
      * Find recipe with given name and remove it from the menu.
      * Assumes there are no duplicated recipe names.
+     *
      * @param recipeName Name of the recipe to be removed
      */
     public void removeRecipe(String recipeName) throws RecipeNotFoundException {
@@ -89,7 +92,7 @@ public class Cafe {
         try {
             int i = 0;
             boolean removed = false;
-            for(Recipe menuRecipe: menu) {
+            for (Recipe menuRecipe : menu) {
                 if (recipeName.equals(menu[i].getName())) {
                     menu[i] = null;
                     nRecipes--;
@@ -98,14 +101,14 @@ public class Cafe {
             }
             if (!removed)
                 throw new RecipeNotFoundException();
-        } catch(RecipeNotFoundException e) {
-            System.err.println("The recipe " + "\"" + e.getUnknownRecipe() + "\"" + " does not exist in the menu.");
+        } catch (RecipeNotFoundException e) {
+            System.err.println("The recipe " + "\"" + "\"" + " does not exist in the menu.");
         }
     }
 
     /**
      * Returns the current list of recipes in the menu excluding empty/null elements
-     * 
+     *
      * @return Array of recipes contained in the menu (excluding nulls)
      */
     public Recipe[] getMenu() {
@@ -127,8 +130,8 @@ public class Cafe {
      */
     public void printPendingOrders() {
         System.out.println("Pending Orders:");
-        for(Order pendingOrder: orders) {
-            if(pendingOrder != null) // Only print recipe if it is not null.
+        for (Order pendingOrder : orders) {
+            if (pendingOrder != null) // Only print recipe if it is not null.
                 System.out.println(pendingOrder);
         }
     }
@@ -145,21 +148,23 @@ public class Cafe {
      */
     public void printMenu() {
         System.out.println("==========\n" + this.greeting() + "\nMenu\n==========");
-        for(Recipe recipe: getMenu()) {
+        for (Recipe recipe : getMenu()) {
             System.out.println(recipe.getName() + " - " + recipe.getPrice());
         }
         System.out.println("==========\nEnjoy!");
-    };
+    }
+
+    ;
 
 
     /**
      * Place an order for a given recipe name with a given amount of money.
-     * 
-     * @param recipeName The name of the recipe being ordered
-     * @param amountPaid Money handed when placing order
+     *
+     * @param recipeName   The name of the recipe being ordered
+     * @param amountPaid   Money handed when placing order
      * @param customerName Name of customer placing order
      * @return True if the recipe name exists in the menu and the amount paid is sufficcient; return false otherwise
-     * @throws RecipeNotFoundException if the recipe name does not exist in the menu
+     * @throws RecipeNotFoundException    if the recipe name does not exist in the menu
      * @throws CafeOutOfCapacityException if the cafe cannot take any more orders and is out of capacity
      */
     public boolean placeOrder(String recipeName, String customerName, double amountPaid)
@@ -180,22 +185,22 @@ public class Cafe {
             }
         }
 
-            if (isOutOfCapacity)
-                throw new CafeOutOfCapacityException();
-            if (!recipeExists)
-                throw new RecipeNotFoundException();
+        if (isOutOfCapacity)
+            throw new CafeOutOfCapacityException();
+        if (!recipeExists)
+            throw new RecipeNotFoundException();
 
-            if (recipeExists && amountPaidIsSufficient) {
-                isOrderPlaced = true;
-                orders[indexNextOrderToPlace] = new Order(recipeObject, customerName, amountPaid);
-                indexNextOrderToPlace++;
-            }
+        if (recipeExists && amountPaidIsSufficient) {
+            isOrderPlaced = true;
+            orders[indexNextOrderToPlace] = new Order(recipeObject, customerName, amountPaid);
+            indexNextOrderToPlace++;
+        }
         return isOrderPlaced;
     }
 
     /**
      * Find a recipe in the menu given a recipe name
-     * 
+     *
      * @param recipeName Name of the recipe to find
      * @return The recipe found or null otherwise
      */
@@ -211,6 +216,7 @@ public class Cafe {
 
     /**
      * If there is an order to serve, serves it ({@link Order#serve()}) and increments {@link Cafe#indexNextOrderToServe}
+     *
      * @return The updated served order, or null of there is no order to serve.
      */
     public Order serveOrder() {

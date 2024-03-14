@@ -5,8 +5,8 @@ import uk.ac.sheffield.com1003.cafe.ingredients.*;
 
 public class App {
     public static void main(String[] args) {
-       try{
-           Cafe cafe = new Cafe();
+        try {
+            Cafe cafe = new Cafe();
             // Add Espresso, Double Espresso and Large Soy Latte to menu
             Recipe espresso = new Recipe("Espresso", 1.5, Recipe.Size.SMALL, 2);
             espresso.addIngredient(new Coffee());
@@ -25,14 +25,12 @@ public class App {
             cafe.addRecipe(soyLatte);
             cafe.printMenu();
             cafe.placeOrder(soyLatte.getName(), "Mike", 3.0);
-       } catch (TooManyIngredientsException e) {
-           System.out.println("Sorry, you've already added too many ingredients");
-       } catch (CafeOutOfCapacityException e) {
-        System.out.println("We apologize, we have " + e.getMaxCapacity() + " orders to serve right now, we are so busy today that we cannot serve you this order.");
-        // throw new CafeOutOfCapacityException();
-       } catch (RecipeNotFoundException e) {
-        System.out.println("Sorry, the recipe " + "\"" + e.getUnknownRecipe() + "\"" + " does not exist in our menu.");
-        // throw new RecipeNotFoundException();
-    }
+        } catch (TooManyIngredientsException e) {
+            System.out.println("Sorry, you've already added too many ingredients");
+        } catch (CafeOutOfCapacityException e) {
+            // throw new CafeOutOfCapacityException();
+        } catch (RecipeNotFoundException e) {
+            // throw new RecipeNotFoundException();
+        }
     }
 }

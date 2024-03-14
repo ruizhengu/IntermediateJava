@@ -1,3 +1,5 @@
+/src/main/java/aspect/
+
 # Reference: https://gist.github.com/dedunumax/54e82214715e35439227
 
 ##############################
@@ -6,8 +8,8 @@
 .mtj.tmp/
 *.class
 *.log
-*.jar
 *.war
+*.nar
 *.ear
 *.zip
 *.tar.gz
@@ -86,5 +88,3 @@ nb-configuration.xml
 ## OS X
 ##############################
 .DS_Store
-# Ignore Gradle build output directory
-build
