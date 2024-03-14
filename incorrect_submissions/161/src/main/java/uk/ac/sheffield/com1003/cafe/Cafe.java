@@ -87,7 +87,7 @@ public class Cafe {
      */
     public void removeRecipe(String recipeName) throws RecipeNotFoundException {
         if (this.findRecipe(recipeName) == null) {
-            throw new RecipeNotFoundException(recipeName);
+            throw new RecipeNotFoundException();
         } else {
             int i = 0;
             while (i<menu.length) {
@@ -98,7 +98,7 @@ public class Cafe {
                 }
                 i++;
                 if (i == menu.length) {
-                    throw new RecipeNotFoundException(recipeName);
+                    throw new RecipeNotFoundException();
                 }
             }
         }
@@ -174,7 +174,7 @@ public class Cafe {
         }
 
         if (this.findRecipe(recipeName) == null) {
-            throw new RecipeNotFoundException(recipeName);
+            throw new RecipeNotFoundException();
         } else if (amountPaid >= this.findRecipe(recipeName).getPrice()) {
             orders[indexNextOrderToPlace] = new Order(this.findRecipe(recipeName), customerName, amountPaid);
             indexNextOrderToPlace++;

@@ -101,7 +101,7 @@ public class Cafe {
             }
         }
         // If the recipe is not found, throw a RecipeNotFoundException with an appropriate error message
-        throw new RecipeNotFoundException("Recipe with name " + recipeName + " not found.");
+        throw new RecipeNotFoundException();
     }
 
     /**
@@ -171,10 +171,10 @@ public class Cafe {
     public boolean placeOrder(String recipeName, String customerName, double amountPaid) throws RecipeNotFoundException, CafeOutOfCapacityException {
         Recipe recipe = findRecipe(recipeName);
         if (recipe == null) {
-            throw new RecipeNotFoundException("Recipe not found: " + recipeName);
+            throw new RecipeNotFoundException();
         }
         if (indexNextOrderToPlace == orders.length) {
-            throw new CafeOutOfCapacityException("Cafe out of capacity");
+            throw new CafeOutOfCapacityException();
         }
         Order order = new Order(recipe, customerName, amountPaid);
         orders[indexNextOrderToPlace] = order;

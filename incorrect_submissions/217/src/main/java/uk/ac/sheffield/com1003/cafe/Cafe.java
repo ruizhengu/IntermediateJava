@@ -96,7 +96,7 @@ public class Cafe {
             }
         }
         if (found == false || recipeName == null) {
-            throw new RecipeNotFoundException("Recipe not found " + recipeName);
+            throw new RecipeNotFoundException();
         }
         else {
             nRecipes--;
@@ -171,7 +171,7 @@ public class Cafe {
     public boolean placeOrder(String recipeName, String customerName, double amountPaid) throws RecipeNotFoundException, CafeOutOfCapacityException {
        // checking whether the cafe orders will be out of capacity or not to throw the exception and introducing the exceptions with the constructor
         if (orders.length <= indexNextOrderToPlace ){
-            throw new CafeOutOfCapacityException("cafe exceeded order limit");
+            throw new CafeOutOfCapacityException();
         }
         // checking whether payment is sufficent and name is correct to add order to an array to be used later
         for (int i=0; i <= menu.length; i++) {
@@ -183,7 +183,7 @@ public class Cafe {
             }
             //name exception
             else if(recipeName != menu[i].getName()){
-                throw new RecipeNotFoundException("Recipe not found " + recipeName);
+                throw new RecipeNotFoundException();
             }
             else {
                 return false;

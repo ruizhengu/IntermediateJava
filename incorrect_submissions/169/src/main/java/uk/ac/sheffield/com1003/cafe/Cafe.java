@@ -101,7 +101,7 @@ public class Cafe {
                 }
             }
             if (!recipeFound) {
-                throw new RecipeNotFoundException(recipeName);
+                throw new RecipeNotFoundException();
             }
     }
 
@@ -193,12 +193,12 @@ public class Cafe {
             }
             if (recipe == null) {
                 //System.out.println("Recipe Name: " + recipeName + " " + "Customer Name: " + customerName + " " + "Amount Paid: " + amountPaid);
-                throw new RecipeNotFoundException("Recipe not found: " + recipeName);
+                throw new RecipeNotFoundException();
 
             }
             if (indexNextOrderToPlace >= orders.length) {
                 //System.out.println("Recipe Name: " + recipeName + " " + "Customer Name: " + customerName + " " + "Amount Paid: " + amountPaid);
-                throw new CafeOutOfCapacityException("Cafe exceeds the maximum capacity");
+                throw new CafeOutOfCapacityException();
 
 
             }

@@ -88,7 +88,7 @@ public class Cafe {
         boolean removed = false;
         //check that recipe being removed exists in menu for this cafe
         if (findRecipe(recipeName) == null){
-            throw new RecipeNotFoundException(recipeName);
+            throw new RecipeNotFoundException();
         }
 
         //iterate through to find recipe, replace with null
@@ -170,10 +170,10 @@ public class Cafe {
         //exception checks - context/recipename is passed depending on exception type
         String context = "Ordering";
         if (findRecipe(recipeName) == null){
-            throw new RecipeNotFoundException(recipeName);
+            throw new RecipeNotFoundException();
         }
         if (indexNextOrderToPlace >= orders.length) {
-            throw new CafeOutOfCapacityException(context);
+            throw new CafeOutOfCapacityException();
         }
 
         //temporary object for ease of use / checking price of recipe
@@ -213,7 +213,7 @@ public class Cafe {
     public Order serveOrder() throws CafeOutOfCapacityException {
         String context = "Serving";
         if (indexNextOrderToServe >= orders.length) {
-            throw new CafeOutOfCapacityException(context);
+            throw new CafeOutOfCapacityException();
         }
         Order orderToReturn = orders[indexNextOrderToServe];
         indexNextOrderToServe += 1;

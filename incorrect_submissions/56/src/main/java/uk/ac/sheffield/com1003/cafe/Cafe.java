@@ -103,7 +103,7 @@ public class Cafe {
             i++;
         }
         if (!recipeExists) {
-            throw new RecipeNotFoundException("recipe does not exist");
+            throw new RecipeNotFoundException();
         }
 
         Recipe[] tempMenu = new Recipe[nRecipes - 2];
@@ -198,9 +198,9 @@ public class Cafe {
 
         Recipe checkRecipe = findRecipe(recipeName);
         if (checkRecipe == null) {
-            throw new RecipeNotFoundException("Recipe doesnt exist");
+            throw new RecipeNotFoundException();
         } else if (indexNextOrderToPlace >= orders.length) {
-            throw new CafeOutOfCapacityException("Cafe is full");
+            throw new CafeOutOfCapacityException();
         }
 
         else if (amountPaid >= checkRecipe.getPrice()) {

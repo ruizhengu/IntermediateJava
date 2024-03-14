@@ -103,7 +103,7 @@ public class Cafe {
         }
         //if the recipe is not found it throws an exception
         if (found == false){
-          throw new RecipeNotFoundException(recipeName + " was not found in the menu.");
+          throw new RecipeNotFoundException();
         }
     }
 
@@ -176,7 +176,7 @@ public class Cafe {
          //Finding the recipe
          Recipe recipe = findRecipe(recipeName);
          if (recipe == null){
-           throw new RecipeNotFoundException(recipeName + " was not found in the menu.");
+           throw new RecipeNotFoundException();
          }
 
          //Checking if amount paid is sufficcient to place order
@@ -187,7 +187,7 @@ public class Cafe {
 
          //If number of orders exceed capacity throw exception
          if (indexNextOrderToPlace >= orders.length){
-           throw new CafeOutOfCapacityException("Unfortunately we cannot take anymore orders.");
+           throw new CafeOutOfCapacityException();
          }
 
          //Creating the new order and incrementing the array

@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="uk.ac.sheffield.com1003.cafe.TestCafeTask3" tests="13" skipped="0" failures="1" errors="0" timestamp="2024-03-13T15:37:52" hostname="dyn098145.shef.ac.uk" time="0.016">
+<testsuite name="uk.ac.sheffield.com1003.cafe.TestCafeTask3" tests="13" skipped="0" failures="1" errors="0" timestamp="2024-03-14T17:06:18" hostname="dyn098145.shef.ac.uk" time="0.029">
   <properties/>
-  <testcase name="placeOrderForNonexistentRecipeThrowsCorrectException" classname="uk.ac.sheffield.com1003.cafe.TestCafeTask3" time="0.0"/>
+  <testcase name="placeOrderForNonexistentRecipeThrowsCorrectException" classname="uk.ac.sheffield.com1003.cafe.TestCafeTask3" time="0.001"/>
   <testcase name="placeOrderForNonexistentRecipeThrowsException" classname="uk.ac.sheffield.com1003.cafe.TestCafeTask3" time="0.0"/>
   <testcase name="testCafeOutOfCapacityExceptionExists" classname="uk.ac.sheffield.com1003.cafe.TestCafeTask3" time="0.0"/>
-  <testcase name="placeOrderWithInsufficientFunds" classname="uk.ac.sheffield.com1003.cafe.TestCafeTask3" time="0.0"/>
-  <testcase name="placeOrderAndCheckIndexes" classname="uk.ac.sheffield.com1003.cafe.TestCafeTask3" time="0.01"/>
+  <testcase name="placeOrderWithInsufficientFunds" classname="uk.ac.sheffield.com1003.cafe.TestCafeTask3" time="0.001"/>
+  <testcase name="placeOrderAndCheckIndexes" classname="uk.ac.sheffield.com1003.cafe.TestCafeTask3" time="0.016"/>
   <testcase name="testRecipeNotFoundExceptionExists" classname="uk.ac.sheffield.com1003.cafe.TestCafeTask3" time="0.0"/>
   <testcase name="placeOrder" classname="uk.ac.sheffield.com1003.cafe.TestCafeTask3" time="0.0"/>
   <testcase name="serveNonexistentOrder" classname="uk.ac.sheffield.com1003.cafe.TestCafeTask3" time="0.001"/>
-  <testcase name="placeOrderCapacityZeroThrowsCorrectException" classname="uk.ac.sheffield.com1003.cafe.TestCafeTask3" time="0.0"/>
-  <testcase name="placeOrderOutOfCapacityThrowsException" classname="uk.ac.sheffield.com1003.cafe.TestCafeTask3" time="0.0"/>
+  <testcase name="placeOrderCapacityZeroThrowsCorrectException" classname="uk.ac.sheffield.com1003.cafe.TestCafeTask3" time="0.001"/>
+  <testcase name="placeOrderOutOfCapacityThrowsException" classname="uk.ac.sheffield.com1003.cafe.TestCafeTask3" time="0.001"/>
   <testcase name="placeOrderCapacityZeroThrowsException" classname="uk.ac.sheffield.com1003.cafe.TestCafeTask3" time="0.0"/>
-  <testcase name="placeOrderOutOfCapacityThrowsCorrectException" classname="uk.ac.sheffield.com1003.cafe.TestCafeTask3" time="0.0"/>
-  <testcase name="placeAndServeOrder" classname="uk.ac.sheffield.com1003.cafe.TestCafeTask3" time="0.003">
+  <testcase name="placeOrderOutOfCapacityThrowsCorrectException" classname="uk.ac.sheffield.com1003.cafe.TestCafeTask3" time="0.001"/>
+  <testcase name="placeAndServeOrder" classname="uk.ac.sheffield.com1003.cafe.TestCafeTask3" time="0.004">
     <failure message="uk.ac.sheffield.com1003.cafe.exceptions.CafeOutOfCapacityException" type="uk.ac.sheffield.com1003.cafe.exceptions.CafeOutOfCapacityException">uk.ac.sheffield.com1003.cafe.exceptions.CafeOutOfCapacityException
 	at uk.ac.sheffield.com1003.cafe.Cafe.serveOrder(Cafe.java:202)
 	at uk.ac.sheffield.com1003.cafe.TestCafeTask3.placeAndServeOrder(TestCafeTask3.java:188)

@@ -97,7 +97,7 @@ public class Cafe {
                 }
             }
         }else {
-            throw new RecipeNotFoundException("Recipe Not Found Exception");
+            throw new RecipeNotFoundException();
         }
         // Implement solution to task 7 here
     }
@@ -179,11 +179,11 @@ public class Cafe {
         //Task three
         // Check if the recipe exists in the menu
         if (findRecipe(recipeName) == null) {
-            throw new RecipeNotFoundException("Recipe not found: " + recipeName);
+            throw new RecipeNotFoundException();
         }
         // Check if the cafe has reached its maximum number of orders
         if (indexNextOrderToPlace >= orders.length) {
-            throw new CafeOutOfCapacityException("Cafe is out of capacity");
+            throw new CafeOutOfCapacityException();
         }
 
         //and finally add the order

@@ -100,7 +100,7 @@ public class Cafe {
 
         // If no recipe was removed, throw a RecipeNotFoundException
         if (!removedRecipe) {
-            throw new RecipeNotFoundException(recipeName);
+            throw new RecipeNotFoundException();
         }
     }
 
@@ -207,7 +207,7 @@ public class Cafe {
             return true;
         } else {
             if (recipe == null) {
-                throw new RecipeNotFoundException(recipeName);
+                throw new RecipeNotFoundException();
             }
             return false;
         }

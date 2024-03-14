@@ -170,11 +170,11 @@ public class Cafe {
         //Exceptions
         if (this.orders.length <= indexNextOrderToPlace) {
             orderPlaced = false;
-            throw new CafeOutOfCapacityException(0);
+            throw new CafeOutOfCapacityException();
         }
         if (findRecipe(recipeName) == null) {
             orderPlaced = false;
-            throw new RecipeNotFoundException(recipeName);
+            throw new RecipeNotFoundException();
         }
 
         Recipe orderRecipe = findRecipe(recipeName);

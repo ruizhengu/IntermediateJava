@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="uk.ac.sheffield.com1003.cafe.TestRecipeMultipleIngredientsDifferentName" tests="1" skipped="0" failures="1" errors="0" timestamp="2024-03-13T15:37:52" hostname="dyn098145.shef.ac.uk" time="0.0">
+<testsuite name="uk.ac.sheffield.com1003.cafe.TestRecipeMultipleIngredientsDifferentName" tests="1" skipped="0" failures="1" errors="0" timestamp="2024-03-14T17:06:18" hostname="dyn098145.shef.ac.uk" time="0.001">
   <properties/>
-  <testcase name="testRecipeMultipleIngredientsDifferentName" classname="uk.ac.sheffield.com1003.cafe.TestRecipeMultipleIngredientsDifferentName" time="0.0">
-    <failure message="java.lang.AssertionError: expected:&lt;uk.ac.sheffield.com1003.cafe.Recipe@6ba2a693&gt; but was:&lt;uk.ac.sheffield.com1003.cafe.Recipe@65655597&gt;" type="java.lang.AssertionError">java.lang.AssertionError: expected:&lt;uk.ac.sheffield.com1003.cafe.Recipe@6ba2a693&gt; but was:&lt;uk.ac.sheffield.com1003.cafe.Recipe@65655597&gt;
+  <testcase name="testRecipeMultipleIngredientsDifferentName" classname="uk.ac.sheffield.com1003.cafe.TestRecipeMultipleIngredientsDifferentName" time="0.001">
+    <failure message="java.lang.AssertionError: expected:&lt;uk.ac.sheffield.com1003.cafe.Recipe@3edd31fd&gt; but was:&lt;uk.ac.sheffield.com1003.cafe.Recipe@301ac856&gt;" type="java.lang.AssertionError">java.lang.AssertionError: expected:&lt;uk.ac.sheffield.com1003.cafe.Recipe@3edd31fd&gt; but was:&lt;uk.ac.sheffield.com1003.cafe.Recipe@301ac856&gt;
 	at org.junit.Assert.fail(Assert.java:89)
 	at org.junit.Assert.failNotEquals(Assert.java:835)
 	at org.junit.Assert.assertEquals(Assert.java:120)

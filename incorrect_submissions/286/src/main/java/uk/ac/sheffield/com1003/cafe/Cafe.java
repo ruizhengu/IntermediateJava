@@ -89,7 +89,7 @@ public class Cafe {
                 recipe = null;
             }
             else    
-                throw new RecipeNotFoundException(recipeName);
+                throw new RecipeNotFoundException();
         }
     }
 
@@ -165,7 +165,7 @@ public class Cafe {
                 return true;
             }
             else
-                throw new RecipeNotFoundException(recipeName);
+                throw new RecipeNotFoundException();
         }
         else 
             throw new CafeOutOfCapacityException();
@@ -181,7 +181,7 @@ public class Cafe {
                 return true;
             }
             else
-                throw new RecipeNotFoundException(recipeName);
+                throw new RecipeNotFoundException();
         }
         else 
             throw new CafeOutOfCapacityException();

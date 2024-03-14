@@ -94,7 +94,7 @@ public class Cafe {
             }
         }
         if (!removedRecipe)
-            throw new RecipeNotFoundException("Recipe" + recipeName + "not found.");
+            throw new RecipeNotFoundException();
     }
 
 
@@ -168,7 +168,7 @@ public class Cafe {
             return false;
         }
         if(recipe==null){
-            throw new RecipeNotFoundException("Recipe not found" + recipeName);
+            throw new RecipeNotFoundException();
         }
         Order order = new Order(recipe, customerName, amountPaid);
         if (indexNextOrderToPlace >= orders.length){

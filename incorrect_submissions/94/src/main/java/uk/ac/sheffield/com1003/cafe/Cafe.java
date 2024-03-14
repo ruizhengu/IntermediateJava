@@ -101,7 +101,7 @@ public class Cafe {
 
         // if recipeName does not exist then an exception is thrown
         if (!existOrNot) {
-            throw new RecipeNotFoundException("Recipe does not exist in the menu");
+            throw new RecipeNotFoundException();
         }
 
         // finds the recipe to be deleted from the menu and deletes it
@@ -208,11 +208,11 @@ public class Cafe {
 
         // if recipeName does not exist then an exception is thrown
         if (!existOrNot) {
-            throw new RecipeNotFoundException("Recipe does not exist in the menu");
+            throw new RecipeNotFoundException();
         }
         // if orders array cannot take any more orders then an exception is thrown
         if (indexNextOrderToPlace == orders.length || indexNextOrderToPlace == 100 ) {
-            throw new CafeOutOfCapacityException("Cafe cannot take any more orders and is out of capacity");
+            throw new CafeOutOfCapacityException();
         }
 
         // New instance of new order
@@ -262,7 +262,7 @@ public class Cafe {
             // if selection which updates the order and then implements by 1 and then returns the updated order 
             if (orders[indexNextOrderToServe] != null) {
                 if (indexNextOrderToServe == orders.length || indexNextOrderToServe == 100 ) {
-                    throw new CafeOutOfCapacityException("Cafe cannot take any more orders and is out of capacity");
+                    throw new CafeOutOfCapacityException();
                 }
                 // updates the order
                 orders[indexNextOrderToServe].serve();

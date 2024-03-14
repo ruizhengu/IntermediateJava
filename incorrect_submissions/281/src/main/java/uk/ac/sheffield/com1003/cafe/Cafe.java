@@ -94,7 +94,7 @@ public class Cafe {
             counter++;
         }
 
-        if (!found) throw new RecipeNotFoundException(recipeName);
+        if (!found) throw new RecipeNotFoundException();
     }
 
     /**
@@ -187,7 +187,7 @@ public class Cafe {
 
         // Handles the case where recipe is null
         if (recipe == null) {
-            throw new RecipeNotFoundException(recipeName);
+            throw new RecipeNotFoundException();
         }
 
         // Ensures that the amount paid is sufficient to pay for the recipe

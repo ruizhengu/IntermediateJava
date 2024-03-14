@@ -49,35 +49,35 @@ public class App {
             cafeNotts.placeOrder("Double Espresso", "Vishwas Kancharlapalli",
                     2.25, "Extra coffee");
         } catch (RecipeNotFoundException e) {
-            System.out.println( e.getRecName() + " is a recipe that does not exist. Cannot place the order.");
+            System.out.println( " is a recipe that does not exist. Cannot place the order.");
         } catch (CafeOutOfCapacityException e) {
             System.out.println("The cafe is at maximum capacity. Cannot place the order.");
         }
         try {
             cafeNotts.placeOrder("Espresso", "Vishwas Kancharlapalli", 1.6);
         } catch (RecipeNotFoundException e) {
-            System.out.println( e.getRecName() + " is a recipe that does not exist. Cannot place the order.");
+            System.out.println( " is a recipe that does not exist. Cannot place the order.");
         } catch (CafeOutOfCapacityException e) {
             System.out.println("The cafe is at maximum capacity. Cannot place the order.");
         }
         try {
             cafeNotts.placeOrder("Large Soy Latte", "Vishwas Kancharlapalli", 2.5);
         } catch (RecipeNotFoundException e) {
-            System.out.println( e.getRecName() + " is a recipe that does not exist. Cannot place the order.");
+            System.out.println( " is a recipe that does not exist. Cannot place the order.");
         } catch (CafeOutOfCapacityException e) {
             System.out.println("The cafe is at maximum capacity. Cannot place the order.");
         }
         try {
             cafeNotts.placeOrder("Iced Tea", "Vishwas Kancharlapalli", 2.3);
         } catch (RecipeNotFoundException e) {
-            System.out.println( e.getRecName() + " is a recipe that does not exist. Cannot place the order.");
+            System.out.println( " is a recipe that does not exist. Cannot place the order.");
         } catch (CafeOutOfCapacityException e) {
             System.out.println("The cafe is at maximum capacity. Cannot place the order.");
         }
         try {
             cafeNotts.placeOrder("Creme Brulee", "Vishwas Kancharlapalli", 2.6);
         } catch (RecipeNotFoundException e) {
-            System.out.println( e.getRecName() + " is a recipe that does not exist. Cannot place the order.");
+            System.out.println( " is a recipe that does not exist. Cannot place the order.");
         } catch (CafeOutOfCapacityException e) {
             System.out.println("The cafe is at maximum capacity. Cannot place the order.");
         }
@@ -120,14 +120,14 @@ public class App {
         try {
             cafeNotts.removeRecipe("Double Espresso");
         } catch (RecipeNotFoundException e) {
-            System.out.println(e.getRecName() + " is a recipe that does not exist.");
-            System.out.println(e.getRecName() + ", therefore cannot be removed.");
+            System.out.println(" is a recipe that does not exist.");
+            System.out.println(", therefore cannot be removed.");
         }
         cafeNotts.addRecipe(newRec);
         try {
             cafeNotts.placeOrder("Espresso", "VK", 2.5, "Extra syrup");
         } catch (RecipeNotFoundException e) {
-            System.out.println(e.getRecName() + " is a recipe that does not exist so cannot be placed");
+            System.out.println(" is a recipe that does not exist so cannot be placed");
         } catch (CafeOutOfCapacityException e) {
             System.out.println("Cafe is at maximum capacity");
         }

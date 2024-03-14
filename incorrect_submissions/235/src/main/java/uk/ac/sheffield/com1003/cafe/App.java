@@ -39,10 +39,10 @@ public class App {
             cafe.removeRecipe("Large Soy Latte");
         }
         catch(RecipeNotFoundException notFoundError) {
-            System.out.println(notFoundError.getRecipeName() + " was not found in the menu");
+            System.out.println(notFoundError + " was not found in the menu");
         }
         catch(CafeOutOfCapacityException capacityError) {
-            System.out.println(capacityError.getErrorString());
+            System.out.println(capacityError);
         }
     }
 

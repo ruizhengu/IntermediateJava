@@ -20,7 +20,7 @@ public class App {
         cafe.addRecipe(espresso);
         cafe.addRecipe(doubleEspresso);
         cafe.addRecipe(largeSoyLatte);
-        try{
+        try {
             espresso.addIngredient(new Coffee());
             espresso.addIngredient(new Water());
             doubleEspresso.addIngredient(new Coffee(15));
@@ -38,12 +38,12 @@ public class App {
             cafe.serveOrder();
             cafe.printPendingOrders();
             System.out.println(espresso.equals(doubleEspresso));
-        }catch(TooManyIngredientsException ingredient){
-            System.out.println(ingredient.getRecipeName() + " can take only " + ingredient.getNumOfIngredient() + " ingredients.");
-        }catch(RecipeNotFoundException recipeName){
-            System.out.println(recipeName.getRecipeName() + " is not in the Menu.");
-        }catch(CafeOutOfCapacityException c){
+        } catch (TooManyIngredientsException ingredient) {
+            System.out.println(ingredient + " can take only " + " ingredients.");
+        } catch (RecipeNotFoundException recipeName) {
+            System.out.println(recipeName + " is not in the Menu.");
+        } catch (CafeOutOfCapacityException c) {
             System.out.println("Cafe is out of capacity.");
-        } 
+        }
     }
 }

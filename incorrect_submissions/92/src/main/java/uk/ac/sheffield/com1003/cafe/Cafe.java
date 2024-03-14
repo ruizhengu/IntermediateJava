@@ -89,7 +89,7 @@ public class Cafe {
         for (int i=0; i<menu.length; i++) {
             if (searchRecipe.getName().equals(menu[i].getName())){
                 menu[i] = null;
-            }else throw new RecipeNotFoundException("this Recipe wasn't found");
+            }else throw new RecipeNotFoundException();
         }
     }
 
@@ -161,12 +161,12 @@ public class Cafe {
         // If recipe not found, throw RecipeNotFoundException
         Recipe recipeCustomer = new Recipe(recipeName,amountPaid);
         if (findRecipe(recipeName) == null) {
-            throw new RecipeNotFoundException("Recipe not found in menu.");
+            throw new RecipeNotFoundException();
         }
 
         // Check if the cafe can take any more orders
         if (indexNextOrderToPlace >= orders.length) {
-            throw new CafeOutOfCapacityException("Cafe is out of capacity.");
+            throw new CafeOutOfCapacityException();
         }
 
         // Create the new order and add it to the array of orders

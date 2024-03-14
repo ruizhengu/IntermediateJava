@@ -98,7 +98,7 @@ public class Cafe {
                 return;
             }
         }
-        throw new RecipeNotFoundException(recipeName);
+        throw new RecipeNotFoundException();
     }
 
     /**
@@ -204,7 +204,7 @@ public class Cafe {
         Recipe recipe = findRecipe(recipeName);
 
         if (recipe == null) {
-            throw new RecipeNotFoundException(recipeName);
+            throw new RecipeNotFoundException();
         }
         if (recipe != null) {
             a = true;

@@ -101,7 +101,7 @@ public class Cafe {
         }
 
         // Define condition for RecipeNotFoundException
-        if (index==-1) throw new RecipeNotFoundException(recipeName);
+        if (index==-1) throw new RecipeNotFoundException();
     }
 
     /**
@@ -189,10 +189,10 @@ public class Cafe {
     public boolean placeOrder(String recipeName, String customerName, double amountPaid) throws RecipeNotFoundException,
                                                                                                 CafeOutOfCapacityException {
         // Define condition to throw RecipeNotFoundException
-        if (findRecipe(recipeName) == null) throw new RecipeNotFoundException(recipeName);
+        if (findRecipe(recipeName) == null) throw new RecipeNotFoundException();
 
         // Define condition to throw CafeOutOfCapacityException
-        if (indexNextOrderToPlace >= orders.length) throw new CafeOutOfCapacityException(indexNextOrderToPlace);
+        if (indexNextOrderToPlace >= orders.length) throw new CafeOutOfCapacityException();
 
         // Loop through each recipe in the menu
         for (Recipe recipe: menu) {

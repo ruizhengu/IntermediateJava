@@ -100,7 +100,7 @@ public class Cafe {
     		}
     	
     	} catch (RecipeNotFoundException e) {
-    		e.errorMessage();
+
     	}
     	
     }

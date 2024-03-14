@@ -162,7 +162,7 @@ public class Cafe {
     public boolean placeOrder( String recipeName, String customerName, double amountPaid) throws CafeOutOfCapacityException, RecipeNotFoundException{
         Recipe recipe = findRecipe(recipeName);
           if (recipe == null) {
-            throw new RecipeNotFoundException("Recipe not found: " + recipe.getName());
+            throw new RecipeNotFoundException();
         }
           // amount paid is sufficcient or not
         if (amountPaid < recipe.getPrice()) {

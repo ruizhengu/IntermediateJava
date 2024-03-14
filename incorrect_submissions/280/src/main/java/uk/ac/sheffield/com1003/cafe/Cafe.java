@@ -102,7 +102,7 @@ public class Cafe {
     	
     	//throwing RecipeNotFoundException
     	if(findRecipe(recipeName)==null) {
-    		throw new RecipeNotFoundException("Recipe Not in the menu");
+    		throw new RecipeNotFoundException();
     	}
     }
 
@@ -188,12 +188,12 @@ public class Cafe {
     			}
     		}
     		else {
-    			throw new CafeOutOfCapacityException("Order Out of Capacity");
+    			throw new CafeOutOfCapacityException();
     		}
     	}
     	
     	else {
-    		throw new RecipeNotFoundException("Recipe Not in the menu");
+    		throw new RecipeNotFoundException();
     	}
     	return order;
     }

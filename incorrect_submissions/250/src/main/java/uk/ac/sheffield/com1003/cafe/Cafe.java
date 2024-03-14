@@ -106,7 +106,7 @@ public class Cafe {
             // The recipe is removed from the array by changing it to null
             menu[recipeIndex] = null;
         } else {
-            throw new RecipeNotFoundException("Recipe not found in menu");
+            throw new RecipeNotFoundException();
         }
 
     }
@@ -187,12 +187,12 @@ public class Cafe {
 
         // Checks if recipe exists in menu and throws exception if needed
         if (recipe == null) {
-            throw new RecipeNotFoundException("Recipe is not on the menu");
+            throw new RecipeNotFoundException();
         }
 
         // Checks if the index for the next order is greater than the capacity of the cafe and throws exception if needed
         if (indexNextOrderToPlace >= orders.length) {
-            throw new CafeOutOfCapacityException("Reached maximum order capacity");
+            throw new CafeOutOfCapacityException();
         }
 
         // Checks if the amount paid for the order matches with the price for the recipe

@@ -98,7 +98,7 @@ public class Cafe {
                 }
             }
         } else {
-            throw new RecipeNotFoundException("Sorry! Recipe is not found.");
+            throw new RecipeNotFoundException();
         }
     }
 
@@ -178,7 +178,7 @@ public class Cafe {
         //place order will only work if there is at least 1 recipe in the menu
         if (nRecipes >= 1)  {
             if (indexNextOrderToPlace >= orders.length) {
-                throw new CafeOutOfCapacityException("Sorry! Cafe is out of capacity.");
+                throw new CafeOutOfCapacityException();
             }
             //if recipe is found (not null) and amount paid is more than the price, Order object is created
             if (findRecipe(recipeName) != null) {
@@ -192,7 +192,7 @@ public class Cafe {
                     System.out.println("Sorry! Price of drink is more than the amount paid.");
                 }
             } else {
-                throw new RecipeNotFoundException("Sorry! Recipe is not found.");
+                throw new RecipeNotFoundException();
             }
         } else {
             System.out.println("No recipes in the menu. Cafe is not ready to serve.");

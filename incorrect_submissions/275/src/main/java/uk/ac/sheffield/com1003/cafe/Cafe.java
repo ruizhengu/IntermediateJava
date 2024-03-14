@@ -109,7 +109,7 @@ public class Cafe {
         }
         // if recipe not found, throws error message
         if (!removed) {
-            throw new RecipeNotFoundException("Recipe not found");
+            throw new RecipeNotFoundException();
         }
     }
 
@@ -197,7 +197,7 @@ public class Cafe {
 
                     return true;
                 } else {
-                    throw new CafeOutOfCapacityException("Cafe out of capacity");
+                    throw new CafeOutOfCapacityException();
                 }
             }
 
@@ -205,7 +205,7 @@ public class Cafe {
 
         }
 
-        throw new RecipeNotFoundException("Recipe not found");
+        throw new RecipeNotFoundException();
     }
 
     /**

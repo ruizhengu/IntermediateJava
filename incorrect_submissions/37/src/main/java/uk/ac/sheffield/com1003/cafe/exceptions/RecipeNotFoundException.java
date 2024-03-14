@@ -1,5 +1,5 @@
 package uk.ac.sheffield.com1003.cafe.exceptions;
 
-public class RecipeNotFoundException extends Exception {        //Creating the RecipeNotFoundException
-    
+public class RecipeNotFoundException extends Exception {
+
 }

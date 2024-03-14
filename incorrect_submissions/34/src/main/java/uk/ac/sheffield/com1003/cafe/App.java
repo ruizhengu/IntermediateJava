@@ -24,7 +24,6 @@ public class App {
 			espresso.addIngredient(new Water());
 		} catch (TooManyIngredientsException e) {
 			e.printStackTrace();
-			e.errorMessage();
 		}
 		
 		Recipe doubleEspresso = new Recipe("Double Espresso", 2.2, Size.REGULAR, 2);
@@ -35,7 +34,6 @@ public class App {
 			doubleEspresso.addIngredient(new Water(50));
 		} catch (TooManyIngredientsException e) {
 			e.printStackTrace();
-			e.errorMessage();
 		}
 		
 		Recipe largeSoyLatte = new Recipe("Large Soy Latte", 2.5, Size.LARGE, 2);
@@ -46,7 +44,6 @@ public class App {
 			largeSoyLatte.addIngredient(new Milk(30, Type.SOY));
 		} catch (TooManyIngredientsException e) {
 			e.printStackTrace();
-			e.errorMessage();
 		}
 		
 		newCafe.printMenu();
@@ -56,11 +53,9 @@ public class App {
 			newCafe.placeOrder("Espresso", "Dan", 1.5);
 			
 		} catch (RecipeNotFoundException e) {
-			e.errorMessage();
-			
+
 		} catch (CafeOutOfCapacityException e) {
-			e.errorMessage();
-			
+
 		}
 		
 		newCafe.printPendingOrders();

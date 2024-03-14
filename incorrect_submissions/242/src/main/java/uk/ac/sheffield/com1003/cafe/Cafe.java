@@ -100,7 +100,7 @@ public class Cafe {
             }
         }
         if (!recipeFound) {
-            throw new RecipeNotFoundException("Recipe not found: " + recipeName);
+            throw new RecipeNotFoundException();
         }
     }
 
@@ -170,14 +170,14 @@ public class Cafe {
     		throws RecipeNotFoundException, CafeOutOfCapacityException {
     	Recipe recipe = findRecipe(recipeName);
         if (recipe == null) {
-            throw new RecipeNotFoundException("Recipe not found: " + recipeName);
+            throw new RecipeNotFoundException();
         }
         double price = recipe.getPrice();
         if (amountPaid < price) {
             return false;
         }
         if (indexNextOrderToPlace >= orders.length) {
-            throw new CafeOutOfCapacityException("Cafe is at maximum capacity and cannot take any more orders.");
+            throw new CafeOutOfCapacityException();
         }
         Order order = new Order(recipe, customerName, amountPaid);
         // Add the order to the orders array at the next available index
