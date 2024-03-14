@@ -12,14 +12,15 @@ public class Recipe {
     public void make() {
     }
 
-    public enum Size { SMALL, REGULAR, LARGE };
+    public enum Size {SMALL, REGULAR, LARGE}
+
+    ;
 
     private String name;
     private double price;
     private Size size;
     private int expectedNumIngredients;
-    private List<Ingredient> ingredients = new ArrayList<>();
-
+    private Ingredient[] ingredients;
 
 
     public Recipe(String name, double price, Size size, int expectedNumIngredients) {
@@ -30,10 +31,17 @@ public class Recipe {
     }
 
     public void addIngredient(Ingredient ingredient) throws TooManyIngredientsException {
-        if (ingredients.size() >= expectedNumIngredients) {
+        if (ingredients.length >= expectedNumIngredients) {
             throw new TooManyIngredientsException();
         }
-        ingredients.add(ingredient);
+        int i = 0;
+        while (i < ingredients.length) {
+            if (ingredients[i] == null || ingredients[i].equals(ingredient)) {
+                ingredients[i] = ingredient;
+                return;
+            } else
+                i++;
+        }
     }
 
     public void addIngredient(Ingredient ingredient, int amount) throws TooManyIngredientsException {
@@ -54,7 +62,7 @@ public class Recipe {
     }
 
     public boolean isReady() {
-        return ingredients.size() == expectedNumIngredients;
+        return ingredients.length == expectedNumIngredients;
     }
 
     @Override/*This the task 5, it checks two recipes are equal based on their price, expected number of ingredients, size and lastly the type of ingredients */

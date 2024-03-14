@@ -9,16 +9,16 @@ public class App {
         Recipe espresso = new Recipe("Espresso", 1.5, Recipe.Size.SMALL,2);
         espresso.addIngredient(new Coffee());
         espresso.addIngredient(new Water());
-        Cafe.addRecipe(espresso);
+        cafe.addRecipe(espresso);
 
         Recipe doubleEspresso = new Recipe("Double Espresso", 2.2, Recipe.Size.REGULAR,2);
         doubleEspresso.addIngredient(new Coffee(15,false));
         doubleEspresso.addIngredient(new Water(50));
-        Cafe.addRecipe(doubleEspresso);
+        cafe.addRecipe(doubleEspresso);
 
         Recipe largeSoyLatte = new Recipe("Large Soy Latte",2.5, Recipe.Size.LARGE,1);
         largeSoyLatte.addIngredient(new Milk(20, Milk.Type.SOY));
-        Cafe.addRecipe(largeSoyLatte);
+        cafe.addRecipe(largeSoyLatte);
 
         cafe.printMenu();
     }

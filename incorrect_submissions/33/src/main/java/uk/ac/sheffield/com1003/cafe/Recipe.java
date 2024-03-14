@@ -6,8 +6,10 @@ import uk.ac.sheffield.com1003.cafe.exceptions.TooManyIngredientsException;
 import uk.ac.sheffield.com1003.cafe.ingredients.Ingredient;
 
 public class Recipe {
-    public enum Size { SMALL, REGULAR, LARGE }
-    public static final int length = 100;;
+    public enum Size {SMALL, REGULAR, LARGE}
+
+    public static final int length = 100;
+    ;
     private static String name;
     private static double price;
     Size size;
@@ -15,7 +17,7 @@ public class Recipe {
 
     public Recipe(String name, double price) {
         this(name, price, Size.REGULAR, 3);
-        
+
     }
 
     public Recipe(String name, double price, Size size, int numberOfIngredients) {
@@ -28,6 +30,7 @@ public class Recipe {
     /**
      * Add ingredient to recipe if it does not already exist.
      * If ingredient with the same name already exists, replace it with the new one.
+     *
      * @param ingredient Ingredient to be added to recipe.
      * @throws TooManyIngredientsException if the number of ingredients in the recipe would be exceeded
      */
@@ -46,16 +49,17 @@ public class Recipe {
             throw new TooManyIngredientsException();
     }
 
-    public static String getName() {
+    public String getName() {
         return name;
     }
 
-    public static double getPrice() {
+    public double getPrice() {
         return price;
     }
 
     /**
      * Checks whether recipe is ready to be used.
+     *
      * @return True if all ingredients of the recipe have been added and false otherwise
      */
     public boolean isReady() {

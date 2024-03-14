@@ -22,7 +22,7 @@ public class Cafe {
     }
 
     /**
-     * Constructor that takes cafe name as parameter, and 
+     * Constructor that takes cafe name as parameter, and
      * initialises menu size to 10 and capacity (number of orders) to 100.
      */
     public Cafe(String name) {
@@ -44,6 +44,7 @@ public class Cafe {
 
     /**
      * Returns greeting string
+     *
      * @return "Welcome to <cafe name>"
      */
     public String greeting() {
@@ -52,6 +53,7 @@ public class Cafe {
 
     /**
      * Getter for cafe name
+     *
      * @return Cafe name
      */
     public String getName() {
@@ -61,11 +63,11 @@ public class Cafe {
 
     /**
      * Add the given recipe to the menu.
-     * 
+     *
      * @param newRecipe Recipe to be added to menu
      * @return Returns true if there is space in the menu and new recipe is successfully added; false otherwise
      */
-    public static boolean addRecipe(Recipe newRecipe) {
+    public boolean addRecipe(Recipe newRecipe) {
         int i = 0;
         boolean added = false;
         while (i < menu.length && !added) {
@@ -82,26 +84,26 @@ public class Cafe {
     /**
      * Find recipe with given name and remove it from the menu.
      * Assumes there are no duplicated recipe names.
+     *
      * @param recipeName Name of the recipe to be removed
      */
-    public void removeRecipe(String recipeName) throws RecipeNotFoundException{
-        for(int i=0;i< menu.length;i++){
-            if(menu[i].getName() == recipeName){
-                menu[i]=null;
-                nRecipes --;
-                for(int j=i; j<menu.length-1;j++){
-                    menu[j]=menu[j+1];
-                    menu[menu.length-1]=null;
+    public void removeRecipe(String recipeName) throws RecipeNotFoundException {
+        for (int i = 0; i < menu.length; i++) {
+            if (menu[i].getName() == recipeName) {
+                menu[i] = null;
+                nRecipes--;
+                for (int j = i; j < menu.length - 1; j++) {
+                    menu[j] = menu[j + 1];
+                    menu[menu.length - 1] = null;
                 }
-            }
-            else
+            } else
                 throw new RecipeNotFoundException();
         }
     }
 
     /**
      * Returns the current list of recipes in the menu excluding empty/null elements
-     * 
+     *
      * @return Array of recipes contained in the menu (excluding nulls)
      */
     public Recipe[] getMenu() {
@@ -123,7 +125,7 @@ public class Cafe {
      */
     public void printPendingOrders() {
         System.out.println("Pending Orders:");
-        for(int i=indexNextOrderToServe; i<indexNextOrderToPlace;i++){
+        for (int i = indexNextOrderToServe; i < indexNextOrderToPlace; i++) {
             System.out.println(orders[i].toString());
         }
     }
@@ -144,22 +146,24 @@ public class Cafe {
         System.out.println("Menu");
         System.out.println("==========");
         Recipe[] menu = this.getMenu();
-        for ( Recipe recipe : menu) {
+        for (Recipe recipe : menu) {
             System.out.println(recipe.getName() + " - " + recipe.getPrice());
         }
         System.out.println("==========");
         System.out.println("Enjoy!");
-    };
+    }
+
+    ;
 
 
     /**
      * Place an order for a given recipe name with a given amount of money.
-     * 
-     * @param recipeName The name of the recipe being ordered
-     * @param amountPaid Money handed when placing order
+     *
+     * @param recipeName   The name of the recipe being ordered
+     * @param amountPaid   Money handed when placing order
      * @param customerName Name of customer placing order
      * @return True if the recipe name exists in the menu and the amount paid is sufficcient; return false otherwise
-     * @throws RecipeNotFoundException if the recipe name does not exist in the menu
+     * @throws RecipeNotFoundException    if the recipe name does not exist in the menu
      * @throws CafeOutOfCapacityException if the cafe cannot take any more orders and is out of capacity
      */
     public boolean placeOrder(String recipeName, String customerName, double amountPaid) throws RecipeNotFoundException,
@@ -168,24 +172,25 @@ public class Cafe {
         boolean exceptionResult1 = true;
         boolean exceptionResult2 = false;
         boolean result = false;
-        for (Recipe recipe:menu ){
-            if(recipeName == recipe.getName()){
+        for (Recipe recipe : menu) {
+            if (recipeName == recipe.getName()) {
                 exceptionResult1 = false;
-                if(amountPaid < recipe.getPrice())
+                if (amountPaid < recipe.getPrice())
                     result = true;
             }
         }
         //Capacity exception decide not done
-        if(exceptionResult1)
+        if (exceptionResult1)
             throw new RecipeNotFoundException();
         else if (exceptionResult2)
             throw new CafeOutOfCapacityException();
         else //place new recipe to the order
-            for(Recipe recipe:menu){
-                if(recipeName == recipe.getName()){
+            for (Recipe recipe : menu) {
+                if (recipeName == recipe.getName()) {
                     orders[indexNextOrderToPlace] = new Order(recipe, customerName, amountPaid);
                     indexNextOrderToPlace++;
-                };
+                }
+                ;
             }
         return result;
 
@@ -193,7 +198,7 @@ public class Cafe {
 
     /**
      * Find a recipe in the menu given a recipe name
-     * 
+     *
      * @param recipeName Name of the recipe to find
      * @return The recipe found or null otherwise
      */
@@ -209,14 +214,14 @@ public class Cafe {
 
     /**
      * If there is an order to serve, serves it ({@link Order#serve()}) and increments {@link Cafe#indexNextOrderToServe}
+     *
      * @return The updated served order, or null of there is no order to serve.
      */
     public Order serveOrder() {
-        if(orders[indexNextOrderToServe] != null){
+        if (orders[indexNextOrderToServe] != null) {
             indexNextOrderToServe++;
             return null;
-        }
-        else
+        } else
             return null;
     }
 }

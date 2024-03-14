@@ -1,5 +1,6 @@
 package uk.ac.sheffield.com1003.cafe;
 
+import uk.ac.sheffield.com1003.cafe.exceptions.CafeOutOfCapacityException;
 import uk.ac.sheffield.com1003.cafe.exceptions.RecipeNotFoundException;
 
 public class Cafe {
@@ -61,7 +62,7 @@ public class Cafe {
     /**
      * Add the given recipe to the menu.
      *
-     * @param newRecipe Recipe to be added to menu
+     * @param recipe Recipe to be added to menu
      * @return Returns true if there is space in the menu and new recipe is successfully added; false otherwise
      */
     public boolean addRecipe(Recipe recipe) {
@@ -69,12 +70,12 @@ public class Cafe {
         System.out.println("Welcome to our cafe!");
         System.out.println("Here is our menu:");
         for (int i = 0; i < Recipe.length; ) {
-            System.out.println(Recipe.getName() + " - " + Recipe.getPrice());
+            System.out.println(recipe.getName() + " - " + recipe.getPrice());
             return true;
         }
         System.out.println("==================");
         System.out.println("Enjoy!");
-        System.out.println("Error: Menu is full. Recipe " + Recipe.getName() + " not added.");
+        System.out.println("Error: Menu is full. Recipe " + recipe.getName() + " not added.");
         return false;
     }
 

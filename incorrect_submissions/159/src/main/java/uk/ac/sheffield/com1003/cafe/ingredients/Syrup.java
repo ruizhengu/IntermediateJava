@@ -1,16 +1,16 @@
 package uk.ac.sheffield.com1003.cafe.ingredients;
 
-public class Syrup extends Ingredient{
-    private String flavor;
+public class Syrup extends Ingredient {
+    private String flavour;
 
-    public Syrup(String flavor) {
-        this.flavor = flavor;
+    public Syrup(String flavour) {
+        this.flavour = flavour;
     }
 
     @Override
     public String toString() {
         return "Syrup{" +
-                "flavor='" + flavor + '\'' +
+                "flavor='" + flavour + '\'' +
                 ", unit=" + unit +
                 ", amount=" + amount +
                 '}';
