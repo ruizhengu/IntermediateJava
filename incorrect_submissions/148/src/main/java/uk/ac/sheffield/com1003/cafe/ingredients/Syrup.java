@@ -1,17 +1,21 @@
 package uk.ac.sheffield.com1003.cafe.ingredients;
 
-public class Syrup extends Ingredient{
+public class Syrup extends Ingredient {
 
-    private String flavor;
+    private String flavour;
 
-    public Syrup(){ this.amount = 10;}
+    public Syrup() {
+        this.amount = 10;
+    }
 
-    public Syrup(String flavor){
+    public Syrup(String flavour) {
         this.name = "Syrup";
         this.unit = Unit.ML;
         this.amount = amount;
-        this.flavor = flavor;
+        this.flavour = flavour;
     }
 
-    public String toString (){return "Syrup [unit =" + unit + ", amount =" + amount + ", flavor=" + flavor + "]";}
+    public String toString() {
+        return "Syrup [unit =" + unit + ", amount =" + amount + ", flavour=" + flavour + "]";
+    }
 }

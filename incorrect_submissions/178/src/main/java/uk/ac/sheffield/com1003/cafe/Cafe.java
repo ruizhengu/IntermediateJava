@@ -1,6 +1,6 @@
 package uk.ac.sheffield.com1003.cafe;
 
-
+import uk.ac.sheffield.com1003.cafe.exceptions.CafeOutOfCapacityException;
 import uk.ac.sheffield.com1003.cafe.exceptions.RecipeNotFoundException;
 
 public class Cafe {

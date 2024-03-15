@@ -108,7 +108,7 @@ public class Cafe {
      *
      * @return Array of recipes contained in the menu (excluding nulls)
      */
-    public static Recipe[] getMenu() {
+    public Recipe[] getMenu() {
         Recipe[] actualMenu = new Recipe[nRecipes];
         int next = 0;
         for (int i = 0; i < menu.length; i++) {

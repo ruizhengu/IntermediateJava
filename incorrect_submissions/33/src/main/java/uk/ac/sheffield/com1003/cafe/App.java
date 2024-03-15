@@ -43,10 +43,8 @@ public class App {
         largeSoyLatteRecipe.addIngredient(new Water(100, true));
         largeSoyLatteRecipe.addIngredient(new Milk(200, SOY));
         cafe.addRecipe(largeSoyLatteRecipe);
-
+        cafe.getMenu();
         // Print the menu
-        uk.ac.sheffield.com1003.cafe.Cafe.getMenu();
-
     }
 
     private Recipe[] orders;

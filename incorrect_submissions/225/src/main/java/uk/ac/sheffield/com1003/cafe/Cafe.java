@@ -21,7 +21,7 @@ public class Cafe {
     }
 
     /**
-     * Constructor that takes cafe name as parameter, and 
+     * Constructor that takes cafe name as parameter, and
      * initialises menu size to 10 and capacity (number of orders) to 100.
      */
     public Cafe(String name) {
@@ -43,14 +43,16 @@ public class Cafe {
 
     /**
      * Returns greeting string
+     *
      * @return "Welcome to <cafe name>"
      */
     public String greeting() {
-        return "Welcome to "+name;
+        return "Welcome to " + name;
     }
 
     /**
      * Getter for cafe name
+     *
      * @return Cafe name
      */
     public String getName() {
@@ -60,7 +62,7 @@ public class Cafe {
 
     /**
      * Add the given recipe to the menu.
-     * 
+     *
      * @param newRecipe Recipe to be added to menu
      * @return Returns true if there is space in the menu and new recipe is successfully added; false otherwise
      */
@@ -81,32 +83,27 @@ public class Cafe {
     /**
      * Find recipe with given name and remove it from the menu.
      * Assumes there are no duplicated recipe names.
+     *
      * @param recipeName Name of the recipe to be removed
      */
     public void removeRecipe(String recipeName) throws RecipeNotFoundException {
-
-        try{
-            int recipeIndex=menu.length; //temp value
-            findRecipe(recipeName);
-            for (int i=0; i<menu.length;i++){
-                if (menu[i] != null && menu[i].getName().equals(recipeName)){
-                    recipeIndex=i;
-                    i=menu.length;
-                }
+        int recipeIndex = menu.length; //temp value
+        findRecipe(recipeName);
+        for (int i = 0; i < menu.length; i++) {
+            if (menu[i] != null && menu[i].getName().equals(recipeName)) {
+                recipeIndex = i;
+                i = menu.length;
             }
-            for (int i=recipeIndex;i<menu.length-2;i++){ //moves all recipes past the removed recipe down the array
-                menu[i]=menu[i+1];
-            }
-            this.nRecipes--;
         }
-        catch (RecipeNotFoundException e){
-            throw new RecipeNotFoundException();
+        for (int i = recipeIndex; i < menu.length - 2; i++) { //moves all recipes past the removed recipe down the array
+            menu[i] = menu[i + 1];
         }
+        this.nRecipes--;
     }
 
     /**
      * Returns the current list of recipes in the menu excluding empty/null elements
-     * 
+     *
      * @return Array of recipes contained in the menu (excluding nulls)
      */
     public Recipe[] getMenu() {
@@ -120,6 +117,7 @@ public class Cafe {
         }
         return actualMenu;
     }
+
     /**
      * Print a list of orders not yet served in the following format
      * Pending Orders:
@@ -127,8 +125,8 @@ public class Cafe {
      */
     public void printPendingOrders() {
         System.out.println("Pending Orders:");
-        int i=indexNextOrderToServe;
-        while(i<orders.length&&orders[i]!=null) {
+        int i = indexNextOrderToServe;
+        while (i < orders.length && orders[i] != null) {
             System.out.println(orders[i].toString());
             i++;
         }
@@ -150,50 +148,47 @@ public class Cafe {
         System.out.println("Menu");
         System.out.println("==========");
         Recipe[] menu = getMenu();
-        for (Recipe recipe:menu){
-            System.out.println(recipe.getName() + " - " +recipe.getPrice());
+        for (Recipe recipe : menu) {
+            System.out.println(recipe.getName() + " - " + recipe.getPrice());
         }
         System.out.println("==========");
         System.out.println("Enjoy!");
-    };
+    }
+
+    ;
 
 
     /**
      * Place an order for a given recipe name with a given amount of money.
-     * 
-     * @param recipeName The name of the recipe being ordered
-     * @param amountPaid Money handed when placing order
+     *
+     * @param recipeName   The name of the recipe being ordered
+     * @param amountPaid   Money handed when placing order
      * @param customerName Name of customer placing order
      * @return True if the recipe name exists in the menu and the amount paid is sufficient; return false otherwise
-     * @throws RecipeNotFoundException if the recipe name does not exist in the menu
+     * @throws RecipeNotFoundException    if the recipe name does not exist in the menu
      * @throws CafeOutOfCapacityException if the cafe cannot take any more orders and is out of capacity
      */
-    public boolean placeOrder(String recipeName, String customerName, double amountPaid) throws RecipeNotFoundException, CafeOutOfCapacityException{
+    public boolean placeOrder(String recipeName, String customerName, double amountPaid) throws RecipeNotFoundException, CafeOutOfCapacityException {
         Recipe currentRecipe;
-        try{
-            currentRecipe = findRecipe(recipeName);
-        }
-        catch (RecipeNotFoundException e){
-            throw new RecipeNotFoundException();
-        }
-        if (indexNextOrderToPlace==orders.length){
+        currentRecipe = findRecipe(recipeName);
+        if (indexNextOrderToPlace == orders.length) {
             throw new CafeOutOfCapacityException();
         }
-        
-        if (currentRecipe.getPrice()>amountPaid){
+
+        if (currentRecipe.getPrice() > amountPaid) {
             return false;
         }
-        orders[indexNextOrderToPlace]= new Order(currentRecipe, customerName, amountPaid);
+        orders[indexNextOrderToPlace] = new Order(currentRecipe, customerName, amountPaid);
         indexNextOrderToPlace++;
         return true;
     }
 
     /**
      * Find a recipe in the menu given a recipe name
-     * 
+     *
      * @param recipeName Name of the recipe to find
-     * @throws RecipeNotFoundException if the number of ingredients in the recipe would be exceeded
      * @return The recipe found or null otherwise
+     * @throws RecipeNotFoundException if the number of ingredients in the recipe would be exceeded
      */
     private Recipe findRecipe(String recipeName) throws RecipeNotFoundException {
         int i = 0;
@@ -207,14 +202,15 @@ public class Cafe {
 
     /**
      * If there is an order to serve, serves it ({@link Order#serve()}) and increments {@link Cafe#indexNextOrderToServe}
+     *
      * @return The updated served order, or null of there is no order to serve.
      */
     public Order serveOrder() {
-        if (indexNextOrderToPlace==indexNextOrderToServe){
+        if (indexNextOrderToPlace == indexNextOrderToServe) {
             return null;
         }
         orders[indexNextOrderToServe].serve();
         indexNextOrderToServe++;
-        return orders[indexNextOrderToServe-1];
+        return orders[indexNextOrderToServe - 1];
     }
 }
