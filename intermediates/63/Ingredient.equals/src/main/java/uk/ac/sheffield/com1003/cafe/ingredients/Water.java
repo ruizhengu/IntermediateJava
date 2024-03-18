@@ -1,0 +1,23 @@
+package uk.ac.sheffield.com1003.cafe.ingredients;
+
+public class Water extends Ingredient {
+
+    public Water() {
+        this.name="Water";
+        this.amount = 30;
+        this.unit= Unit.ML;
+    }
+
+
+    //Overload the water with the param amount
+    public Water(int i) {
+        this.name="Water";
+        this.amount = i;
+        this.unit= Unit.ML;
+    }
+
+    @Override
+    public String toString() {
+        return "Water [unit=" + unit + ", amount=" + amount + "]";
+    }
+}
