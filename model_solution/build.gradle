@@ -58,7 +58,7 @@ tasks.register('listTests') {
                                 isTestNext = true
                             } else if (isTestNext && line =~ /void (\w+)\(\)/) {
                                 def methodName = (line =~ /void (\w+)\(\)/)[0][1]
-                                println "${methodName}(${fullClassName})"
+                                println "${fullClassName}::${methodName}"
                                 isTestNext = false
                             } else {
                                 isTestNext = false
