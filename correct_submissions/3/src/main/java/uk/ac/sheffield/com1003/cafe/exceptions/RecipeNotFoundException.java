@@ -7,12 +7,4 @@ package uk.ac.sheffield.com1003.cafe.exceptions;
  * @author unknown
  */
 public class RecipeNotFoundException extends Exception {
-
-  /**
-   * Constructor that sets the Exception message to show which recipe was not found
-   * @param recipeString the name of the recipe that was searched for
-   */
-  public RecipeNotFoundException(String recipeString) {
-    super(recipeString + " not found");
-  }
 }

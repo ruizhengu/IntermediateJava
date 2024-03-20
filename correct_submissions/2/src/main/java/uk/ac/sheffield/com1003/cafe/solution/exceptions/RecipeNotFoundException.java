@@ -5,20 +5,4 @@ package uk.ac.sheffield.com1003.cafe.solution.exceptions;
  * an order for a drink that is not listed on the menu or when a manager tries to remove a recipe from the recipe book.
  */
 public class RecipeNotFoundException extends Exception {
-
-    /**
-     * Constructs a new RecipeNotFoundException object with no message.
-     */
-    public RecipeNotFoundException() {
-        super();
-    }
-
-    /**
-     * Constructs a new RecipeNotFoundException object with the specified message.
-     *
-     * @param message the detail message (which is saved for later retrieval by the Throwable.getMessage() method)
-     */
-    public RecipeNotFoundException(String message) {
-        super(message);
-    }
 }

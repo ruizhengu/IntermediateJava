@@ -99,7 +99,7 @@ public class Cafe {
             i++;
         }
         if (!isFound) {
-            throw new RecipeNotFoundException(recipeName);
+            throw new RecipeNotFoundException();
         }
     }
 
@@ -175,12 +175,11 @@ public class Cafe {
             throws RecipeNotFoundException, CafeOutOfCapacityException {
         // task 3 - if index is above or equal to the length of order, throw exception
         if (indexNextOrderToPlace>=orders.length)
-            throw new CafeOutOfCapacityException(
-                    indexNextOrderToServe, indexNextOrderToPlace, orders.length);
+            throw new CafeOutOfCapacityException();
 
         // or if the recipe does not exist in the menu, throw exception
         Recipe recipe = findRecipe(recipeName);
-        if (recipe == null) throw new RecipeNotFoundException(recipeName);
+        if (recipe == null) throw new RecipeNotFoundException();
 
         // else if amount paid is sufficient, take order
         if (amountPaid >= recipe.getPrice()) {
