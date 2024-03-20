@@ -3,8 +3,13 @@ package uk.ac.sheffield.com1003.cafe.solution;
 import uk.ac.sheffield.com1003.cafe.solution.exceptions.TooManyIngredientsException;
 import uk.ac.sheffield.com1003.cafe.solution.ingredients.Ingredient;
 
+import java.util.Arrays;
+import java.util.Objects;
+
 public class Recipe {
-    public enum Size { SMALL, REGULAR, LARGE };
+    public enum Size {SMALL, REGULAR, LARGE}
+
+    ;
     private String name;
     private double price;
     private Size size;
@@ -12,7 +17,7 @@ public class Recipe {
 
     public Recipe(String name, double price) {
         this(name, price, Size.REGULAR, 3);
-        
+
     }
 
     public Recipe(String name, double price, Size size, int numberOfIngredients) {
@@ -25,6 +30,7 @@ public class Recipe {
     /**
      * Add ingredient to recipe if it does not already exist.
      * If ingredient with the same name already exists, replace it with the new one.
+     *
      * @param ingredient Ingredient to be added to recipe.
      * @throws TooManyIngredientsException if the number of ingredients in the recipe would be exceeded
      */
@@ -53,6 +59,7 @@ public class Recipe {
 
     /**
      * Checks whether recipe is ready to be used.
+     *
      * @return True if all ingredients of the recipe have been added and false otherwise
      */
     public boolean isReady() {
@@ -67,6 +74,7 @@ public class Recipe {
      * Recipe is equal to another recipe is price, size of recipe match, and the recipes contain
      * the same ingredients by name, unit, amount, and unique attribute. The name of the recipe
      * need not be the same.
+     *
      * @param another The other recipe
      * @return whether they match
      */
@@ -110,5 +118,12 @@ public class Recipe {
         }
         // If we haven't returned yet, then the recipes match
         return true;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = Objects.hash(name, price, size);
+        result = 31 * result + Arrays.hashCode(ingredients);
+        return result;
     }
 }

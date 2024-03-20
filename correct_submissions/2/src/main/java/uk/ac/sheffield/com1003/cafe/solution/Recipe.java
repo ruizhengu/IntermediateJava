@@ -3,13 +3,18 @@ package uk.ac.sheffield.com1003.cafe.solution;
 import uk.ac.sheffield.com1003.cafe.solution.exceptions.TooManyIngredientsException;
 import uk.ac.sheffield.com1003.cafe.solution.ingredients.Ingredient;
 
+import java.util.Arrays;
+import java.util.Objects;
+
 /**
  * Represents a recipe for a drink or food item in a cafe.
  * A recipe is made up of a name, price, size, and a list of ingredients.
  */
 
 public class Recipe {
-    public enum Size { SMALL, REGULAR, LARGE };
+    public enum Size {SMALL, REGULAR, LARGE}
+
+    ;
     private String name;
     private double price;
     private Size size;
@@ -29,6 +34,7 @@ public class Recipe {
     /**
      * Add ingredient to recipe if it does not already exist.
      * If ingredient with the same name already exists, replace it with the new one.
+     *
      * @param ingredient Ingredient to be added to recipe.
      * @throws TooManyIngredientsException if the number of ingredients in the recipe would be exceeded
      */
@@ -57,6 +63,7 @@ public class Recipe {
 
     /**
      * Checks whether recipe is ready to be used.
+     *
      * @return True if all ingredients of the recipe have been added and false otherwise
      */
     public boolean isReady() {
@@ -69,7 +76,7 @@ public class Recipe {
 
     /**
      * Compares this Recipe object with the specified object for equality.
-     *
+     * <p>
      * This method checks if the given object is a Recipe instance and if it has the same price,
      * size, and ingredients as this Recipe object. Additionally, it prints out the differences
      * between the two recipes if any are found.
@@ -86,10 +93,10 @@ public class Recipe {
             return false;
         }
         boolean totalResult = true;
-        boolean ingredientSame =true;
+        boolean ingredientSame = true;
         //Check the elements one by one as required by the task
         Recipe otherDrink = (Recipe) obj;
-        if (!(this.isReady()&&otherDrink.isReady())){
+        if (!(this.isReady() && otherDrink.isReady())) {
             //System.out.println("Please check the recipe(s) for completeness!");
             return false;
         }
@@ -178,5 +185,12 @@ public class Recipe {
         */
 
         return totalResult;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = Objects.hash(name, price, size);
+        result = 31 * result + Arrays.hashCode(ingredients);
+        return result;
     }
 }
