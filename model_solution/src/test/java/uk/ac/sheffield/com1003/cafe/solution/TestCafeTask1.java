@@ -171,13 +171,11 @@ public class TestCafeTask1 {
         assertEquals(Unit.ML, w.getUnit());
     }
 
-    @Test
-    public void testTooManyIngredients() {
+    @Test(expected = TooManyIngredientsException.class)
+    public void testTooManyIngredients() throws TooManyIngredientsException {
         Recipe latte = new Recipe("Just Water", 1, Recipe.Size.LARGE, 1);
-        assertThrows(TooManyIngredientsException.class, () -> {
-            latte.addIngredient(new Water());
-            latte.addIngredient(new Coffee());
-        });
+        latte.addIngredient(new Water());
+        latte.addIngredient(new Coffee());
     }
 
     @Test

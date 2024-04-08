@@ -6,10 +6,11 @@ import org.apache.commons.lang3.reflect.MethodUtils;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+
 import uk.ac.sheffield.com1003.cafe.solution.exceptions.TooManyIngredientsException;
 import uk.ac.sheffield.com1003.cafe.solution.ingredients.Coffee;
-import uk.ac.sheffield.com1003.cafe.solution.ingredients.Unit;
 import uk.ac.sheffield.com1003.cafe.solution.ingredients.Water;
+import uk.ac.sheffield.com1003.cafe.solution.ingredients.Unit;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
