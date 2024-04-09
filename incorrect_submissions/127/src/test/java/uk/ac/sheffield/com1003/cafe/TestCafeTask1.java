@@ -175,10 +175,6 @@ public class TestCafeTask1 {
         Recipe latte = new Recipe("Just Water", 1, Recipe.Size.LARGE, 1);
         latte.addIngredient(new Water());
         latte.addIngredient(new Coffee());
-//        assertThrows(TooManyIngredientsException.class, () -> {
-//            latte.addIngredient(new Water());
-//            latte.addIngredient(new Coffee());
-//        });
     }
 
     @Test

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="uk.ac.sheffield.com1003.cafe.TestCafeTask5" tests="15" skipped="0" failures="4" errors="0" timestamp="2024-03-14T20:12:07" hostname="dyn098145.shef.ac.uk" time="0.007">
+<testsuite name="uk.ac.sheffield.com1003.cafe.TestCafeTask5" tests="15" skipped="0" failures="4" errors="0" timestamp="2024-04-09T12:10:22" hostname="dyn098145.shef.ac.uk" time="0.007">
   <properties/>
   <testcase name="testRecipeMultipleIngredientsDifferentMilkType" classname="uk.ac.sheffield.com1003.cafe.TestCafeTask5" time="0.001"/>
   <testcase name="testRecipeEqualsNoIngredients" classname="uk.ac.sheffield.com1003.cafe.TestCafeTask5" time="0.001">
-    <failure message="java.lang.AssertionError: expected:&lt;uk.ac.sheffield.com1003.cafe.Recipe@131ef10&gt; but was:&lt;uk.ac.sheffield.com1003.cafe.Recipe@55b0dcab&gt;" type="java.lang.AssertionError">java.lang.AssertionError: expected:&lt;uk.ac.sheffield.com1003.cafe.Recipe@131ef10&gt; but was:&lt;uk.ac.sheffield.com1003.cafe.Recipe@55b0dcab&gt;
+    <failure message="java.lang.AssertionError: expected:&lt;uk.ac.sheffield.com1003.cafe.Recipe@702657cc&gt; but was:&lt;uk.ac.sheffield.com1003.cafe.Recipe@6a6cb05c&gt;" type="java.lang.AssertionError">java.lang.AssertionError: expected:&lt;uk.ac.sheffield.com1003.cafe.Recipe@702657cc&gt; but was:&lt;uk.ac.sheffield.com1003.cafe.Recipe@6a6cb05c&gt;
 	at org.junit.Assert.fail(Assert.java:89)
 	at org.junit.Assert.failNotEquals(Assert.java:835)
 	at org.junit.Assert.assertEquals(Assert.java:120)
@@ -71,10 +71,10 @@
   </testcase>
   <testcase name="testRecipeEqualsItself" classname="uk.ac.sheffield.com1003.cafe.TestCafeTask5" time="0.0"/>
   <testcase name="testRecipeNotEqualsNotReady" classname="uk.ac.sheffield.com1003.cafe.TestCafeTask5" time="0.0"/>
-  <testcase name="testRecipeNotEqualsSize" classname="uk.ac.sheffield.com1003.cafe.TestCafeTask5" time="0.0"/>
+  <testcase name="testRecipeNotEqualsSize" classname="uk.ac.sheffield.com1003.cafe.TestCafeTask5" time="0.001"/>
   <testcase name="testRecipeMultipleIngredientsDifferentCoffeeType" classname="uk.ac.sheffield.com1003.cafe.TestCafeTask5" time="0.0"/>
   <testcase name="testRecipeMultipleIngredients" classname="uk.ac.sheffield.com1003.cafe.TestCafeTask5" time="0.001">
-    <failure message="java.lang.AssertionError: expected:&lt;uk.ac.sheffield.com1003.cafe.Recipe@2df3b89c&gt; but was:&lt;uk.ac.sheffield.com1003.cafe.Recipe@23348b5d&gt;" type="java.lang.AssertionError">java.lang.AssertionError: expected:&lt;uk.ac.sheffield.com1003.cafe.Recipe@2df3b89c&gt; but was:&lt;uk.ac.sheffield.com1003.cafe.Recipe@23348b5d&gt;
+    <failure message="java.lang.AssertionError: expected:&lt;uk.ac.sheffield.com1003.cafe.Recipe@6025e1b6&gt; but was:&lt;uk.ac.sheffield.com1003.cafe.Recipe@22ff4249&gt;" type="java.lang.AssertionError">java.lang.AssertionError: expected:&lt;uk.ac.sheffield.com1003.cafe.Recipe@6025e1b6&gt; but was:&lt;uk.ac.sheffield.com1003.cafe.Recipe@22ff4249&gt;
 	at org.junit.Assert.fail(Assert.java:89)
 	at org.junit.Assert.failNotEquals(Assert.java:835)
 	at org.junit.Assert.assertEquals(Assert.java:120)
@@ -140,8 +140,8 @@
 	at worker.org.gradle.process.internal.worker.GradleWorkerMain.main(GradleWorkerMain.java:74)
 </failure>
   </testcase>
-  <testcase name="testRecipeEqualsDifferentOrderOfSameIngredients" classname="uk.ac.sheffield.com1003.cafe.TestCafeTask5" time="0.001">
-    <failure message="java.lang.AssertionError: expected:&lt;uk.ac.sheffield.com1003.cafe.Recipe@37ceb1df&gt; but was:&lt;uk.ac.sheffield.com1003.cafe.Recipe@7c9d8e2&gt;" type="java.lang.AssertionError">java.lang.AssertionError: expected:&lt;uk.ac.sheffield.com1003.cafe.Recipe@37ceb1df&gt; but was:&lt;uk.ac.sheffield.com1003.cafe.Recipe@7c9d8e2&gt;
+  <testcase name="testRecipeEqualsDifferentOrderOfSameIngredients" classname="uk.ac.sheffield.com1003.cafe.TestCafeTask5" time="0.0">
+    <failure message="java.lang.AssertionError: expected:&lt;uk.ac.sheffield.com1003.cafe.Recipe@4c402120&gt; but was:&lt;uk.ac.sheffield.com1003.cafe.Recipe@327514f&gt;" type="java.lang.AssertionError">java.lang.AssertionError: expected:&lt;uk.ac.sheffield.com1003.cafe.Recipe@4c402120&gt; but was:&lt;uk.ac.sheffield.com1003.cafe.Recipe@327514f&gt;
 	at org.junit.Assert.fail(Assert.java:89)
 	at org.junit.Assert.failNotEquals(Assert.java:835)
 	at org.junit.Assert.assertEquals(Assert.java:120)
@@ -209,8 +209,8 @@
   </testcase>
   <testcase name="testRecipeNotEqualsPrice" classname="uk.ac.sheffield.com1003.cafe.TestCafeTask5" time="0.0"/>
   <testcase name="testRecipeMultipleIngredientsDifferentCoffeeAmount" classname="uk.ac.sheffield.com1003.cafe.TestCafeTask5" time="0.0"/>
-  <testcase name="testRecipeMultipleIngredientsDifferentName" classname="uk.ac.sheffield.com1003.cafe.TestCafeTask5" time="0.0">
-    <failure message="java.lang.AssertionError: expected:&lt;uk.ac.sheffield.com1003.cafe.Recipe@6200f9cb&gt; but was:&lt;uk.ac.sheffield.com1003.cafe.Recipe@2002fc1d&gt;" type="java.lang.AssertionError">java.lang.AssertionError: expected:&lt;uk.ac.sheffield.com1003.cafe.Recipe@6200f9cb&gt; but was:&lt;uk.ac.sheffield.com1003.cafe.Recipe@2002fc1d&gt;
+  <testcase name="testRecipeMultipleIngredientsDifferentName" classname="uk.ac.sheffield.com1003.cafe.TestCafeTask5" time="0.001">
+    <failure message="java.lang.AssertionError: expected:&lt;uk.ac.sheffield.com1003.cafe.Recipe@1165b38&gt; but was:&lt;uk.ac.sheffield.com1003.cafe.Recipe@4c12331b&gt;" type="java.lang.AssertionError">java.lang.AssertionError: expected:&lt;uk.ac.sheffield.com1003.cafe.Recipe@1165b38&gt; but was:&lt;uk.ac.sheffield.com1003.cafe.Recipe@4c12331b&gt;
 	at org.junit.Assert.fail(Assert.java:89)
 	at org.junit.Assert.failNotEquals(Assert.java:835)
 	at org.junit.Assert.assertEquals(Assert.java:120)
