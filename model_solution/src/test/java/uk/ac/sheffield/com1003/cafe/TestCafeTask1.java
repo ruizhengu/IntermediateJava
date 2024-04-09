@@ -52,45 +52,6 @@ public class TestCafeTask1 {
         }
     }
 
-    protected Recipe createEspressoRecipeAlt() {
-        try {
-            Recipe espresso = new Recipe("Espresso", 1.5, Recipe.Size.SMALL, 2);
-            espresso.addIngredient(new Water());
-            espresso.addIngredient(new Coffee());
-            return espresso;
-        } catch (TooManyIngredientsException exc) {
-            System.err.println(exc.getMessage());
-            return null;
-        }
-    }
-
-    protected Recipe createEspressoRecipeIncomplete() {
-        try {
-            Recipe espresso = new Recipe("Espresso", 1.5, Recipe.Size.SMALL, 2);
-            espresso.addIngredient(new Water());
-            return espresso;
-        } catch (TooManyIngredientsException exc) {
-            System.err.println(exc.getMessage());
-            return null;
-        }
-    }
-
-    protected ArrayList<String> getOutLines() {
-        String[] lines = outContent.toString().split("\\r?\\n");
-        ArrayList<String> arrayList = new ArrayList<>(Arrays.asList(lines));
-        return arrayList;
-    }
-
-    protected void resetOutLines() {
-        outContent.reset();
-    }
-
-    protected ArrayList<String> getErrLines() {
-        String[] lines = errContent.toString().split("\\r?\\n");
-        ArrayList<String> arrayList = new ArrayList<>(Arrays.asList(lines));
-        return arrayList;
-    }
-
     @Test
     public void testAppClassExists() throws ClassNotFoundException {
         Class<?> clazz = Class.forName("uk.ac.sheffield.com1003.cafe.App");
@@ -138,7 +99,7 @@ public class TestCafeTask1 {
 
         // Having to use reflection because we didn't provide
         // a getter for Coffee.decaf or ask for one to be implemented
-        Boolean isDecaf = (Boolean)FieldUtils.readField(c, "decaf", true);
+        Boolean isDecaf = (Boolean) FieldUtils.readField(c, "decaf", true);
         assertFalse(isDecaf);
     }
 
@@ -150,7 +111,7 @@ public class TestCafeTask1 {
         assertEquals("Coffee", c.getName());
         assertEquals(30, c.getAmount());
         assertEquals(Unit.GR, c.getUnit());
-        Boolean isDecaf = (Boolean)FieldUtils.readField(c, "decaf", true);
+        Boolean isDecaf = (Boolean) FieldUtils.readField(c, "decaf", true);
         assertFalse(isDecaf);
     }
 

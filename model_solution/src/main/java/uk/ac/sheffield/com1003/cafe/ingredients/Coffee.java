@@ -31,4 +31,10 @@ public class Coffee extends Ingredient {
         return name.equals(coffee.getName()) && amount == coffee.amount && unit == coffee.unit && decaf == coffee.decaf;
     }
 
+    public boolean equalsSolution(Object another) {
+        if (another == null || ! (another instanceof Coffee))
+            return false;
+        Coffee coffee = (Coffee) another;
+        return name.equals(coffee.getName()) && amount == coffee.amount && unit == coffee.unit && decaf == coffee.decaf;
+    }
 }

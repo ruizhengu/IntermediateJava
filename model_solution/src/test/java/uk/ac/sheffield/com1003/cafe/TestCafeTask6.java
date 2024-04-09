@@ -39,57 +39,6 @@ public class TestCafeTask6 {
         System.setErr(originalErr);
     }
 
-    protected Recipe createEspressoRecipe() {
-        try {
-            Recipe espresso = new Recipe("Espresso", 1.5, Recipe.Size.SMALL, 2);
-            espresso.addIngredient(new Coffee());
-            espresso.addIngredient(new Water());
-            return espresso;
-        } catch (TooManyIngredientsException exc) {
-            System.err.println(exc.getMessage());
-            return null;
-        }
-    }
-
-    protected Recipe createEspressoRecipeAlt() {
-        try {
-            Recipe espresso = new Recipe("Espresso", 1.5, Recipe.Size.SMALL, 2);
-            espresso.addIngredient(new Water());
-            espresso.addIngredient(new Coffee());
-            return espresso;
-        } catch (TooManyIngredientsException exc) {
-            System.err.println(exc.getMessage());
-            return null;
-        }
-    }
-
-    protected Recipe createEspressoRecipeIncomplete() {
-        try {
-            Recipe espresso = new Recipe("Espresso", 1.5, Recipe.Size.SMALL, 2);
-            espresso.addIngredient(new Water());
-            return espresso;
-        } catch (TooManyIngredientsException exc) {
-            System.err.println(exc.getMessage());
-            return null;
-        }
-    }
-
-    protected ArrayList<String> getOutLines() {
-        String[] lines = outContent.toString().split("\\r?\\n");
-        ArrayList<String> arrayList = new ArrayList<>(Arrays.asList(lines));
-        return arrayList;
-    }
-
-    protected void resetOutLines() {
-        outContent.reset();
-    }
-
-    protected ArrayList<String> getErrLines() {
-        String[] lines = errContent.toString().split("\\r?\\n");
-        ArrayList<String> arrayList = new ArrayList<>(Arrays.asList(lines));
-        return arrayList;
-    }
-
     @Test
     public void testSyrupExists() throws Exception {
         try {
@@ -110,7 +59,7 @@ public class TestCafeTask6 {
     public void testSyrupDefaultConstructorSetsUnit() throws ClassNotFoundException, InvocationTargetException, NoSuchMethodException, IllegalAccessException, InstantiationException {
         Class<?> syrupClass = Class.forName("uk.ac.sheffield.com1003.cafe.ingredients.Syrup");
         Object o = ConstructorUtils.invokeConstructor(syrupClass);
-        Unit unit = (Unit)FieldUtils.readField(o, "unit", true);
+        Unit unit = (Unit) FieldUtils.readField(o, "unit", true);
         assertEquals(ML, unit);
     }
 
@@ -129,7 +78,7 @@ public class TestCafeTask6 {
         Object o = ConstructorUtils.invokeConstructor(syrupClass, "caramel");
         assertTrue(syrupClass.isInstance(o));
 
-        String flavour = (String)FieldUtils.readField(o, "flavour", true);
+        String flavour = (String) FieldUtils.readField(o, "flavour", true);
         assertEquals("caramel", flavour);
     }
 
@@ -139,9 +88,9 @@ public class TestCafeTask6 {
         Object o = ConstructorUtils.invokeConstructor(syrupClass, "caramel");
         assertTrue(syrupClass.isInstance(o));
 
-        String flavour = (String)FieldUtils.readField(o, "flavour", true);
+        String flavour = (String) FieldUtils.readField(o, "flavour", true);
         assertEquals("caramel", flavour);
-        Unit unit = (Unit)FieldUtils.readField(o, "unit", true);
+        Unit unit = (Unit) FieldUtils.readField(o, "unit", true);
         assertEquals(ML, unit);
     }
 
@@ -150,9 +99,9 @@ public class TestCafeTask6 {
         Class<?> syrupClass = Class.forName("uk.ac.sheffield.com1003.cafe.ingredients.Syrup");
         Object o = ConstructorUtils.invokeConstructor(syrupClass, "caramel");
         assertTrue(syrupClass.isInstance(o));
-        int amount = (int)FieldUtils.readField(o, "amount", true);
-        Unit unit = (Unit)FieldUtils.readField(o, "unit", true);
-        String s = (String)MethodUtils.invokeMethod(o, "toString");
+        int amount = (int) FieldUtils.readField(o, "amount", true);
+        Unit unit = (Unit) FieldUtils.readField(o, "unit", true);
+        String s = (String) MethodUtils.invokeMethod(o, "toString");
         assertEquals("Syrup [unit=" + unit + ", amount=" + amount + ", flavour=caramel]", s);
     }
 
@@ -161,9 +110,9 @@ public class TestCafeTask6 {
         Class<?> syrupClass = Class.forName("uk.ac.sheffield.com1003.cafe.ingredients.Syrup");
         Object o = ConstructorUtils.invokeConstructor(syrupClass, "caramel");
         assertTrue(syrupClass.isInstance(o));
-        int amount = (int)FieldUtils.readField(o, "amount", true);
-        Unit unit = (Unit)FieldUtils.readField(o, "unit", true);
-        String s = (String)MethodUtils.invokeMethod(o, "toString");
+        int amount = (int) FieldUtils.readField(o, "amount", true);
+        Unit unit = (Unit) FieldUtils.readField(o, "unit", true);
+        String s = (String) MethodUtils.invokeMethod(o, "toString");
         assertTrue(s.toUpperCase().matches("SYRUP.*UNIT.*" + unit + ".*AMOUNT.*" + amount + ".*FLAVOUR.*CARAMEL.*"));
     }
 

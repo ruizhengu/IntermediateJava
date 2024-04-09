@@ -3,21 +3,18 @@ package uk.ac.sheffield.com1003.cafe.solution;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-
-import uk.ac.sheffield.com1003.cafe.solution.exceptions.TooManyIngredientsException;
-import uk.ac.sheffield.com1003.cafe.solution.ingredients.Coffee;
-import uk.ac.sheffield.com1003.cafe.solution.ingredients.Water;
-import uk.ac.sheffield.com1003.cafe.solution.ingredients.Milk;
+import uk.ac.sheffield.com1003.cafe.Recipe;
+import uk.ac.sheffield.com1003.cafe.exceptions.TooManyIngredientsException;
+import uk.ac.sheffield.com1003.cafe.ingredients.Coffee;
+import uk.ac.sheffield.com1003.cafe.ingredients.Milk;
+import uk.ac.sheffield.com1003.cafe.ingredients.Water;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
-import java.util.ArrayList;
-import java.util.Arrays;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotEquals;
+import static org.junit.Assert.*;
 
-public class TestCafeTask5 {
+public class TestRecipeEquals {
 
     private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
     private final ByteArrayOutputStream errContent = new ByteArrayOutputStream();
@@ -71,74 +68,58 @@ public class TestCafeTask5 {
         }
     }
 
-    protected ArrayList<String> getOutLines() {
-        String[] lines = outContent.toString().split("\\r?\\n");
-        ArrayList<String> arrayList = new ArrayList<>(Arrays.asList(lines));
-        return arrayList;
-    }
-
-    protected void resetOutLines() {
-        outContent.reset();
-    }
-
-    protected ArrayList<String> getErrLines() {
-        String[] lines = errContent.toString().split("\\r?\\n");
-        ArrayList<String> arrayList = new ArrayList<>(Arrays.asList(lines));
-        return arrayList;
-    }
-
     @Test
     public void testRecipeEqualsItself() {
         Recipe espresso = createEspressoRecipe();
-        assertEquals(espresso, espresso);
+        assertTrue(espresso.equalsSolution(espresso));
     }
 
     @Test
     public void testRecipeEqualsNull() {
         Recipe espresso = createEspressoRecipe();
-        assertNotEquals(null, espresso);
+        assertFalse(espresso.equalsSolution(null));
     }
 
     @Test
     public void testRecipeEqualsDifferentOrderOfSameIngredients() {
         Recipe espresso = createEspressoRecipe();
         Recipe espresso2 = createEspressoRecipeAlt();
-        assertEquals(espresso, espresso2);
+        assertTrue(espresso.equalsSolution(espresso2));
     }
 
     @Test
     public void testRecipeEqualsIncompleteRecipe() {
         Recipe espresso = createEspressoRecipe();
         Recipe espressoIncomplete = createEspressoRecipeIncomplete();
-        assertNotEquals(espresso, espressoIncomplete);
+        assertFalse(espresso.equalsSolution(espressoIncomplete));
     }
 
     @Test
     public void testRecipeEqualsNoIngredients() {
         Recipe nothing = new Recipe("Nothing", 1, Recipe.Size.LARGE, 0);
         Recipe dummy = new Recipe("Dummy", 1, Recipe.Size.LARGE, 0);
-        assertEquals(nothing, dummy);
+        assertTrue(nothing.equalsSolution(dummy));
     }
 
     @Test
     public void testRecipeNotEqualsPrice() {
         Recipe nothing = new Recipe("Nothing", 1, Recipe.Size.LARGE, 0);
         Recipe dummy = new Recipe("Nothing", 1.5, Recipe.Size.LARGE, 0);
-        assertNotEquals(nothing, dummy);
+        assertFalse(nothing.equalsSolution(dummy));
     }
 
     @Test
     public void testRecipeNotEqualsSize() {
         Recipe nothing = new Recipe("Nothing", 1, Recipe.Size.SMALL, 0);
         Recipe dummy = new Recipe("Nothing", 1, Recipe.Size.LARGE, 0);
-        assertNotEquals(nothing, dummy);
+        assertFalse(nothing.equalsSolution(dummy));
     }
 
     @Test
     public void testRecipeNotEqualsNotReady() {
         Recipe nothing = new Recipe("Nothing", 1, Recipe.Size.LARGE, 3);
         Recipe dummy = new Recipe("Dummy", 1, Recipe.Size.LARGE, 0);
-        assertNotEquals(nothing, dummy);
+        assertFalse(nothing.equalsSolution(dummy));
     }
 
     @Test
@@ -153,8 +134,7 @@ public class TestCafeTask5 {
         latte2.addIngredient(new Milk(100, Milk.Type.WHOLE));
         latte2.addIngredient(new Water());
         latte2.addIngredient(new Coffee());
-
-        assertEquals(latte, latte2);
+        assertTrue(latte.equalsSolution(latte2));
     }
 
     @Test
@@ -170,7 +150,7 @@ public class TestCafeTask5 {
         latte2.addIngredient(new Water());
         latte2.addIngredient(new Coffee());
 
-        assertEquals(latte, latte2);
+        assertTrue(latte.equalsSolution(latte2));
     }
 
     @Test
@@ -186,7 +166,7 @@ public class TestCafeTask5 {
         latte2.addIngredient(new Water());
         latte2.addIngredient(new Coffee(40, false));
 
-        assertNotEquals(latte, latte2);
+        assertFalse(latte.equalsSolution(latte2));
     }
 
     @Test
@@ -202,7 +182,7 @@ public class TestCafeTask5 {
         latte2.addIngredient(new Water());
         latte2.addIngredient(new Coffee());
 
-        assertNotEquals(latte, latte2);
+        assertFalse(latte.equalsSolution(latte2));
     }
 
     @Test
@@ -218,7 +198,7 @@ public class TestCafeTask5 {
         latte2.addIngredient(new Water());
         latte2.addIngredient(new Coffee());
 
-        assertNotEquals(latte, latte2);
+        assertFalse(latte.equalsSolution(latte2));
     }
 
     @Test
@@ -232,9 +212,9 @@ public class TestCafeTask5 {
         Recipe latte2 = new Recipe("Large Soy Latte", 2.5, Recipe.Size.LARGE, 3);
         latte2.addIngredient(new Milk(100, Milk.Type.WHOLE));
         latte2.addIngredient(new Water());
-        latte2.addIngredient(new Coffee( 8, true)); // 8 is default amount; default decaf=false
+        latte2.addIngredient(new Coffee(8, true)); // 8 is default amount; default decaf=false
 
-        assertNotEquals(latte, latte2);
+        assertFalse(latte.equalsSolution(latte2));
     }
 
     @Test
@@ -250,6 +230,6 @@ public class TestCafeTask5 {
         latte2.addIngredient(new Water());
         latte2.addIngredient(new Coffee());
 
-        assertNotEquals(latte, latte2);
+        assertFalse(latte.equalsSolution(latte2));
     }
 }

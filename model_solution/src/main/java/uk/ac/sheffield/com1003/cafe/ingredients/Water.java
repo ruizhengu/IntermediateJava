@@ -24,4 +24,11 @@ public class Water extends Ingredient {
         Water w = (Water) another;
         return name.equals(w.name) && amount == w.amount && unit == w.unit;
     }
+
+    public boolean equalsSolution(Object another) {
+        if (another == null || ! (another instanceof Water))
+            return false;
+        Water w = (Water) another;
+        return name.equals(w.name) && amount == w.amount && unit == w.unit;
+    }
 }

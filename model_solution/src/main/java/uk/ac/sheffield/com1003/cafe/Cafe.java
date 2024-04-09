@@ -49,6 +49,10 @@ public class Cafe {
         return "Welcome to " + getName();
     }
 
+    public String greetingSolution() {
+        return "Welcome to " + getName();
+    }
+
     /**
      * Getter for cafe name
      * @return Cafe name
@@ -96,6 +100,19 @@ public class Cafe {
         throw new RecipeNotFoundException();
     }
 
+    public void removeRecipeSolution(String recipeName) throws RecipeNotFoundException {
+        int i = 0;
+        while (i < menu.length) {
+            if (menu[i] != null && menu[i].getName().equals(recipeName)) {
+                nRecipes--;
+                menu[i] = null;
+                return;
+            } else
+                i++;
+        }
+        throw new RecipeNotFoundException();
+    }
+
     /**
      * Returns the current list of recipes in the menu excluding empty/null elements
      *
@@ -131,6 +148,19 @@ public class Cafe {
         System.out.println(sb);
     }
 
+    public void printPendingOrdersSolution() {
+        StringBuffer sb = new StringBuffer();
+        String lineBreak = System.getProperty("line.separator");
+        sb.append("Pending Orders:");
+        int i = indexNextOrderToServe;
+        while (i < orders.length && orders[i] != null) {
+            sb.append(lineBreak);
+            sb.append(orders[i].toString());
+            i++;
+        }
+        System.out.println(sb);
+    }
+
     /**
      * Print the full menu in the following format:
      * ==========
@@ -142,6 +172,29 @@ public class Cafe {
      * Enjoy!
      */
     public void printMenu() {
+        StringBuffer sb = new StringBuffer();
+        String lineBreak = System.getProperty("line.separator");
+        String sectionSep = "==========" + lineBreak;
+        sb.append(sectionSep);
+        sb.append(greeting());
+        sb.append(lineBreak);
+        sb.append("Menu");
+        sb.append(lineBreak);
+        sb.append(sectionSep);
+        for (Recipe recipe : menu) {
+            if (recipe != null) {
+                sb.append(recipe.getName());
+                sb.append(" - ");
+                sb.append(recipe.getPrice());
+                sb.append(lineBreak);
+            }
+        }
+        sb.append(sectionSep);
+        sb.append("Enjoy!");
+        System.out.println(sb);
+    }
+
+    public void printMenuSolution() {
         StringBuffer sb = new StringBuffer();
         String lineBreak = System.getProperty("line.separator");
         String sectionSep = "==========" + lineBreak;
@@ -191,6 +244,22 @@ public class Cafe {
         return true;
     }
 
+    public boolean placeOrderSolution(String recipeName, String customerName, double amountPaid) throws CafeOutOfCapacityException, RecipeNotFoundException {
+        if (indexNextOrderToPlace >= orders.length)
+            throw new CafeOutOfCapacityException();
+
+        Recipe r = findRecipe(recipeName);
+        if (r == null)
+            throw new RecipeNotFoundException();
+
+        if (r.getPrice() > amountPaid)
+            return false;
+
+        orders[indexNextOrderToPlace] = new Order(r, customerName, amountPaid);
+        indexNextOrderToPlace++;
+        return true;
+    }
+
     /**
      * Find a recipe in the menu given a recipe name
      *
@@ -212,6 +281,17 @@ public class Cafe {
      * @return The updated served order, or null of there is no order to serve.
      */
     public Order serveOrder() {
+        if (indexNextOrderToServe >= orders.length)
+            return null;
+        Order o = orders[indexNextOrderToServe];
+        if (o == null)
+            return null;
+        o.serve();
+        indexNextOrderToServe++;
+        return o;
+    }
+
+    public Order serveOrderSolution() {
         if (indexNextOrderToServe >= orders.length)
             return null;
         Order o = orders[indexNextOrderToServe];

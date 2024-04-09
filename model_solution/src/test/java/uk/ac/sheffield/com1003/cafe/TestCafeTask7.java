@@ -59,37 +59,10 @@ public class TestCafeTask7 {
         }
     }
 
-    protected Recipe createEspressoRecipeIncomplete() {
-        try {
-            Recipe espresso = new Recipe("Espresso", 1.5, Recipe.Size.SMALL, 2);
-            espresso.addIngredient(new Water());
-            return espresso;
-        } catch (TooManyIngredientsException exc) {
-            System.err.println(exc.getMessage());
-            return null;
-        }
-    }
-
-    protected ArrayList<String> getOutLines() {
-        String[] lines = outContent.toString().split("\\r?\\n");
-        ArrayList<String> arrayList = new ArrayList<>(Arrays.asList(lines));
-        return arrayList;
-    }
-
-    protected void resetOutLines() {
-        outContent.reset();
-    }
-
-    protected ArrayList<String> getErrLines() {
-        String[] lines = errContent.toString().split("\\r?\\n");
-        ArrayList<String> arrayList = new ArrayList<>(Arrays.asList(lines));
-        return arrayList;
-    }
-
     @Test
     public void testRemoveNonexistentRecipeIncorrectException() {
-            Cafe cafe = new Cafe("Central Perk", 10, 10);
-            cafe.addRecipe(createEspressoRecipe());
+        Cafe cafe = new Cafe("Central Perk", 10, 10);
+        cafe.addRecipe(createEspressoRecipe());
         try {
             cafe.removeRecipe("Dummy Recipe");
             fail("It should have thrown RecipeNotFoundException");

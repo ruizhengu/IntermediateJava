@@ -1,8 +1,12 @@
-package uk.ac.sheffield.com1003.cafe;
+package uk.ac.sheffield.com1003.cafe.solution;
 
+import org.apache.commons.lang3.reflect.FieldUtils;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import uk.ac.sheffield.com1003.cafe.Cafe;
+import uk.ac.sheffield.com1003.cafe.Order;
+import uk.ac.sheffield.com1003.cafe.Recipe;
 import uk.ac.sheffield.com1003.cafe.exceptions.TooManyIngredientsException;
 import uk.ac.sheffield.com1003.cafe.ingredients.Coffee;
 import uk.ac.sheffield.com1003.cafe.ingredients.Water;
@@ -12,12 +16,9 @@ import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
-
-public class TestCafeTask4 {
-
+public class TestCafeServeOrder {
     private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
     private final ByteArrayOutputStream errContent = new ByteArrayOutputStream();
     private final PrintStream originalOut = System.out;
@@ -58,29 +59,34 @@ public class TestCafeTask4 {
     }
 
     @Test
-    public void printPendingOrderSingle() throws Exception {
-        Cafe cafe = new Cafe("Central Perk", 2, 1);
+    public void serveNonexistentOrder() throws Exception {
+        Cafe cafe = new Cafe("Central Perk", 2, 2);
         cafe.addRecipe(createEspressoRecipe());
-        cafe.placeOrder("Espresso", "Jose", 3);
-        cafe.printPendingOrders();
-        ArrayList<String> lines = getOutLines();
-        assertEquals(2, lines.size());
-        assertEquals("Pending Orders:", lines.get(0));
-        assertEquals("Order: Espresso; For: Jose; Paid: 3.0", lines.get(1));
+        Order o = cafe.serveOrderSolution();
+        assertNull(o);
+        int indexPlace = (int) FieldUtils.readField(cafe, "indexNextOrderToPlace", true);
+        int indexServe = (int) FieldUtils.readField(cafe, "indexNextOrderToServe", true);
+        assertEquals(0, indexPlace);
+        assertEquals(0, indexServe);
+        Order[] orders = (Order[]) FieldUtils.readField(cafe, "orders", true);
+        for (int i = 0; i < orders.length; i++) {
+            assertNull(orders[i]);
+        }
     }
 
     @Test
-    public void printPendingOrdersMultiple() throws Exception {
-        Cafe cafe = new Cafe("Central Perk", 2, 2);
+    public void placeAndServeOrder() throws Exception {
+        Cafe cafe = new Cafe("Central Perk", 2, 1);
         cafe.addRecipe(createEspressoRecipe());
-        cafe.placeOrder("Espresso", "Jose", 3);
-        cafe.placeOrder("Espresso", "Mari-Cruz", 5);
-        cafe.printPendingOrders();
-        ArrayList<String> lines = getOutLines();
-        assertEquals(3, lines.size());
-        assertEquals("Pending Orders:", lines.get(0));
-        assertEquals("Order: Espresso; For: Jose; Paid: 3.0", lines.get(1));
-        assertEquals("Order: Espresso; For: Mari-Cruz; Paid: 5.0", lines.get(2));
+        assertTrue(cafe.placeOrder("Espresso", "Jose", 3));
+        Order o = cafe.serveOrderSolution();
+        Object served = FieldUtils.readField(o, "orderServed", true);
+        assertNotNull(served); // order has been served
+        int indexPlace = (int) FieldUtils.readField(cafe, "indexNextOrderToPlace", true);
+        int indexServe = (int) FieldUtils.readField(cafe, "indexNextOrderToServe", true);
+        assertEquals(1, indexPlace);
+        assertEquals(1, indexServe);
+        assertNull(cafe.serveOrderSolution()); // cannot serve more orders
     }
 
     @Test
@@ -91,23 +97,12 @@ public class TestCafeTask4 {
         cafe.addRecipe(createEspressoRecipe());
         cafe.placeOrder("Espresso", "Mari-Cruz", 5);
         cafe.placeOrder("Espresso", "Jose", 3);
-        cafe.serveOrder();
+        cafe.serveOrderSolution();
         cafe.printPendingOrders();
         ArrayList<String> lines = getOutLines();
         assertEquals(2, lines.size());
         assertEquals("Pending Orders:", lines.get(0));
         assertEquals("Order: Espresso; For: Jose; Paid: 3.0", lines.get(1));
-    }
-
-    @Test
-    public void printPendingOrderSingleRelaxed() throws Exception {
-        Cafe cafe = new Cafe("Central Perk", 2, 1);
-        cafe.addRecipe(createEspressoRecipe());
-        cafe.placeOrder("Espresso", "Jose", 3);
-        cafe.printPendingOrders();
-        ArrayList<String> lines = getOutLines();
-        assertTrue(lines.stream().anyMatch(item -> item.toUpperCase().matches(".*PENDING.*ORDERS.*")));
-        assertTrue(lines.stream().anyMatch(item -> item.toUpperCase().matches(".*ORDER.*ESPRESSO.*FOR.*JOSE.*PAID.*3.*")));
     }
 
     @Test
@@ -122,13 +117,13 @@ public class TestCafeTask4 {
 
         cafe.addRecipe(createEspressoRecipe());
         cafe.placeOrder("Espresso", "Mari-Cruz", 5);
-        cafe.serveOrder();
+        cafe.serveOrderSolution();
         cafe.printPendingOrders();
         ArrayList<String> secondPrint = getOutLines();
         resetOutLines();
 
         cafe.placeOrder("Espresso", "Jose", 3);
-        cafe.serveOrder(); // both orders served, no pending order left
+        cafe.serveOrderSolution(); // both orders served, no pending order left
         cafe.printPendingOrders();
         ArrayList<String> thirdPrint = getOutLines();
         resetOutLines();

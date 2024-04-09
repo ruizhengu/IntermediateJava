@@ -70,22 +70,6 @@ public class TestCafeTask5 {
         }
     }
 
-    protected ArrayList<String> getOutLines() {
-        String[] lines = outContent.toString().split("\\r?\\n");
-        ArrayList<String> arrayList = new ArrayList<>(Arrays.asList(lines));
-        return arrayList;
-    }
-
-    protected void resetOutLines() {
-        outContent.reset();
-    }
-
-    protected ArrayList<String> getErrLines() {
-        String[] lines = errContent.toString().split("\\r?\\n");
-        ArrayList<String> arrayList = new ArrayList<>(Arrays.asList(lines));
-        return arrayList;
-    }
-
     @Test
     public void testRecipeEqualsItself() {
         Recipe espresso = createEspressoRecipe();
@@ -231,7 +215,7 @@ public class TestCafeTask5 {
         Recipe latte2 = new Recipe("Large Soy Latte", 2.5, Recipe.Size.LARGE, 3);
         latte2.addIngredient(new Milk(100, Milk.Type.WHOLE));
         latte2.addIngredient(new Water());
-        latte2.addIngredient(new Coffee( 8, true)); // 8 is default amount; default decaf=false
+        latte2.addIngredient(new Coffee(8, true)); // 8 is default amount; default decaf=false
 
         assertNotEquals(latte, latte2);
     }

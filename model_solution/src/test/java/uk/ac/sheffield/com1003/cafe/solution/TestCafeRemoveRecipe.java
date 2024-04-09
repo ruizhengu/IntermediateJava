@@ -3,22 +3,20 @@ package uk.ac.sheffield.com1003.cafe.solution;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-
-import uk.ac.sheffield.com1003.cafe.solution.exceptions.RecipeNotFoundException;
-import uk.ac.sheffield.com1003.cafe.solution.exceptions.TooManyIngredientsException;
-import uk.ac.sheffield.com1003.cafe.solution.ingredients.Coffee;
-import uk.ac.sheffield.com1003.cafe.solution.ingredients.Water;
+import uk.ac.sheffield.com1003.cafe.Cafe;
+import uk.ac.sheffield.com1003.cafe.Recipe;
+import uk.ac.sheffield.com1003.cafe.exceptions.RecipeNotFoundException;
+import uk.ac.sheffield.com1003.cafe.exceptions.TooManyIngredientsException;
+import uk.ac.sheffield.com1003.cafe.ingredients.Coffee;
+import uk.ac.sheffield.com1003.cafe.ingredients.Water;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
-import java.util.ArrayList;
-import java.util.Arrays;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.fail;
 
-public class TestCafeTask7 {
-
+public class TestCafeRemoveRecipe {
     private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
     private final ByteArrayOutputStream errContent = new ByteArrayOutputStream();
     private final PrintStream originalOut = System.out;
@@ -60,39 +58,12 @@ public class TestCafeTask7 {
         }
     }
 
-    protected Recipe createEspressoRecipeIncomplete() {
-        try {
-            Recipe espresso = new Recipe("Espresso", 1.5, Recipe.Size.SMALL, 2);
-            espresso.addIngredient(new Water());
-            return espresso;
-        } catch (TooManyIngredientsException exc) {
-            System.err.println(exc.getMessage());
-            return null;
-        }
-    }
-
-    protected ArrayList<String> getOutLines() {
-        String[] lines = outContent.toString().split("\\r?\\n");
-        ArrayList<String> arrayList = new ArrayList<>(Arrays.asList(lines));
-        return arrayList;
-    }
-
-    protected void resetOutLines() {
-        outContent.reset();
-    }
-
-    protected ArrayList<String> getErrLines() {
-        String[] lines = errContent.toString().split("\\r?\\n");
-        ArrayList<String> arrayList = new ArrayList<>(Arrays.asList(lines));
-        return arrayList;
-    }
-
     @Test
     public void testRemoveNonexistentRecipeIncorrectException() {
-            Cafe cafe = new Cafe("Central Perk", 10, 10);
-            cafe.addRecipe(createEspressoRecipe());
+        Cafe cafe = new Cafe("Central Perk", 10, 10);
+        cafe.addRecipe(createEspressoRecipe());
         try {
-            cafe.removeRecipe("Dummy Recipe");
+            cafe.removeRecipeSolution("Dummy Recipe");
             fail("It should have thrown RecipeNotFoundException");
         } catch (RecipeNotFoundException e) {
             // OK
@@ -104,10 +75,10 @@ public class TestCafeTask7 {
         try {
             Cafe cafe = new Cafe("Central Perk", 10, 10);
             cafe.addRecipe(createEspressoRecipe());
-            cafe.removeRecipe("Dummy Recipe");
+            cafe.removeRecipeSolution("Dummy Recipe");
             fail("It should have thrown RecipeNotFoundException");
         } catch (Exception thrown) {
-            assertEquals("uk.ac.sheffield.com1003.cafe.solution.exceptions.RecipeNotFoundException", thrown.getClass().getName());
+            assertEquals("uk.ac.sheffield.com1003.cafe.exceptions.RecipeNotFoundException", thrown.getClass().getName());
         }
     }
 
@@ -119,7 +90,7 @@ public class TestCafeTask7 {
         justWater.addIngredient(new Water());
         cafe.addRecipe(justWater);
         assertEquals(1, cafe.getMenu().length);
-        cafe.removeRecipe("Just Water");
+        cafe.removeRecipeSolution("Just Water");
         assertEquals(0, cafe.getMenu().length);
     }
 
@@ -138,9 +109,9 @@ public class TestCafeTask7 {
         cafe.addRecipe(americano);
 
         assertEquals(3, cafe.getMenu().length);
-        cafe.removeRecipe("Just Water");
-        cafe.removeRecipe("Americano");
-        cafe.removeRecipe("Espresso");
+        cafe.removeRecipeSolution("Just Water");
+        cafe.removeRecipeSolution("Americano");
+        cafe.removeRecipeSolution("Espresso");
         assertEquals(0, cafe.getMenu().length);
     }
 
@@ -155,7 +126,7 @@ public class TestCafeTask7 {
 
         cafe.addRecipe(createEspressoRecipeAlt());
 
-        cafe.removeRecipe("Espresso");
+        cafe.removeRecipeSolution("Espresso");
         assertEquals(2, cafe.getMenu().length);
     }
 }

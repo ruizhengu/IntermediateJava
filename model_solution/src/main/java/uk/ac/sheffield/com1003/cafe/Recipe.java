@@ -45,6 +45,21 @@ public class Recipe {
             throw new TooManyIngredientsException();
     }
 
+    public void addIngredientSolution(Ingredient ingredient) throws TooManyIngredientsException {
+        int i = 0;
+        while (i < ingredients.length) {
+            if (ingredients[i] == null || ingredients[i].equals(ingredient)) {
+                ingredients[i] = ingredient;
+                return;
+            } else
+                i++;
+        }
+        if (i < ingredients.length)
+            ingredients[i] = ingredient;
+        else
+            throw new TooManyIngredientsException();
+    }
+
     public String getName() {
         return name;
     }
@@ -67,6 +82,35 @@ public class Recipe {
 
     @Override
     public boolean equals(Object o) {
+        if (this == o)
+            return true;
+        if (!(o instanceof Recipe))
+            return false;
+        Recipe recipe = (Recipe) o;
+        if ((recipe.price != price) || (size != recipe.size))
+            return false;
+
+        if (! isReady() || !recipe.isReady())
+            return false;
+
+        if (ingredients.length != recipe.ingredients.length)
+            return false;
+
+        for (int i=0; i<ingredients.length; i++) {
+            boolean found = false;
+            for (int j=0; j<ingredients.length; j++) {
+                if (ingredients[i].equals(recipe.ingredients[j])) {
+                    found = true;
+                    break;
+                }
+            }
+            if (! found)
+                return false;
+        }
+        return true;
+    }
+
+    public boolean equalsSolution(Object o) {
         if (this == o)
             return true;
         if (!(o instanceof Recipe))

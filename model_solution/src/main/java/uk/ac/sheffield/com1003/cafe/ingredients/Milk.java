@@ -31,4 +31,11 @@ public class Milk extends Ingredient {
         Milk m = (Milk) another;
         return name.equals(m.name) && amount == m.amount && unit == m.unit && type == m.type;
     }
+
+    public boolean equalsSolution(Object another) {
+        if (another == null || ! (another instanceof Milk))
+            return false;
+        Milk m = (Milk) another;
+        return name.equals(m.name) && amount == m.amount && unit == m.unit && type == m.type;
+    }
 }
