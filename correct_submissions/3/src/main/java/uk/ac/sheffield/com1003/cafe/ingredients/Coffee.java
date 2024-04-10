@@ -28,9 +28,24 @@ public class Coffee extends Ingredient {
 
         Coffee other = (Coffee) another;
         if (!name.equals(other.name)
-            || unit != other.unit
-            || amount != other.amount
-            || decaf != other.decaf)
+                || unit != other.unit
+                || amount != other.amount
+                || decaf != other.decaf)
+            return false;
+        return true;
+    }
+
+    public boolean equalsSolution(Object another) {
+        // Task 5 - Guard clause to check if same object type since.
+        // Using getClass over instanceof for same reason as for recipe, no subclasses.
+        if (another == null || another.getClass() != Coffee.class)
+            return false;
+
+        Coffee other = (Coffee) another;
+        if (!name.equals(other.name)
+                || unit != other.unit
+                || amount != other.amount
+                || decaf != other.decaf)
             return false;
         return true;
     }

@@ -49,6 +49,21 @@ public class Recipe {
             throw new TooManyIngredientsException();
     }
 
+    public void addIngredientSolution(Ingredient ingredient) throws TooManyIngredientsException {
+        int i = 0;
+        while (i < ingredients.length) {
+            if (ingredients[i] == null || ingredients[i].equals(ingredient)) {
+                ingredients[i] = ingredient;
+                return;
+            } else
+                i++;
+        }
+        if (i < ingredients.length)
+            ingredients[i] = ingredient;
+        else
+            throw new TooManyIngredientsException();
+    }
+
     public String getName() {
         return name;
     }
@@ -70,6 +85,7 @@ public class Recipe {
         return true;
     }
 
+    @Override
     public boolean equals(Object objectTwo) {
         if (objectTwo == this)
             return true;
@@ -90,6 +106,32 @@ public class Recipe {
             }
         }
         // if the count == length it means for each ingredient there was a match in the other array 
+        if (count == ingredients.length && size == recipeTwo.size && price == recipeTwo.price)
+            return true;
+
+        return false;
+    }
+
+    public boolean equalsSolution(Object objectTwo) {
+        if (objectTwo == this)
+            return true;
+        // check if its a Recipe - if it is cast it to Recipe and carry out checks
+        if (objectTwo == null || this.getClass() != objectTwo.getClass())
+            return false;
+        Recipe recipeTwo = (Recipe) objectTwo;
+        if (!this.isReady() || !recipeTwo.isReady() ||
+                ingredients.length != recipeTwo.ingredients.length) {
+            return false;
+        }
+        // counts how many equal ingredients there are in each array
+        int count = 0;
+        for (Ingredient ingredientOne : ingredients) {
+            for (Ingredient ingredientTwo : recipeTwo.ingredients) {
+                if (ingredientOne.equals(ingredientTwo))
+                    count++;
+            }
+        }
+        // if the count == length it means for each ingredient there was a match in the other array
         if (count == ingredients.length && size == recipeTwo.size && price == recipeTwo.price)
             return true;
 

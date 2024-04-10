@@ -37,6 +37,24 @@ public class Milk extends Ingredient {
         return true;
     }
 
+    public boolean equalsSolution(Object another) {
+        // Task 5 - Guard clause to check if same object type since.
+        // Using getClass over instanceof for same reason as for recipe, no subclasses.
+        if (another == null || another.getClass() != Milk.class) {
+            return false;
+        }
+
+        Milk other = (Milk) another;
+        if (!name.equals(other.name)
+                || unit != other.unit
+                || amount != other.amount
+                || type != other.type) {
+            return false;
+        }
+        return true;
+    }
+
+
     @Override
     public String toString() {
         return "Milk [unit=" + unit + ", amount=" + amount + ", type=" + type + "]";

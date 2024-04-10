@@ -1,7 +1,9 @@
 package uk.ac.sheffield.com1003.cafe.ingredients;
 
 public class Milk extends Ingredient {
-    public enum Type { WHOLE, SEMI, SKIMMED, SOY };
+    public enum Type {WHOLE, SEMI, SKIMMED, SOY}
+
+    ;
     private Type type = Type.WHOLE;
 
     public Milk() {
@@ -23,15 +25,29 @@ public class Milk extends Ingredient {
     public String toString() {
         return "Milk [unit=" + unit + ", amount=" + amount + ", type=" + type + "]";
     }
-    
+
+    @Override
     public boolean equals(Object objectTwo) {
-        if ( objectTwo == this)
+        if (objectTwo == this)
             return true;
-        if ( objectTwo == null || this.getClass() != objectTwo.getClass() ) 
+        if (objectTwo == null || this.getClass() != objectTwo.getClass())
             return false;
         // convert object to milk type and compare instance variables
-        Milk milkTwo = (Milk)objectTwo;
-        if (name.equals(milkTwo.name) && unit == milkTwo.unit && amount == milkTwo.amount && 
+        Milk milkTwo = (Milk) objectTwo;
+        if (name.equals(milkTwo.name) && unit == milkTwo.unit && amount == milkTwo.amount &&
+                type == milkTwo.type)
+            return true;
+        return false;
+    }
+
+    public boolean equalsSolution(Object objectTwo) {
+        if (objectTwo == this)
+            return true;
+        if (objectTwo == null || this.getClass() != objectTwo.getClass())
+            return false;
+        // convert object to milk type and compare instance variables
+        Milk milkTwo = (Milk) objectTwo;
+        if (name.equals(milkTwo.name) && unit == milkTwo.unit && amount == milkTwo.amount &&
                 type == milkTwo.type)
             return true;
         return false;

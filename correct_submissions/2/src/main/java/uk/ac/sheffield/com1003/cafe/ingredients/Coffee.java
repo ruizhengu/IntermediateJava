@@ -56,4 +56,13 @@ public class Coffee extends Ingredient {
         return this.name.equals(otherCoffee.name) && this.unit.equals(otherCoffee.unit)
                 && this.amount == otherCoffee.amount && this.decaf==otherCoffee.decaf;
     }
+    public boolean equalsSolution(Object another) {
+        if (! (another instanceof Coffee)) {
+            return false;
+        }
+
+        Coffee otherCoffee = (Coffee) another;
+        return this.name.equals(otherCoffee.name) && this.unit.equals(otherCoffee.unit)
+                && this.amount == otherCoffee.amount && this.decaf==otherCoffee.decaf;
+    }
 }

@@ -40,4 +40,14 @@ public class Water extends Ingredient {
         return this.name.equals(otherWater.name) && this.unit.equals(otherWater.unit)
                 && this.amount == otherWater.amount;
     }
+
+    public boolean equalsSolution(Object another) {
+        if (! (another instanceof Water)) {
+            return false;
+        }
+
+        Water otherWater = (Water) another;
+        return this.name.equals(otherWater.name) && this.unit.equals(otherWater.unit)
+                && this.amount == otherWater.amount;
+    }
 }

@@ -26,6 +26,18 @@ public class Water extends Ingredient {
         return true;
     }
 
+    public boolean equalsSolution(Object another) {
+        // Task 5 - Guard clause to check if same object type since.
+        // Using getClass over instanceof for same reason as for recipe, no subclasses.
+        if(another == null || another.getClass() != Water.class)
+            return false;
+
+        Water other = (Water) another;
+        if(!name.equals(other.name) || unit != other.unit || amount != other.amount)
+            return false;
+        return true;
+    }
+
     @Override
     public String toString() {
         return "Water [unit=" + unit + ", amount=" + amount + "]";

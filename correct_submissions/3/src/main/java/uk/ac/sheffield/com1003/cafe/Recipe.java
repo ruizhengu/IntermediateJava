@@ -49,6 +49,21 @@ public class Recipe {
             throw new TooManyIngredientsException();
     }
 
+    public void addIngredientSolution(Ingredient ingredient) throws TooManyIngredientsException {
+        int i = 0;
+        while (i < ingredients.length) {
+            if (ingredients[i] == null || ingredients[i].equals(ingredient)) {
+                ingredients[i] = ingredient;
+                return;
+            } else
+                i++;
+        }
+        if (i < ingredients.length)
+            ingredients[i] = ingredient;
+        else
+            throw new TooManyIngredientsException();
+    }
+
     public String getName() {
         return name;
     }
@@ -80,6 +95,47 @@ public class Recipe {
      */
     @Override
     public boolean equals(Object another) {
+        // Task 5 - Guard clause to check if same object type since.
+        // Using getClass over instanceof because Dr. Rojas said there are no subclasses.
+        if (another == null || another.getClass() != Recipe.class || !isReady()) {
+            return false;
+        }
+
+        // Guard clause to check if price, size and number of ingredients are at least the same
+        Recipe other = (Recipe) another;
+        if (other.price != price || other.size != size
+                || ingredients.length != other.ingredients.length
+                || !other.isReady()) {
+            return false;
+        }
+
+        // Stores a record of the matches found to the other ingredients list
+        boolean[] matchesFound = new boolean[ingredients.length];
+        // loops through each ingredient comparing them to the other ingredient
+        for (Ingredient ingredient : ingredients) {
+            int j = 0;
+            boolean matchFound = false;
+            while (j < ingredients.length && !matchFound) {
+                // if the other ingredient has already been matched, skip
+                if (!matchesFound[j]) {
+                    // if this ingredient matches the other ingredient, record the match
+                    if (ingredient.equals(other.ingredients[j])) {
+                        matchesFound[j] = true;
+                        matchFound = true;
+                    }
+                }
+                j++;
+            }
+            // If a match wasn't found for this ingredient, then the recipes don't match
+            if (matchFound == false) {
+                return false;
+            }
+        }
+        // If we haven't returned yet, then the recipes match
+        return true;
+    }
+
+    public boolean equalsSolution(Object another) {
         // Task 5 - Guard clause to check if same object type since.
         // Using getClass over instanceof because Dr. Rojas said there are no subclasses.
         if (another == null || another.getClass() != Recipe.class || !isReady()) {

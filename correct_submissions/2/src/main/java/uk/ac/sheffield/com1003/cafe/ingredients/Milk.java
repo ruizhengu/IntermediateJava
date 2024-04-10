@@ -51,4 +51,14 @@ public class Milk extends Ingredient {
         return this.name.equals(otherMilk.name) && this.unit.equals(otherMilk.unit)
                 && this.amount == otherMilk.amount && this.type.equals(otherMilk.type);
     }
+
+    public boolean equalsSolution(Object another) {
+        if (! (another instanceof Milk)) {
+            return false;
+        }
+
+        Milk otherMilk = (Milk) another;
+        return this.name.equals(otherMilk.name) && this.unit.equals(otherMilk.unit)
+                && this.amount == otherMilk.amount && this.type.equals(otherMilk.type);
+    }
 }

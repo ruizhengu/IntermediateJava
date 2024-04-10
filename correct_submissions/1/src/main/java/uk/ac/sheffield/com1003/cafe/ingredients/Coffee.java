@@ -4,9 +4,9 @@ public class Coffee extends Ingredient {
     private boolean decaf;
 
     public Coffee() {
-        this(8,false);
+        this(8, false);
     }
-    
+
     public Coffee(int amount) {
         this(amount, false);
     }
@@ -22,17 +22,32 @@ public class Coffee extends Ingredient {
     public String toString() {
         return "Coffee [unit=" + unit + ", amount=" + amount + ", decaf=" + decaf + "]";
     }
-    
+
+    @Override
     public boolean equals(Object objectTwo) {
-        if ( objectTwo == this)
+        if (objectTwo == this)
             return true;
-        if ( objectTwo == null || this.getClass() != objectTwo.getClass() ) 
+        if (objectTwo == null || this.getClass() != objectTwo.getClass())
             return false;
         // convert object to coffee type and compare instance variables
-        Coffee coffeeTwo = (Coffee)objectTwo;
-        if (name.equals(coffeeTwo.name) && amount==coffeeTwo.amount && unit==coffeeTwo.unit && 
-                decaf==coffeeTwo.decaf)
+        Coffee coffeeTwo = (Coffee) objectTwo;
+        if (name.equals(coffeeTwo.name) && amount == coffeeTwo.amount && unit == coffeeTwo.unit &&
+                decaf == coffeeTwo.decaf)
             return true;
         return false;
     }
+
+    public boolean equalsSolution(Object objectTwo) {
+        if (objectTwo == this)
+            return true;
+        if (objectTwo == null || this.getClass() != objectTwo.getClass())
+            return false;
+        // convert object to coffee type and compare instance variables
+        Coffee coffeeTwo = (Coffee) objectTwo;
+        if (name.equals(coffeeTwo.name) && amount == coffeeTwo.amount && unit == coffeeTwo.unit &&
+                decaf == coffeeTwo.decaf)
+            return true;
+        return false;
+    }
+
 }
