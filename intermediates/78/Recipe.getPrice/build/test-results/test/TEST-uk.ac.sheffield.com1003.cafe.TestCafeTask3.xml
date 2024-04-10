@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="uk.ac.sheffield.com1003.cafe.TestCafeTask3" tests="13" skipped="0" failures="0" errors="0" timestamp="2024-03-18T21:58:19" hostname="Ruizhens-MacBook-Pro.local" time="0.009">
+  <properties/>
+  <testcase name="placeOrderForNonexistentRecipeThrowsCorrectException" classname="uk.ac.sheffield.com1003.cafe.TestCafeTask3" time="0.0"/>
+  <testcase name="placeOrderForNonexistentRecipeThrowsException" classname="uk.ac.sheffield.com1003.cafe.TestCafeTask3" time="0.0"/>
+  <testcase name="testCafeOutOfCapacityExceptionExists" classname="uk.ac.sheffield.com1003.cafe.TestCafeTask3" time="0.0"/>
+  <testcase name="placeOrderWithInsufficientFunds" classname="uk.ac.sheffield.com1003.cafe.TestCafeTask3" time="0.0"/>
+  <testcase name="placeOrderAndCheckIndexes" classname="uk.ac.sheffield.com1003.cafe.TestCafeTask3" time="0.006"/>
+  <testcase name="testRecipeNotFoundExceptionExists" classname="uk.ac.sheffield.com1003.cafe.TestCafeTask3" time="0.0"/>
+  <testcase name="placeOrder" classname="uk.ac.sheffield.com1003.cafe.TestCafeTask3" time="0.001"/>
+  <testcase name="serveNonexistentOrder" classname="uk.ac.sheffield.com1003.cafe.TestCafeTask3" time="0.0"/>
+  <testcase name="placeOrderCapacityZeroThrowsCorrectException" classname="uk.ac.sheffield.com1003.cafe.TestCafeTask3" time="0.0"/>
+  <testcase name="placeOrderOutOfCapacityThrowsException" classname="uk.ac.sheffield.com1003.cafe.TestCafeTask3" time="0.0"/>
+  <testcase name="placeOrderCapacityZeroThrowsException" classname="uk.ac.sheffield.com1003.cafe.TestCafeTask3" time="0.0"/>
+  <testcase name="placeOrderOutOfCapacityThrowsCorrectException" classname="uk.ac.sheffield.com1003.cafe.TestCafeTask3" time="0.0"/>
+  <testcase name="placeAndServeOrder" classname="uk.ac.sheffield.com1003.cafe.TestCafeTask3" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

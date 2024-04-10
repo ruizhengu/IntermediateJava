@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="uk.ac.sheffield.com1003.cafe.TestCafeTask6" tests="8" skipped="0" failures="0" errors="0" timestamp="2024-03-18T23:23:20" hostname="Ruizhens-MacBook-Pro.local" time="0.002">
+  <properties/>
+  <testcase name="testSyrupDefaultConstructorSetsUnit" classname="uk.ac.sheffield.com1003.cafe.TestCafeTask6" time="0.0"/>
+  <testcase name="testSyrupToString" classname="uk.ac.sheffield.com1003.cafe.TestCafeTask6" time="0.001"/>
+  <testcase name="testSyrupDefaultConstructor" classname="uk.ac.sheffield.com1003.cafe.TestCafeTask6" time="0.0"/>
+  <testcase name="testSyrupToStringRelaxed" classname="uk.ac.sheffield.com1003.cafe.TestCafeTask6" time="0.001"/>
+  <testcase name="testSyrupOverloadedConstructorSetsUnit" classname="uk.ac.sheffield.com1003.cafe.TestCafeTask6" time="0.0"/>
+  <testcase name="testSyrupExists" classname="uk.ac.sheffield.com1003.cafe.TestCafeTask6" time="0.0"/>
+  <testcase name="testSyrupOverloadedConstructor" classname="uk.ac.sheffield.com1003.cafe.TestCafeTask6" time="0.0"/>
+  <testcase name="testSyrupContainsFlavourField" classname="uk.ac.sheffield.com1003.cafe.TestCafeTask6" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

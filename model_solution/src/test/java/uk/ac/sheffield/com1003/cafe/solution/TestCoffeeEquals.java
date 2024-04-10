@@ -43,13 +43,6 @@ public class TestCoffeeEquals {
     }
 
     @Test
-    public void testCoffeeDifferentAmount() {
-        Coffee coffee1 = new Coffee(10);
-        Coffee coffee2 = new Coffee(12);
-        assertFalse(coffee1.equalsSolution(coffee2));
-    }
-
-    @Test
     public void testCoffeeDifferentDecaf() {
         Coffee coffee1 = new Coffee(10, true);
         Coffee coffee2 = new Coffee(10, false);

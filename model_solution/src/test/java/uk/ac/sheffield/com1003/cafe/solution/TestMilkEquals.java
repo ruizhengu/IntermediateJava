@@ -53,7 +53,7 @@ public class TestMilkEquals {
 
     @Test
     public void testMilkDifferentDecaf() {
-        Milk milk = new Milk(10, Milk.Type.ALMOND);
+        Milk milk = new Milk(10, Milk.Type.WHOLE);
         Milk coffee2 = new Milk(10, Milk.Type.SEMI);
         assertFalse(milk.equalsSolution(coffee2));
     }

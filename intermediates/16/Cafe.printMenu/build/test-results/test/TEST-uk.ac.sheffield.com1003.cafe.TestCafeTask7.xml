@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="uk.ac.sheffield.com1003.cafe.TestCafeTask7" tests="5" skipped="0" failures="0" errors="0" timestamp="2024-03-18T21:30:56" hostname="Ruizhens-MacBook-Pro.local" time="0.001">
+  <properties/>
+  <testcase name="testRemoveNonexistentRecipe" classname="uk.ac.sheffield.com1003.cafe.TestCafeTask7" time="0.0"/>
+  <testcase name="testRemoveAllRecipes" classname="uk.ac.sheffield.com1003.cafe.TestCafeTask7" time="0.0"/>
+  <testcase name="testRemoveNonexistentRecipeIncorrectException" classname="uk.ac.sheffield.com1003.cafe.TestCafeTask7" time="0.0"/>
+  <testcase name="testRemoveRecipe" classname="uk.ac.sheffield.com1003.cafe.TestCafeTask7" time="0.0"/>
+  <testcase name="testRemoveMiddleRecipe" classname="uk.ac.sheffield.com1003.cafe.TestCafeTask7" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

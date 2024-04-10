@@ -10,6 +10,10 @@ public class Coffee extends Ingredient {
         this.amount = 8;
     }
 
+    public Coffee(int amount) {
+        this(amount, false);
+    }
+
     public Coffee(int amount, boolean decaf) {
         this.name = "Coffee";
         this.amount = amount;
@@ -24,9 +28,9 @@ public class Coffee extends Ingredient {
 
     @Override
     public boolean equals(Object another) {
-        if (another == null || ! (another instanceof Coffee))
+        if (another == null || !(another instanceof Coffee))
             return false;
-        return name.equals(((Coffee)another).getName()) && amount == (((Coffee)another).getAmount()) && unit == (((Coffee)another).getUnit()) && decaf == (((Coffee)another).decaf);
+        return name.equals(((Coffee) another).getName()) && amount == (((Coffee) another).getAmount()) && unit == (((Coffee) another).getUnit()) && decaf == (((Coffee) another).decaf);
     }
 }
 
