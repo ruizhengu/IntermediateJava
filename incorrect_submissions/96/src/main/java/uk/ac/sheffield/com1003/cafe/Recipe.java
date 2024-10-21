@@ -14,6 +14,10 @@ public class Recipe {
     private Size size;
     private Ingredient[] ingredients;
 
+    public Recipe(String name, double price) {
+        this(name, price, Size.REGULAR, 3);
+    }
+
     public Recipe(String name, double price, Size size, int numberOfIngredients) {
         this.name = name;
         this.price = price;

@@ -4,7 +4,9 @@ public class Milk extends Ingredient {
     public enum Type { WHOLE, SEMI, SKIMMED, SOY };
     private Type type = Type.WHOLE;
 
-
+    public Milk() {
+        this(100, Type.WHOLE);
+    }
 
     public Milk(int amount) {
         this(amount, Type.WHOLE);
